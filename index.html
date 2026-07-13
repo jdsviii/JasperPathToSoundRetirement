@@ -206,7 +206,7 @@
                     </p>
                     <div class="flex flex-col sm:flex-row gap-3">
                         <button onclick="document.getElementById('accumulation-section').scrollIntoView({behavior:'smooth'})" 
-                                class="px-6 py-3.5 bg-white text-emerald-800 font-semibold rounded-2xl hover:bg-emerald-50 transition-colors shadow-lg">
+                                class="px-6 py-3.5 bg-emerald-600/40 border border-white/30 text-white font-semibold rounded-2xl hover:bg-emerald-600/60 transition-colors">
                             Start with Growth
                         </button>
                         <button onclick="document.getElementById('retirement-section').scrollIntoView({behavior:'smooth'})" 
@@ -241,7 +241,7 @@
                                 <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Current Portfolio Balance</label>
                                 <span id="starting-balance-value" class="font-mono text-sm font-semibold text-emerald-600">$50,000</span>
                             </div>
-                            <input type="range" id="starting-balance" min="0" max="2000000" step="5000" value="50000"
+                            <input type="range" id="starting-balance" min="0" max="2000000" step="100" value="50000"
                                    class="w-full accent-emerald-600" oninput="updateAccumulationInputs()">
                             <input type="number" id="starting-balance-num" value="50000" 
                                    class="mt-2 w-full px-3 py-2.5 text-sm border border-slate-300 dark:border-slate-600 rounded-xl font-mono"
@@ -300,10 +300,6 @@
                 <!-- Results Card -->
                 <div class="lg:col-span-7 bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6 shadow-sm flex flex-col">
                     <div class="grid grid-cols-3 gap-3 mb-5">
-                        <div class="bg-emerald-50 dark:bg-emerald-900/30 rounded-2xl p-3 sm:p-4 text-center">
-                            <div class="text-[10px] sm:text-xs uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-semibold mb-1">Ending Portfolio</div>
-                            <div id="ending-balance" class="text-xl sm:text-2xl font-display font-bold text-emerald-700 dark:text-emerald-300">$1.25M</div>
-                        </div>
                         <div class="bg-slate-50 dark:bg-slate-700/50 rounded-2xl p-3 sm:p-4 text-center">
                             <div class="text-[10px] sm:text-xs uppercase tracking-wider text-slate-500 font-semibold mb-1">Total Contributed</div>
                             <div id="total-contributed" class="text-xl sm:text-2xl font-display font-bold text-slate-700 dark:text-slate-200">$320k</div>
@@ -311,6 +307,10 @@
                         <div class="bg-emerald-50 dark:bg-emerald-900/30 rounded-2xl p-3 sm:p-4 text-center">
                             <div class="text-[10px] sm:text-xs uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-semibold mb-1">Total Growth</div>
                             <div id="total-growth" class="text-xl sm:text-2xl font-display font-bold text-emerald-700 dark:text-emerald-300">$928k</div>
+                        </div>
+                        <div class="bg-emerald-50 dark:bg-emerald-900/30 rounded-2xl p-3 sm:p-4 text-center">
+                            <div class="text-[10px] sm:text-xs uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-semibold mb-1">Ending Portfolio</div>
+                            <div id="ending-balance" class="text-xl sm:text-2xl font-display font-bold text-emerald-700 dark:text-emerald-300">$1.25M</div>
                         </div>
                     </div>
                     
@@ -341,7 +341,7 @@
                                 <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Portfolio at Retirement</label>
                                 <span id="retire-portfolio-value" class="font-mono text-sm font-semibold text-emerald-600">$1,250,000</span>
                             </div>
-                            <input type="range" id="retire-portfolio" min="100000" max="10000000" step="10000" value="1250000"
+                            <input type="range" id="retire-portfolio" min="100000" max="20000000" step="100" value="1250000"
                                    class="w-full accent-emerald-600" oninput="updateRetirementInputs()">
                             <input type="number" id="retire-portfolio-num" value="1250000" 
                                    class="mt-2 w-full px-3 py-2.5 text-sm border border-slate-300 dark:border-slate-600 rounded-xl font-mono"
@@ -358,7 +358,7 @@
                                 <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Initial Annual Spending Need</label>
                                 <span id="initial-withdrawal-value" class="font-mono text-sm font-semibold text-amber-600">$50,000</span>
                             </div>
-                            <input type="range" id="initial-withdrawal" min="10000" max="300000" step="1000" value="50000"
+                            <input type="range" id="initial-withdrawal" min="10000" max="1000000" step="100" value="50000"
                                    class="w-full accent-amber-500" oninput="updateRetirementInputs()">
                             <div class="text-xs text-slate-500 mt-1">
                                 <span id="withdrawal-rate-display">4.0% of portfolio</span>
@@ -474,9 +474,16 @@
                         <canvas id="retirement-paths-chart"></canvas>
                     </div>
                     
-                    <div class="text-xs text-slate-500 dark:text-slate-400 border-t border-slate-100 dark:border-slate-700 pt-3">
-                        <strong>Monte Carlo</strong> runs 1000 random market sequences using your mean return + volatility to model sequence-of-returns risk.<br>
-                        <strong>Deterministic</strong> uses a fixed return each year for a single projection path.
+                    <div class="text-xs text-slate-500 dark:text-slate-400 border-t border-slate-100 dark:border-slate-700 pt-3 space-y-1.5">
+                        <div>
+                            <strong>Monte Carlo</strong> runs 1,000 random market sequences using your expected mean return + volatility to model sequence-of-returns risk (like FIREcalc historical testing).
+                        </div>
+                        <div>
+                            <strong>Deterministic</strong> uses a fixed return each year for a single, smooth projection path (no randomness).
+                        </div>
+                        <div>
+                            <strong>Volatility %</strong> is the expected year-to-year fluctuation (standard deviation) of portfolio returns. Higher volatility (e.g. 15–20%) creates wider outcome ranges and more uncertainty; lower volatility produces more stable paths. The default of 15% approximates a typical diversified stock portfolio.
+                        </div>
                     </div>
                     
                     <!-- Export PDF Button -->
@@ -537,14 +544,20 @@
         });
 
         // ========== HELPERS ==========
+        function roundToHundred(amount) {
+            return Math.round(amount / 100) * 100;
+        }
+        
         function formatCurrency(amount) {
+            amount = roundToHundred(amount);
             if (amount >= 1000000) return '$' + (amount / 1000000).toFixed(2) + 'M';
-            if (amount >= 1000) return '$' + Math.round(amount / 1000) + 'k';
-            return '$' + Math.round(amount).toLocaleString();
+            if (amount >= 1000) return '$' + (amount / 1000).toFixed(0) + 'k';
+            return '$' + amount.toLocaleString();
         }
         
         function formatFullCurrency(amount) {
-            return '$' + Math.round(amount).toLocaleString('en-US');
+            amount = roundToHundred(amount);
+            return '$' + amount.toLocaleString('en-US');
         }
         
         function syncFromNumber(inputEl, sliderId) {
@@ -598,13 +611,13 @@
                     balance = balance * (1 + monthlyRate) + monthly;
                 }
                 totalContributed += monthly * 12;
-                yearlyData.push({ year: y + 1, balance: Math.round(balance) });
+                yearlyData.push({ year: y + 1, balance: roundToHundred(balance) });
             }
             
             accumulationData = {
-                endingBalance: Math.round(balance),
-                totalContributed: Math.round(totalContributed),
-                totalGrowth: Math.round(balance - totalContributed),
+                endingBalance: roundToHundred(balance),
+                totalContributed: roundToHundred(totalContributed),
+                totalGrowth: roundToHundred(balance - totalContributed),
                 yearlyData,
                 years,
                 annualRate
@@ -674,7 +687,7 @@
             updateRetirementInputs();
             
             // Suggest 4%
-            const suggested = Math.round(accumulationData.endingBalance * 0.04);
+            const suggested = roundToHundred(accumulationData.endingBalance * 0.04);
             if (confirm(`Set annual spending need to 4% rule suggestion of ${formatFullCurrency(suggested)}?`)) {
                 document.getElementById('initial-withdrawal').value = suggested;
                 updateRetirementInputs();
@@ -853,44 +866,144 @@
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
             
-            doc.setFontSize(18);
+            let y = 15;
+            const lineHeight = 7;
+            
+            // Header
+            doc.setFontSize(20);
             doc.setTextColor(5, 150, 105);
-            doc.text('The Path to Sound Retirement', 20, 20);
+            doc.text('The Path to Sound Retirement', 20, y); y += 10;
+            
+            doc.setFontSize(12);
+            doc.setTextColor(100);
+            doc.text('by Jasper Saunders', 20, y); y += 7;
+            doc.text('Personal Retirement Planning Report', 20, y); y += 7;
+            doc.text('Generated: ' + new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}), 20, y); y += 12;
+            
+            // Input Assumptions
+            doc.setFontSize(14);
+            doc.setTextColor(0, 0, 0);
+            doc.text('1. Input Assumptions', 20, y); y += 8;
             
             doc.setFontSize(11);
-            doc.setTextColor(100);
-            doc.text('by Jasper Saunders', 20, 28);
-            doc.text('Generated: ' + new Date().toLocaleDateString(), 20, 35);
+            const startBal = parseFloat(document.getElementById('starting-balance').value) || 0;
+            const monthlyContrib = parseFloat(document.getElementById('monthly-contrib').value) || 0;
+            const yearsToRetire = parseInt(document.getElementById('years-to-retire').value) || 0;
+            const returnRate = parseFloat(document.getElementById('return-rate').value) || 0;
             
+            doc.text(`Starting Portfolio Balance: ${formatFullCurrency(startBal)}`, 25, y); y += lineHeight;
+            doc.text(`Monthly Contribution: ${formatFullCurrency(monthlyContrib)}`, 25, y); y += lineHeight;
+            doc.text(`Years Until Retirement: ${yearsToRetire} years`, 25, y); y += lineHeight;
+            doc.text(`Expected Annual Return: ${returnRate}%`, 25, y); y += lineHeight;
+            
+            y += 4;
             doc.setFontSize(14);
-            doc.setTextColor(0);
-            doc.text('Growth Projection Summary', 20, 50);
+            doc.text('2. Retirement Parameters', 20, y); y += 8;
             
+            doc.setFontSize(11);
+            const retirePort = parseFloat(document.getElementById('retire-portfolio').value) || 0;
+            const initWithdrawal = parseFloat(document.getElementById('initial-withdrawal').value) || 0;
+            const socialSec = parseFloat(document.getElementById('social-security').value) || 0;
+            const pensionIncome = parseFloat(document.getElementById('pension').value) || 0;
+            const retYears = parseInt(document.getElementById('retirement-years').value) || 0;
+            const inflationRate = parseFloat(document.getElementById('inflation-rate').value) || 0;
+            
+            doc.text(`Portfolio at Retirement: ${formatFullCurrency(retirePort)}`, 25, y); y += lineHeight;
+            doc.text(`Initial Annual Spending Need: ${formatFullCurrency(initWithdrawal)}`, 25, y); y += lineHeight;
+            doc.text(`Social Security (annual): ${formatFullCurrency(socialSec)}`, 25, y); y += lineHeight;
+            doc.text(`Pension / Other Income (annual): ${formatFullCurrency(pensionIncome)}`, 25, y); y += lineHeight;
+            doc.text(`Years in Retirement: ${retYears} years`, 25, y); y += lineHeight;
+            doc.text(`Inflation Rate: ${inflationRate}% per year`, 25, y); y += lineHeight;
+            
+            const simMode = currentSimMode;
+            if (simMode === 'montecarlo') {
+                const meanRet = parseFloat(document.getElementById('mean-return').value) || 0;
+                const volatility = parseFloat(document.getElementById('volatility').value) || 0;
+                doc.text(`Simulation: Monte Carlo (${meanRet}% mean return, ${volatility}% volatility, 1000 runs)`, 25, y); y += lineHeight;
+            } else {
+                doc.text(`Simulation: Deterministic (fixed return)`, 25, y); y += lineHeight;
+            }
+            
+            y += 4;
+            // Growth Results
+            doc.setFontSize(14);
+            doc.text('3. Growth Projection Results', 20, y); y += 8;
+            
+            doc.setFontSize(11);
             if (accumulationData) {
-                doc.setFontSize(11);
-                doc.text(`Ending Portfolio: ${formatFullCurrency(accumulationData.endingBalance)}`, 25, 60);
-                doc.text(`Total Contributed: ${formatFullCurrency(accumulationData.totalContributed)}`, 25, 68);
-                doc.text(`Total Growth: ${formatFullCurrency(accumulationData.totalGrowth)}`, 25, 76);
+                doc.text(`Ending Portfolio Balance: ${formatFullCurrency(accumulationData.endingBalance)}`, 25, y); y += lineHeight;
+                doc.text(`Total Contributions Made: ${formatFullCurrency(accumulationData.totalContributed)}`, 25, y); y += lineHeight;
+                doc.text(`Total Investment Growth: ${formatFullCurrency(accumulationData.totalGrowth)}`, 25, y); y += lineHeight;
+                doc.text(`Compounding Period: ${accumulationData.years} years at ${accumulationData.annualRate * 100}% avg annual return`, 25, y); y += lineHeight;
             } else {
-                doc.text('No growth projection calculated yet.', 25, 60);
+                doc.text('Growth projection has not been calculated yet.', 25, y); y += lineHeight;
             }
             
+            y += 4;
+            // Retirement Results
             doc.setFontSize(14);
-            doc.text('Retirement Sustainability', 20, 95);
+            doc.text('4. Retirement Sustainability Results', 20, y); y += 8;
             
+            doc.setFontSize(11);
             if (lastRetirementResults) {
-                doc.setFontSize(11);
-                doc.text(`Success Rate: ${lastRetirementResults.successRate}%`, 25, 105);
-                doc.text(`Median Ending Portfolio: ${formatFullCurrency(lastRetirementResults.medianFinal)}`, 25, 113);
-                doc.text(`10th Percentile (tough markets): ${formatFullCurrency(lastRetirementResults.p10Final)}`, 25, 121);
-                doc.text(`90th Percentile (strong markets): ${formatFullCurrency(lastRetirementResults.p90Final)}`, 25, 129);
+                doc.text(`Success Rate: ${lastRetirementResults.successRate}% of simulations`, 25, y); y += lineHeight;
+                doc.text(`Median Final Portfolio Value: ${formatFullCurrency(lastRetirementResults.medianFinal)}`, 25, y); y += lineHeight;
+                doc.text(`10th Percentile (tough market scenarios): ${formatFullCurrency(lastRetirementResults.p10Final)}`, 25, y); y += lineHeight;
+                doc.text(`90th Percentile (favorable market scenarios): ${formatFullCurrency(lastRetirementResults.p90Final)}`, 25, y); y += lineHeight;
+                
+                if (lastRetirementResults.mode === 'deterministic' && lastRetirementResults.depleted) {
+                    doc.text(`Note: Portfolio depleted after approximately ${lastRetirementResults.depleted} years in deterministic mode.`, 25, y); y += lineHeight;
+                }
+                
+                doc.text(`Net Annual Withdrawal from Portfolio: ${formatFullCurrency(Math.max(0, initWithdrawal - socialSec - pensionIncome))}`, 25, y); y += lineHeight;
             } else {
-                doc.text('No retirement simulation run yet.', 25, 105);
+                doc.text('Retirement simulation has not been run yet.', 25, y); y += lineHeight;
             }
             
+            y += 6;
+            // Notes & Assumptions
+            doc.setFontSize(11);
+            doc.setTextColor(60, 60, 60);
+            doc.text('Notes & Key Assumptions:', 20, y); y += lineHeight;
+            doc.text('• All monetary values rounded to the nearest $100.', 25, y); y += lineHeight;
+            doc.text('• Volatility % = expected year-to-year fluctuation (std. deviation) of returns. Higher volatility creates wider outcome ranges and more uncertainty; the default 15% approximates a typical diversified stock portfolio.', 25, y); y += lineHeight;
+            doc.text('• Monte Carlo simulations use a normal distribution for annual returns + volatility to model sequence-of-returns risk.', 25, y); y += lineHeight;
+            doc.text('• Social Security and pension income reduce the amount withdrawn from portfolio.', 25, y); y += lineHeight;
+            doc.text('• Sequence of returns risk is modeled in Monte Carlo (order of returns matters).', 25, y); y += lineHeight;
+            doc.text('• This tool assumes constant contribution/spending rates and does not account for taxes, fees, or variable spending.', 25, y); y += lineHeight;
+            
+            y += 8;
             doc.setFontSize(9);
-            doc.setTextColor(150);
-            doc.text('For educational purposes only. Not financial advice.', 20, 280);
+            doc.setTextColor(120, 120, 120);
+            doc.text('Disclaimer: For educational and illustrative purposes only. Not financial, investment, or tax advice.', 20, y);
+            doc.text('Please consult a qualified financial advisor before making retirement decisions.', 20, y + 6);
+            
+            // Monte Carlo Chart (on new page if Monte Carlo was run)
+            if (lastRetirementResults && lastRetirementResults.mode === 'montecarlo') {
+                const chartCanvas = document.getElementById('retirement-paths-chart');
+                if (chartCanvas && chartCanvas.width > 0 && chartCanvas.height > 0) {
+                    doc.addPage();
+                    
+                    doc.setFontSize(16);
+                    doc.setTextColor(5, 150, 105);
+                    doc.text('5. Monte Carlo Sample Paths Visualization', 20, 20);
+                    
+                    doc.setFontSize(11);
+                    doc.setTextColor(80, 80, 80);
+                    doc.text('Sample portfolio paths over the retirement period from Monte Carlo simulations.', 20, 28);
+                    doc.text('Each line represents one possible market sequence outcome.', 20, 35);
+                    
+                    // Add the chart image (scaled to fit nicely on A4 page)
+                    const imgData = chartCanvas.toDataURL('image/png');
+                    // Width ~170mm (full usable page width), height proportional (~100mm for typical chart aspect)
+                    doc.addImage(imgData, 'PNG', 20, 45, 170, 100);
+                    
+                    doc.setFontSize(10);
+                    doc.setTextColor(100, 100, 100);
+                    doc.text('Green line highlights a representative (median) path. Gray lines show sample variability.', 20, 155);
+                    doc.text('This visual demonstrates sequence-of-returns risk and outcome distribution.', 20, 162);
+                }
+            }
             
             doc.save('Path-to-Sound-Retirement-Report.pdf');
         }
