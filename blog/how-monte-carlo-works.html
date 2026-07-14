@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="How Monte Carlo simulations work for retirement planning and why they are more realistic than average-return projections.">
+    <title>How Monte Carlo Simulations Work for Retirement | The Path to Sound Retirement</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { display: ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif'], sans: ['Inter', 'system-ui', 'sans-serif'] } } } }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .font-display { font-family: 'Space Grotesk', 'Inter', sans-serif; }
+        .dark body { background-color: #0f172a; color: #e2e8f0; }
+        .dark .bg-white { background-color: #1e293b !important; }
+        .dark .text-slate-900 { color: #f1f5f9 !important; }
+        .dark .text-slate-700, .dark .text-slate-600 { color: #94a3b8 !important; }
+        .dark .border-slate-200 { border-color: #334155 !important; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+    <header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3">
+            <div class="flex items-center justify-between">
+                <a href="../index.html" class="flex items-center gap-3">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-emerald-600 to-teal-700 rounded-xl flex items-center justify-center shadow-lg">
+                        <span class="text-white text-xl sm:text-2xl font-bold font-display">J</span>
+                    </div>
+                    <div>
+                        <h1 class="text-lg sm:text-2xl font-display font-semibold text-slate-900 dark:text-white leading-tight">The Path to Sound Retirement</h1>
+                        <p class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400">by Jasper Saunders</p>
+                    </div>
+                </a>
+                <nav class="hidden sm:flex items-center gap-6 text-sm font-medium">
+                    <a href="../index.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600">Calculator</a>
+                    <a href="../blog.html" class="text-emerald-600 font-semibold">Resources</a>
+                    <a href="../about.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600">About</a>
+                    <a href="../contact.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600">Contact</a>
+                </nav>
+                <button id="darkModeToggle" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+                    <i class="fa-solid fa-moon dark:hidden"></i>
+                    <i class="fa-solid fa-sun hidden dark:inline"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-3xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
+        <article class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 p-6 sm:p-10 shadow-sm">
+            <div class="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-3">Core Concept</div>
+            <h1 class="text-3xl sm:text-4xl font-display font-bold text-slate-900 dark:text-white mb-4">How Monte Carlo Simulations Work for Retirement</h1>
+            <p class="text-sm text-slate-500 mb-8">By Jasper Saunders • Educational content only</p>
+
+            <div class="prose prose-slate dark:prose-invert max-w-none space-y-5 text-slate-700 dark:text-slate-300 leading-relaxed">
+                <p>When planning for retirement, most people start with a simple question: “If I save this much and earn this average return, will I have enough?” That approach produces a single, neat line on a chart. The problem is that markets almost never deliver the average every year. Some years are fantastic. Others are terrible. The order of those years — especially early in retirement — can completely change the outcome.</p>
+
+                <p>This is where <strong>Monte Carlo simulation</strong> becomes invaluable.</p>
+
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">What Is a Monte Carlo Simulation?</h2>
+                <p>A Monte Carlo simulation runs thousands of possible futures instead of just one. In The Path to Sound Retirement, the tool generates 1,000 random sequences of market returns based on two inputs you control:</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li><strong>Mean Return %</strong> — the long-term average annual return you expect</li>
+                    <li><strong>Volatility %</strong> — how much those returns are expected to bounce around that average (standard deviation)</li>
+                </ul>
+                <p>Each of the 1,000 paths is a complete retirement journey. Some paths experience strong markets early and weak markets later. Others do the opposite. A few are extreme outliers. By looking at the full distribution of outcomes, you get a much clearer picture of risk.</p>
+
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">Key Metrics You See</h2>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li><strong>Success Rate</strong> — the percentage of the 1,000 simulations where the portfolio never runs out of money</li>
+                    <li><strong>Median Final Portfolio</strong> — the middle outcome (50th percentile)</li>
+                    <li><strong>10th Percentile</strong> — a “tough markets” scenario (only 10% of paths did worse)</li>
+                    <li><strong>90th Percentile</strong> — a strong-markets scenario</li>
+                </ul>
+
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">Why This Matters More Than a Single Projection</h2>
+                <p>A deterministic (fixed-return) projection assumes every year delivers the same average return. That can create a false sense of security. Monte Carlo reveals sequence-of-returns risk — the danger that a string of poor returns early in retirement, when you’re withdrawing money, permanently damages the portfolio’s ability to recover.</p>
+
+                <p>By seeing the full range of possibilities, you can make more informed decisions about spending levels, Social Security timing, or whether you need a larger nest egg.</p>
+
+                <div class="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-xl p-5 my-8">
+                    <p class="text-sm font-medium text-emerald-800 dark:text-emerald-300">
+                        Tip: In the calculator, try running the same plan once with Deterministic mode and once with Monte Carlo. The difference in insight is often eye-opening.
+                    </p>
+                </div>
+
+                <p class="text-sm text-slate-500 italic">This article is for educational purposes only and is not financial advice. Always consult a qualified advisor for decisions about your personal situation.</p>
+            </div>
+
+            <div class="mt-10 pt-6 border-t border-slate-200 dark:border-slate-700 flex flex-wrap gap-4">
+                <a href="../blog.html" class="text-emerald-600 hover:underline font-medium">← Back to Resources</a>
+                <a href="../index.html" class="text-emerald-600 hover:underline font-medium">Try the Calculator →</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="text-center text-xs text-slate-400 dark:text-slate-500 py-8 border-t border-slate-200 dark:border-slate-700 mt-10">
+        <div class="max-w-6xl mx-auto px-4">
+            The Path to Sound Retirement by Jasper Saunders • For educational purposes only. Not financial advice.
+        </div>
+    </footer>
+
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const html = document.documentElement;
+        if (localStorage.getItem('darkMode') === 'true' || (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        }
+        darkModeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            localStorage.setItem('darkMode', html.classList.contains('dark'));
+        });
+    </script>
+</body>
+</html>
