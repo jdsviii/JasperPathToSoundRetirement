@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sequence of returns risk explained: why the order of market returns in early retirement can make or break a plan, and how Monte Carlo analysis reveals it.">
+    <title>Sequence of Returns Risk | The Path to Sound Retirement</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { display: ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif'], sans: ['Inter', 'system-ui', 'sans-serif'] } } } }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .font-display { font-family: 'Space Grotesk', 'Inter', sans-serif; }
+        .dark body { background-color: #0f172a; color: #e2e8f0; }
+        .dark .bg-white { background-color: #1e293b !important; }
+        .dark .text-slate-900 { color: #f1f5f9 !important; }
+        .dark .text-slate-700, .dark .text-slate-600 { color: #94a3b8 !important; }
+        .dark .border-slate-200 { border-color: #334155 !important; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+    <header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3">
+            <div class="flex items-center justify-between">
+                <a href="../index.html" class="flex items-center gap-3">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-emerald-600 to-teal-700 rounded-xl flex items-center justify-center shadow-lg">
+                        <span class="text-white text-xl sm:text-2xl font-bold font-display">J</span>
+                    </div>
+                    <div>
+                        <h1 class="text-lg sm:text-2xl font-display font-semibold text-slate-900 dark:text-white leading-tight">The Path to Sound Retirement</h1>
+                        <p class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400">by Jasper Saunders</p>
+                    </div>
+                </a>
+                <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+                    <a href="../index.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600">Calculator</a>
+                    <a href="../blog.html" class="text-emerald-600 font-semibold">Resources</a>
+                    <a href="../about.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600">About</a>
+                    <a href="../contact.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600">Contact</a>
+                </nav>
+                <button id="darkModeToggle" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+                    <i class="fa-solid fa-moon dark:hidden"></i>
+                    <i class="fa-solid fa-sun hidden dark:inline"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-3xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
+        <article class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 p-6 sm:p-10 shadow-sm">
+            <div class="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-3">Critical Risk</div>
+            <h1 class="text-3xl sm:text-4xl font-display font-bold text-slate-900 dark:text-white mb-4">Sequence of Returns Risk</h1>
+            <p class="text-sm text-slate-500 mb-8">By Jasper Saunders • Educational content only</p>
+
+            <div class="prose prose-slate dark:prose-invert max-w-none space-y-6 text-slate-700 dark:text-slate-300 leading-relaxed">
+                <p>Sequence of returns risk is one of the most important — and least understood — threats to a successful retirement. It explains why two investors with identical average returns can end up with dramatically different outcomes simply because of the <em>order</em> in which those returns occurred.</p>
+
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">What Is Sequence of Returns Risk?</h2>
+                <p>During the accumulation phase (while you are still working and contributing), the order of returns matters relatively little. Bad years early can be overcome by later growth and ongoing contributions.</p>
+                <p>In retirement, the opposite is true. When you are withdrawing money every year, a string of poor returns in the first 5–10 years can permanently impair the portfolio. Even if strong returns arrive later, the portfolio may never fully recover because you have already sold shares at depressed prices to fund living expenses.</p>
+
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">A Simple Illustration</h2>
+                <p>Imagine two retirees, both starting with $1,000,000 and withdrawing $40,000 per year (adjusted for inflation). Both experience the exact same set of annual returns — but in reverse order.</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Retiree A gets strong markets early and weak markets later → portfolio ends healthy.</li>
+                    <li>Retiree B gets weak markets early and strong markets later → portfolio is depleted or runs out of money.</li>
+                </ul>
+                <p>The average return is identical. The sequence is what determined success or failure.</p>
+
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">Why Monte Carlo Analysis Helps</h2>
+                <p>Historical back-testing (like classic FIREcalc) is valuable, but it only examines the sequences that actually happened in the past. Monte Carlo simulation generates thousands of plausible future sequences based on expected return and volatility. This reveals a much wider range of possible outcomes and gives a clearer picture of the probability that your plan will succeed.</p>
+
+                <div class="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-xl p-5 my-8">
+                    <p class="text-sm font-medium text-emerald-800 dark:text-emerald-300">
+                        In this site’s calculator, the Monte Carlo mode runs 1,000 random sequences. Look at the success rate and the 10th-percentile outcome — these metrics are specifically designed to surface sequence-of-returns risk.
+                    </p>
+                </div>
+
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">Strategies to Reduce the Risk</h2>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Maintain a cash or short-term bond buffer for the first few years of withdrawals</li>
+                    <li>Use flexible spending rules (reduce withdrawals after large market declines)</li>
+                    <li>Delay Social Security to increase guaranteed income and reduce portfolio dependence</li>
+                    <li>Consider a slightly more conservative asset allocation in the early retirement years</li>
+                    <li>Test your plan with Monte Carlo rather than relying on a single average-return projection</li>
+                </ul>
+
+                <p class="text-sm text-slate-500 italic">This article is for educational purposes only and is not financial advice. Past performance does not guarantee future results. Always consult a qualified advisor for decisions about your personal situation.</p>
+            </div>
+
+            <div class="mt-10 pt-6 border-t border-slate-200 dark:border-slate-700 flex flex-wrap gap-4">
+                <a href="../blog.html" class="text-emerald-600 hover:underline font-medium">← Back to Resources</a>
+                <a href="../index.html" class="text-emerald-600 hover:underline font-medium">Try the Calculator →</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="text-center text-xs text-slate-400 dark:text-slate-500 py-8 border-t border-slate-200 dark:border-slate-700 mt-10">
+        <div class="max-w-6xl mx-auto px-4">
+            The Path to Sound Retirement by Jasper Saunders • For educational purposes only. Not financial advice.
+        </div>
+    </footer>
+
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const html = document.documentElement;
+        function getDarkModePref() {
+            try {
+                const saved = localStorage.getItem('darkMode');
+                if (saved !== null) return saved === 'true';
+                return window.matchMedia('(prefers-color-scheme: dark)').matches;
+            } catch (e) {
+                return window.matchMedia('(prefers-color-scheme: dark)').matches;
+            }
+        }
+        function setDarkModePref(isDark) {
+            try { localStorage.setItem('darkMode', isDark); } catch (e) {}
+        }
+        if (getDarkModePref()) html.classList.add('dark');
+        darkModeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            setDarkModePref(html.classList.contains('dark'));
+        });
+    </script>
+</body>
+</html>

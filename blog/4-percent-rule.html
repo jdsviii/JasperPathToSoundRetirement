@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The 4% Rule explained: where it came from, when it works, its limitations, and how to use it with Monte Carlo analysis for retirement planning.">
+    <title>The 4% Rule Explained (and Its Limits) | The Path to Sound Retirement</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { display: ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif'], sans: ['Inter', 'system-ui', 'sans-serif'] } } } }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .font-display { font-family: 'Space Grotesk', 'Inter', sans-serif; }
+        .dark body { background-color: #0f172a; color: #e2e8f0; }
+        .dark .bg-white { background-color: #1e293b !important; }
+        .dark .text-slate-900 { color: #f1f5f9 !important; }
+        .dark .text-slate-700, .dark .text-slate-600 { color: #94a3b8 !important; }
+        .dark .border-slate-200 { border-color: #334155 !important; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+    <header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3">
+            <div class="flex items-center justify-between">
+                <a href="../index.html" class="flex items-center gap-3">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-emerald-600 to-teal-700 rounded-xl flex items-center justify-center shadow-lg">
+                        <span class="text-white text-xl sm:text-2xl font-bold font-display">J</span>
+                    </div>
+                    <div>
+                        <h1 class="text-lg sm:text-2xl font-display font-semibold text-slate-900 dark:text-white leading-tight">The Path to Sound Retirement</h1>
+                        <p class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400">by Jasper Saunders</p>
+                    </div>
+                </a>
+                <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+                    <a href="../index.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600">Calculator</a>
+                    <a href="../blog.html" class="text-emerald-600 font-semibold">Resources</a>
+                    <a href="../about.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600">About</a>
+                    <a href="../contact.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600">Contact</a>
+                </nav>
+                <button id="darkModeToggle" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+                    <i class="fa-solid fa-moon dark:hidden"></i>
+                    <i class="fa-solid fa-sun hidden dark:inline"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-3xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
+        <article class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 p-6 sm:p-10 shadow-sm">
+            <div class="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-3">Classic Guideline</div>
+            <h1 class="text-3xl sm:text-4xl font-display font-bold text-slate-900 dark:text-white mb-4">The 4% Rule Explained (and Its Limits)</h1>
+            <p class="text-sm text-slate-500 mb-8">By Jasper Saunders • Educational content only</p>
+
+            <div class="prose prose-slate dark:prose-invert max-w-none space-y-6 text-slate-700 dark:text-slate-300 leading-relaxed">
+                <p>The 4% rule is one of the most widely cited guidelines in retirement planning. It offers a simple answer to a complex question: How much can you safely withdraw from your portfolio each year without running out of money?</p>
+
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">Where the 4% Rule Came From</h2>
+                <p>In 1994, financial advisor William Bengen published research examining historical U.S. market returns. He tested various withdrawal rates across rolling 30-year periods using a portfolio of stocks and bonds. His conclusion: a 4% initial withdrawal rate, adjusted annually for inflation, had never exhausted a portfolio in any 30-year period in the historical data available at the time.</p>
+                <p>The rule was later popularized by the Trinity Study (1998), which reinforced similar findings. Today it remains the default starting point for many retirement calculators and advisors.</p>
+
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">How the Rule Works in Practice</h2>
+                <p>Suppose you retire with a $1,000,000 portfolio. Under the classic 4% rule:</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Year 1 withdrawal: $40,000</li>
+                    <li>Each subsequent year you increase the previous year’s withdrawal by the inflation rate (e.g., 3%)</li>
+                    <li>The portfolio continues to invest in a mix of stocks and bonds</li>
+                </ul>
+                <p>The idea is that this approach has a high historical success rate over a 30-year retirement.</p>
+
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">Important Limitations</h2>
+                <p>While useful as a starting point, the 4% rule has several well-documented limitations:</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li><strong>Sequence-of-returns risk</strong> — Early market declines can permanently damage the portfolio even if average returns look fine later.</li>
+                    <li><strong>Longevity risk</strong> — A 30-year horizon may be too short for many retirees who live into their 90s or beyond.</li>
+                    <li><strong>Current valuations</strong> — High starting market valuations (high P/E ratios) historically reduce safe withdrawal rates.</li>
+                    <li><strong>Asset allocation assumptions</strong> — Results vary significantly depending on stock/bond mix and international exposure.</li>
+                    <li><strong>Fixed spending ignores flexibility</strong> — Most retirees can adjust spending downward in bad markets, which improves sustainability.</li>
+                </ul>
+
+                <div class="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-xl p-5 my-8">
+                    <p class="text-sm font-medium text-emerald-800 dark:text-emerald-300">
+                        Practical tip: Use the 4% rule as a rough starting point, then test your specific plan with the Monte Carlo simulator on this site. A 90%+ success rate across 1,000 random market paths is a more robust signal than any single historical rule of thumb.
+                    </p>
+                </div>
+
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">Modern Adjustments</h2>
+                <p>Many planners now recommend more flexible approaches:</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Start closer to 3.0–3.5% in high-valuation environments</li>
+                    <li>Use a “guardrails” system that raises or lowers spending based on portfolio performance</li>
+                    <li>Incorporate Social Security, pensions, and other guaranteed income to reduce the burden on the portfolio</li>
+                </ul>
+
+                <p class="text-sm text-slate-500 italic">This article is for educational purposes only and is not financial advice. Past performance does not guarantee future results. Always consult a qualified advisor for decisions about your personal situation.</p>
+            </div>
+
+            <div class="mt-10 pt-6 border-t border-slate-200 dark:border-slate-700 flex flex-wrap gap-4">
+                <a href="../blog.html" class="text-emerald-600 hover:underline font-medium">← Back to Resources</a>
+                <a href="../index.html" class="text-emerald-600 hover:underline font-medium">Try the Calculator →</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="text-center text-xs text-slate-400 dark:text-slate-500 py-8 border-t border-slate-200 dark:border-slate-700 mt-10">
+        <div class="max-w-6xl mx-auto px-4">
+            The Path to Sound Retirement by Jasper Saunders • For educational purposes only. Not financial advice.
+        </div>
+    </footer>
+
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const html = document.documentElement;
+        function getDarkModePref() {
+            try {
+                const saved = localStorage.getItem('darkMode');
+                if (saved !== null) return saved === 'true';
+                return window.matchMedia('(prefers-color-scheme: dark)').matches;
+            } catch (e) {
+                return window.matchMedia('(prefers-color-scheme: dark)').matches;
+            }
+        }
+        function setDarkModePref(isDark) {
+            try { localStorage.setItem('darkMode', isDark); } catch (e) {}
+        }
+        if (getDarkModePref()) html.classList.add('dark');
+        darkModeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            setDarkModePref(html.classList.contains('dark'));
+        });
+    </script>
+</body>
+</html>
