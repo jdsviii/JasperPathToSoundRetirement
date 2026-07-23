@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Jasper Saunders about The Path to Sound Retirement tool.">
+    <title>Contact | The Path to Sound Retirement</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { display: ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif'], sans: ['Inter', 'system-ui', 'sans-serif'] } } } }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .font-display { font-family: 'Space Grotesk', 'Inter', sans-serif; }
+        .dark body { background-color: #0f172a; color: #e2e8f0; }
+        .dark .bg-white { background-color: #1e293b !important; }
+        .dark .text-slate-900 { color: #f1f5f9 !important; }
+        .dark .text-slate-700, .dark .text-slate-600 { color: #94a3b8 !important; }
+        .dark .border-slate-200 { border-color: #334155 !important; }
+        .dark input, .dark textarea { background-color: #1e293b !important; border-color: #475569 !important; color: #f1f5f9 !important; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+    <header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center gap-3">
+                    <img src="ptsr.png" alt="The Path to Sound Retirement" class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl shadow-lg object-contain">
+                    <div>
+                        <h1 class="text-lg sm:text-2xl font-display font-semibold text-slate-900 dark:text-white leading-tight">The Path to Sound Retirement</h1>
+                        <p class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400">by Jasper Saunders</p>
+                    </div>
+                </a>
+                <div class="flex items-center gap-2">
+                    <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+                        <a href="index.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600">Calculator</a>
+                        <a href="blog.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600">Resources</a>
+                        <a href="about.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600">About</a>
+                        <a href="contact.html" class="text-emerald-600 font-semibold">Contact</a>
+                    </nav>
+                    <button id="darkModeToggle" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:inline"></i>
+                    </button>
+                    <button id="mobileMenuBtn" class="md:hidden p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300" title="Menu">
+                        <i class="fa-solid fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-700 mt-3 pt-3 pb-2">
+                <nav class="flex flex-col gap-1">
+                    <a href="index.html" class="px-4 py-3 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Calculator</a>
+                    <a href="blog.html" class="px-4 py-3 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Resources</a>
+                    <a href="about.html" class="px-4 py-3 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">About</a>
+                    <a href="contact.html" class="px-4 py-3 rounded-xl text-emerald-600 font-semibold bg-emerald-50 dark:bg-emerald-900/30">Contact</a>
+                    <a href="privacy.html" class="px-4 py-3 rounded-xl text-slate-500 dark:text-slate-400 text-sm hover:bg-slate-100 dark:hover:bg-slate-800">Privacy</a>
+                    <a href="terms.html" class="px-4 py-3 rounded-xl text-slate-500 dark:text-slate-400 text-sm hover:bg-slate-100 dark:hover:bg-slate-800">Terms</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-3xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
+        <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 p-6 sm:p-10 shadow-sm">
+            <h1 class="text-3xl sm:text-4xl font-display font-bold text-slate-900 dark:text-white mb-2">Contact</h1>
+            <p class="text-slate-600 dark:text-slate-300 mb-8">Have a question, suggestion, or found a bug? I’d love to hear from you.</p>
+
+            <div class="space-y-6">
+                <div class="flex items-start gap-4 p-4 bg-slate-50 dark:bg-slate-700/50 rounded-2xl">
+                    <div class="w-10 h-10 bg-emerald-100 dark:bg-emerald-900/40 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i class="fa-brands fa-x-twitter text-emerald-600"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-slate-900 dark:text-white">X (Twitter)</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 mb-1">Best for quick questions and feedback</p>
+                        <a href="https://x.com/jasper_saunders" target="_blank" rel="noopener" class="text-emerald-600 hover:underline font-medium">@jasper_saunders</a>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4 p-4 bg-slate-50 dark:bg-slate-700/50 rounded-2xl">
+                    <div class="w-10 h-10 bg-emerald-100 dark:bg-emerald-900/40 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i class="fa-solid fa-envelope text-emerald-600"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-slate-900 dark:text-white">Email</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 mb-1">For longer messages or privacy-related requests</p>
+                        <a href="mailto:jasper.saunders.tools@gmail.com" class="text-emerald-600 hover:underline font-medium">jasper.saunders.tools@gmail.com</a>
+                        <p class="text-xs text-slate-500 mt-1">(Replace with your preferred email if different)</p>
+                    </div>
+                </div>
+
+                <div class="pt-4">
+                    <p class="text-sm text-slate-500 dark:text-slate-400">
+                        I aim to respond within a few days. Please note that I cannot provide personalized financial advice.
+                    </p>
+                </div>
+
+                <div class="pt-6 border-t border-slate-200 dark:border-slate-700">
+                    <a href="index.html" class="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-2xl transition-colors">
+                        <i class="fa-solid fa-calculator"></i>
+                        Back to the Calculator
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center text-xs text-slate-400 dark:text-slate-500 py-8 border-t border-slate-200 dark:border-slate-700 mt-10">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-4 mb-4 text-sm">
+                <a href="index.html" class="hover:text-emerald-600">Calculator</a>
+                <a href="blog.html" class="hover:text-emerald-600">Resources</a>
+                <a href="about.html" class="hover:text-emerald-600">About</a>
+                <a href="privacy.html" class="hover:text-emerald-600">Privacy</a>
+                <a href="terms.html" class="hover:text-emerald-600">Terms</a>
+                <a href="contact.html" class="hover:text-emerald-600">Contact</a>
+            </div>
+            The Path to Sound Retirement by Jasper Saunders • For educational purposes only. Not financial advice.
+        </div>
+    </footer>
+
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const html = document.documentElement;
+
+        // Safe localStorage access (handles sandboxed iframes, private browsing, etc.)
+        function getDarkModePref() {
+            try {
+                const saved = localStorage.getItem('darkMode');
+                if (saved !== null) {
+                    return saved === 'true';
+                }
+                return window.matchMedia('(prefers-color-scheme: dark)').matches;
+            } catch (e) {
+                // Sandboxed or storage unavailable
+                return window.matchMedia('(prefers-color-scheme: dark)').matches;
+            }
+        }
+        
+        function setDarkModePref(isDark) {
+            try {
+                localStorage.setItem('darkMode', isDark);
+            } catch (e) {
+                // Ignore if storage unavailable (e.g., sandboxed document)
+            }
+        }
+        
+        if (getDarkModePref()) {
+            html.classList.add('dark');
+        }
+        darkModeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            setDarkModePref(html.classList.contains('dark'));
+        });
+
+        // Mobile menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                const icon = mobileMenuBtn.querySelector('i');
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                } else {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-xmark');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
