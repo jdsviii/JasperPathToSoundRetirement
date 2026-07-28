@@ -1,0 +1,2058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="The Path to Sound Retirement by Jasper Saunders - Snapshot, forecast, and risk assessment for a secure retirement.">
+    <meta name="theme-color" content="#166534">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>The Path to Sound Retirement | by Jasper Saunders</title>
+    
+    <!-- PWA Manifest (inline data URI for simplicity) -->
+    <link rel="manifest" href='data:application/manifest+json,{
+        "name": "The Path to Sound Retirement",
+        "short_name": "Sound Retirement",
+        "description": "Personal retirement planning by Jasper Saunders",
+        "start_url": "./index.html",
+        "display": "standalone",
+        "background_color": "#0f172a",
+        "theme_color": "#166534",
+        "icons": [
+            {"src": "ptsr.png", "sizes": "192x192", "type": "image/png"},
+            {"src": "ptsr.png", "sizes": "512x512", "type": "image/png"}
+        ]
+    }'>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8/hammer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1/dist/chartjs-plugin-zoom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    },
+                    colors: {
+                        emerald: {
+                            50: '#ecfdf5', 100: '#d1fae5', 200: '#a7f3d0', 300: '#6ee7b7',
+                            400: '#34d399', 500: '#10b981', 600: '#059669', 700: '#047857',
+                            800: '#065f46', 900: '#064e3b', 950: '#022c22'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+        
+        :root {
+            --primary: #166534;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .font-display {
+            font-family: 'Space Grotesk', 'Inter', sans-serif;
+        }
+        
+        /* Dark mode transitions */
+        html {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        /* Better mobile touch targets + header polish */
+        @media (max-width: 768px) {
+            input[type="range"] {
+                height: 36px;
+            }
+            button, .btn {
+                min-height: 48px;
+                font-size: 1rem;
+            }
+            .finance-card {
+                border-radius: 1.25rem;
+            }
+            header .max-w-6xl {
+                padding-top: 0.625rem;
+                padding-bottom: 0.625rem;
+            }
+            header h1 {
+                font-size: 1rem;
+                line-height: 1.25;
+            }
+            header img {
+                width: 2.25rem;
+                height: 2.25rem;
+            }
+        }
+        
+        /* Dark mode specific styles */
+        .dark body {
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+        
+        .dark .bg-white {
+            background-color: #1e293b !important;
+        }
+        
+        .dark .bg-slate-50 {
+            background-color: #0f172a !important;
+        }
+        
+        .dark .text-slate-900 {
+            color: #f1f5f9 !important;
+        }
+        
+        .dark .text-slate-700, .dark .text-slate-600, .dark .text-slate-500 {
+            color: #94a3b8 !important;
+        }
+        
+        .dark .border-slate-200, .dark .border-slate-100 {
+            border-color: #334155 !important;
+        }
+        
+        .dark .bg-slate-100 {
+            background-color: #334155 !important;
+        }
+        
+        .dark input, .dark select {
+            background-color: #1e293b !important;
+            border-color: #475569 !important;
+            color: #f1f5f9 !important;
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 280px;
+        }
+        
+        @media (max-width: 640px) {
+            .chart-container {
+                height: 220px;
+            }
+        }
+        
+        /* Install PWA button */
+        #installPwaBtn {
+            display: none;
+        }
+        
+        #installPwaBtn.show {
+            display: flex;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <!-- New Logo -->
+                    <img src="ptsr.png" alt="The Path to Sound Retirement" class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl shadow-lg object-contain">
+                    <div>
+                        <h1 class="text-lg sm:text-2xl font-display font-semibold text-slate-900 dark:text-white leading-tight">
+                            The Path to Sound Retirement
+                        </h1>
+                        <p class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400">
+                            by Jasper Saunders • From current reality to worry-free security
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="flex items-center gap-2 sm:gap-4">
+                    <!-- Desktop Navigation -->
+                    <nav class="hidden md:flex items-center gap-5 text-sm font-medium">
+                        <a href="index.html" class="text-emerald-600 font-semibold">Calculator</a>
+                        <a href="blog.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600 transition-colors">Learning</a>
+                        <a href="about.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600 transition-colors">About</a>
+                        <a href="contact.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600 transition-colors">Contact</a>
+                    </nav>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button id="darkModeToggle" 
+                            class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                            title="Toggle Dark Mode">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:inline"></i>
+                    </button>
+                    
+                    <!-- Install PWA Button -->
+                    <button id="installPwaBtn" 
+                            class="hidden sm:flex items-center gap-2 px-3 py-2 text-xs font-medium bg-emerald-100 text-emerald-800 rounded-xl hover:bg-emerald-200 transition-colors">
+                        <i class="fa-solid fa-download"></i>
+                        <span>Install App</span>
+                    </button>
+                    
+                    <button onclick="resetAllInputs()" 
+                            class="p-2.5 rounded-xl text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                            title="Reset All">
+                        <i class="fa-solid fa-undo"></i>
+                    </button>
+
+                    <!-- Mobile Hamburger Button -->
+                    <button id="mobileMenuBtn" 
+                            class="md:hidden p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                            title="Menu">
+                        <i class="fa-solid fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-700 mt-3 pt-3 pb-2">
+                <nav class="flex flex-col gap-1">
+                    <a href="index.html" class="px-4 py-3 rounded-xl text-emerald-600 font-semibold bg-emerald-50 dark:bg-emerald-900/30">Calculator</a>
+                    <a href="blog.html" class="px-4 py-3 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">Learning</a>
+                    <a href="about.html" class="px-4 py-3 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">About</a>
+                    <a href="contact.html" class="px-4 py-3 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">Contact</a>
+                    <a href="privacy.html" class="px-4 py-3 rounded-xl text-slate-500 dark:text-slate-400 text-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">Privacy</a>
+                    <a href="terms.html" class="px-4 py-3 rounded-xl text-slate-500 dark:text-slate-400 text-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">Terms</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-3 sm:px-6 py-5 sm:py-10">
+        
+        <!-- Hero Section (High Priority #1) -->
+        <div class="mb-8 sm:mb-12">
+            <div class="bg-gradient-to-br from-emerald-700 via-emerald-800 to-teal-900 rounded-3xl p-6 sm:p-10 text-white relative overflow-hidden shadow-xl">
+                <div class="relative z-10 max-w-2xl">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-white/15 rounded-full text-xs font-medium mb-4 backdrop-blur-sm">
+                        <span class="w-2 h-2 bg-emerald-300 rounded-full animate-pulse"></span>
+                        Free · Private · Runs in your browser
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold leading-tight mb-4">
+                        From pressure to peace.
+                    </h2>
+                    <p class="text-emerald-50/95 text-base sm:text-lg leading-relaxed">
+                        See your current path, project your nest egg, and stress-test whether the plan can last — so you can move forward with peace and confidence.
+                    </p>
+                </div>
+                <!-- Soft path-inspired decorative shapes -->
+                <div class="absolute right-0 top-0 w-72 h-72 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+                <div class="absolute right-16 bottom-0 w-48 h-48 bg-teal-400/10 rounded-full translate-y-1/4 pointer-events-none"></div>
+                <div class="absolute right-4 top-1/2 w-24 h-24 border border-white/10 rounded-full pointer-events-none hidden sm:block"></div>
+            </div>
+            <p class="mt-3 text-center sm:text-left text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+                New here?
+                <a href="#about-this-tool"
+                   class="font-semibold text-slate-600 dark:text-slate-300 hover:text-emerald-700 dark:hover:text-emerald-400 underline underline-offset-2 transition-colors">
+                    About this tool
+                </a>
+            </p>
+        </div>
+
+        <!-- ========== ACCUMULATION SECTION ========== -->
+        <section id="accumulation-section" class="mb-12 sm:mb-16">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-9 h-9 bg-emerald-600 text-white rounded-xl flex items-center justify-center font-bold text-sm">1</div>
+                <div>
+                    <h3 class="text-2xl sm:text-3xl font-display font-semibold text-slate-900 dark:text-white">Growth Projection</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">Starting balance, contributions, and compounding over time</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+                <!-- Inputs Card (High Priority #2 — clearer hierarchy) -->
+                <div class="lg:col-span-5 bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6 shadow-sm">
+                    <div class="space-y-5">
+                        <!-- Group: Starting point -->
+                        <div class="text-[11px] font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 mb-1">Your starting point</div>
+                        
+                        <!-- Starting Balance -->
+                        <div>
+                            <div class="flex justify-between mb-1.5">
+                                <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Current Portfolio Balance</label>
+                                <span id="starting-balance-value" class="font-mono text-sm font-semibold text-emerald-600">$0</span>
+                            </div>
+                            <input type="range" id="starting-balance" min="0" max="50000000" step="1" value="0"
+                                   class="w-full accent-emerald-600" oninput="updateAccumulationInputs()">
+                            <input type="number" id="starting-balance-num" value="0" step="1" max="50000000"
+                                   class="mt-2 w-full px-3 py-2.5 text-sm border border-slate-300 dark:border-slate-600 rounded-xl font-mono"
+                                   onchange="syncFromNumber(this, 'starting-balance'); updateAccumulationInputs()">
+                        </div>
+
+                        <!-- Monthly Contribution -->
+                        <div>
+                            <div class="flex justify-between mb-1.5">
+                                <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Monthly Contribution</label>
+                                <span id="monthly-contrib-value" class="font-mono text-sm font-semibold text-emerald-600">$0</span>
+                            </div>
+                            <input type="range" id="monthly-contrib" min="0" max="100000" step="1" value="0"
+                                   class="w-full accent-emerald-600" oninput="updateAccumulationInputs()">
+                            <input type="number" id="monthly-contrib-num" value="0" step="1" max="100000"
+                                   class="mt-2 w-full px-3 py-2.5 text-sm border border-slate-300 dark:border-slate-600 rounded-xl font-mono"
+                                   onchange="syncFromNumber(this, 'monthly-contrib'); updateAccumulationInputs()">
+                        </div>
+
+                        <div class="border-t border-slate-100 dark:border-slate-700 pt-4">
+                            <div class="text-[11px] font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 mb-3">Growth assumptions</div>
+                        </div>
+
+                        <!-- Years -->
+                        <div>
+                            <div class="flex justify-between mb-1.5">
+                                <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Years to Grow</label>
+                                <span id="years-value" class="font-mono text-sm font-semibold text-emerald-600">1 year</span>
+                            </div>
+                            <input type="range" id="years-to-retire" min="1" max="100" step="1" value="1"
+                                   class="w-full accent-emerald-600" oninput="updateAccumulationInputs()">
+                            <input type="number" id="years-num" value="1" min="1" max="100"
+                                   class="mt-2 w-full px-3 py-2.5 text-sm border border-slate-300 dark:border-slate-600 rounded-xl font-mono text-center"
+                                   onchange="syncFromNumber(this, 'years-to-retire'); updateAccumulationInputs()">
+                        </div>
+
+                        <!-- Return Rate -->
+                        <div>
+                            <div class="flex justify-between mb-1.5">
+                                <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Expected Annual Return</label>
+                                <span id="return-rate-value" class="font-mono text-sm font-semibold text-emerald-600">1.0%</span>
+                            </div>
+                            <div class="flex gap-2 mb-3">
+                                <button onclick="setReturnPreset(7, this)" class="preset-btn flex-1 text-xs py-2.5 border border-slate-300 dark:border-slate-600 rounded-xl">Conservative<br>7%</button>
+                                <button onclick="setReturnPreset(10, this)" class="preset-btn flex-1 text-xs py-2.5 border border-slate-300 dark:border-slate-600 rounded-xl">Balanced<br>10%</button>
+                                <button onclick="setReturnPreset(12, this)" class="preset-btn flex-1 text-xs py-2.5 border border-slate-300 dark:border-slate-600 rounded-xl">Optimistic<br>12%</button>
+                            </div>
+                            <input type="range" id="return-rate" min="1" max="15" step="0.5" value="1"
+                                   class="w-full accent-emerald-600" oninput="updateAccumulationInputs()">
+                        </div>
+
+                        <button onclick="calculateAccumulation()" 
+                                class="w-full py-4 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-semibold rounded-2xl shadow-lg shadow-emerald-600/25 transition-all active:scale-[0.98] text-sm sm:text-base">
+                            <i class="fa-solid fa-calculator mr-2"></i>
+                            CALCULATE GROWTH PROJECTION
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Results Card -->
+                <div class="lg:col-span-7 bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6 shadow-sm flex flex-col">
+                    <!-- Plain-English summary (High Priority #3) -->
+                    <div id="accumulation-summary" class="hidden mb-4 p-4 rounded-2xl bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-100 dark:border-emerald-800 text-sm text-slate-700 dark:text-slate-200 leading-relaxed">
+                    </div>
+                    <div class="grid grid-cols-3 gap-2 sm:gap-3 mb-5">
+                        <div class="bg-slate-50 dark:bg-slate-700/50 rounded-2xl p-2.5 sm:p-4 text-center min-w-0">
+                            <div class="text-[9px] sm:text-xs uppercase tracking-wider text-slate-500 font-semibold mb-1 leading-tight">Total<br class="sm:hidden"> Contributed</div>
+                            <div id="total-contributed" class="text-sm sm:text-2xl font-display font-bold text-slate-700 dark:text-slate-200 tabular-nums break-all">—</div>
+                        </div>
+                        <div class="bg-emerald-50 dark:bg-emerald-900/30 rounded-2xl p-2.5 sm:p-4 text-center min-w-0">
+                            <div class="text-[9px] sm:text-xs uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-semibold mb-1 leading-tight">Total<br class="sm:hidden"> Growth</div>
+                            <div id="total-growth" class="text-sm sm:text-2xl font-display font-bold text-emerald-700 dark:text-emerald-300 tabular-nums break-all">—</div>
+                        </div>
+                        <div class="bg-emerald-50 dark:bg-emerald-900/30 rounded-2xl p-2.5 sm:p-4 text-center min-w-0">
+                            <div class="text-[9px] sm:text-xs uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-semibold mb-1 leading-tight">Ending<br class="sm:hidden"> Portfolio</div>
+                            <div id="ending-balance" class="text-sm sm:text-2xl font-display font-bold text-emerald-700 dark:text-emerald-300 tabular-nums break-all">—</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-1 chart-container relative">
+                        <canvas id="accumulation-chart"></canvas>
+                    </div>
+                    <div class="mt-2 flex items-center justify-between text-[11px] text-slate-400 dark:text-slate-500">
+                        <span>Hover for exact values · Drag to zoom · Scroll/pinch to zoom · Double-click to reset</span>
+                        <button onclick="if(accumulationChart) accumulationChart.resetZoom()" 
+                                class="px-2.5 py-1 rounded-lg border border-slate-200 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-colors">
+                            Reset Zoom
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== RETIREMENT SECTION ========== -->
+        <section id="retirement-section" class="mb-12 sm:mb-16">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-9 h-9 bg-teal-600 text-white rounded-xl flex items-center justify-center font-bold text-sm">2</div>
+                <div>
+                    <h3 class="text-2xl sm:text-3xl font-display font-semibold text-slate-900 dark:text-white">Test Your Retirement Plan</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">Risk assessment & sustainability analysis</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+                <!-- Inputs -->
+                <div class="lg:col-span-5 bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6 shadow-sm">
+                    <div class="space-y-5">
+                        <!-- Planning mode -->
+                        <div>
+                            <label class="text-sm font-semibold text-slate-700 dark:text-slate-300 block mb-2">Planning for</label>
+                            <div class="flex rounded-2xl border border-slate-200 dark:border-slate-600 p-1 bg-slate-50 dark:bg-slate-700/50">
+                                <button type="button" id="plan-individual-btn" onclick="setPlanningMode('individual')"
+                                        class="flex-1 py-2.5 text-xs sm:text-sm font-medium rounded-xl transition-all bg-emerald-600 text-white">Single</button>
+                                <button type="button" id="plan-household-btn" onclick="setPlanningMode('household')"
+                                        class="flex-1 py-2.5 text-xs sm:text-sm font-medium rounded-xl transition-all">Married</button>
+                            </div>
+                            <p class="text-[11px] text-slate-500 mt-1.5">Married mode supports different retirement ages and Social Security claim ages for each spouse. This is for planning only — not tax filing status.</p>
+                        </div>
+
+                        <!-- Portfolio at Retirement -->
+                        <div>
+                            <div class="flex justify-between mb-1.5">
+                                <label class="text-sm font-semibold text-slate-700 dark:text-slate-300"><span id="portfolio-label">Portfolio at Retirement</span></label>
+                                <span id="retire-portfolio-value" class="font-mono text-sm font-semibold text-emerald-600">$0</span>
+                            </div>
+                            <input type="range" id="retire-portfolio" min="0" max="100000000" step="1" value="0"
+                                   class="w-full accent-emerald-600" oninput="updateRetirementInputs()">
+                            <input type="number" id="retire-portfolio-num" value="0" step="1" max="100000000"
+                                   class="mt-2 w-full px-3 py-2.5 text-sm border border-slate-300 dark:border-slate-600 rounded-xl font-mono"
+                                   onchange="syncFromNumber(this, 'retire-portfolio'); updateRetirementInputs()">
+                            <button onclick="importFromAccumulation()" 
+                                    class="mt-2 w-full text-xs py-2.5 border border-dashed border-emerald-400 text-emerald-700 dark:text-emerald-400 rounded-xl hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-colors">
+                                <i class="fa-solid fa-download mr-1"></i> Import from Growth Projection
+                            </button>
+                        </div>
+
+                        <!-- Initial Withdrawal -->
+                        <div>
+                            <div class="flex justify-between mb-1.5">
+                                <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Annual Retirement Spending</label>
+                                <span id="initial-withdrawal-value" class="font-mono text-sm font-semibold text-amber-600">$0</span>
+                            </div>
+                            <input type="range" id="initial-withdrawal" min="0" max="1000000" step="100" value="0"
+                                   class="w-full accent-amber-500" oninput="updateRetirementInputs()">
+                            <input type="number" id="initial-withdrawal-num" value="0" min="0" max="1000000" step="100"
+                                   class="mt-2 w-full px-3 py-2 text-sm border border-slate-300 dark:border-slate-600 rounded-xl font-mono"
+                                   onchange="syncFromNumber(this, 'initial-withdrawal'); updateRetirementInputs()">
+                            <div class="text-xs text-slate-500 mt-1">
+                                <span id="withdrawal-rate-display">—</span>
+                            </div>
+                        </div>
+
+                        <!-- Single: ages + other income -->
+                        <div id="individual-income-panel" class="space-y-4">
+                            <div class="bg-slate-50 dark:bg-slate-700/40 rounded-2xl p-4 border border-slate-200 dark:border-slate-600 space-y-3">
+                                <div class="text-sm font-semibold text-slate-700 dark:text-slate-300">
+                                    <i class="fa-solid fa-user text-emerald-600 mr-1"></i>
+                                    Your ages
+                                </div>
+                                <div class="grid grid-cols-3 gap-2">
+                                    <div>
+                                        <label class="text-[10px] text-slate-500">Current age</label>
+                                        <input type="number" id="s-current-age" value="60" min="18" max="100" class="w-full mt-0.5 px-2 py-1.5 text-sm border border-slate-300 dark:border-slate-600 rounded-lg font-mono text-center" onchange="updateRetirementInputs()">
+                                    </div>
+                                    <div>
+                                        <label class="text-[10px] text-slate-500">Retirement age</label>
+                                        <input type="number" id="s-retire-age" value="65" min="18" max="100" class="w-full mt-0.5 px-2 py-1.5 text-sm border border-slate-300 dark:border-slate-600 rounded-lg font-mono text-center" onchange="updateRetirementInputs()">
+                                    </div>
+                                    <div>
+                                        <label class="text-[10px] text-slate-500">SS claim age</label>
+                                        <input type="number" id="s-ss-claim-age" value="67" min="62" max="75" class="w-full mt-0.5 px-2 py-1.5 text-sm border border-slate-300 dark:border-slate-600 rounded-lg font-mono text-center" onchange="updateRetirementInputs()">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-slate-50 dark:bg-slate-700/40 rounded-2xl p-4 border border-slate-200 dark:border-slate-600">
+                                <div class="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">
+                                    <i class="fa-solid fa-shield-halved text-emerald-600 mr-1"></i>
+                                    Other Retirement Income (Reduces Portfolio Draw)
+                                </div>
+                                <div class="space-y-4">
+                                    <div>
+                                        <div class="flex justify-between mb-1.5">
+                                            <label class="text-xs text-slate-500">Annual Social Security (today’s $)</label>
+                                            <span id="social-security-value" class="font-mono text-sm font-semibold text-emerald-600">$0</span>
+                                        </div>
+                                        <input type="range" id="social-security" min="0" max="300000" step="100" value="0"
+                                               class="w-full accent-emerald-600" oninput="updateRetirementInputs()">
+                                        <input type="number" id="social-security-num" value="0" min="0" max="300000" step="100"
+                                               class="mt-2 w-full px-3 py-2 text-sm border border-slate-300 dark:border-slate-600 rounded-xl font-mono"
+                                               onchange="syncFromNumber(this, 'social-security'); updateRetirementInputs()">
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between mb-1.5">
+                                            <label class="text-xs text-slate-500">Annual Pension / Other Income</label>
+                                            <span id="pension-value" class="font-mono text-sm font-semibold text-emerald-600">$0</span>
+                                        </div>
+                                        <input type="range" id="pension" min="0" max="300000" step="100" value="0"
+                                               class="w-full accent-emerald-600" oninput="updateRetirementInputs()">
+                                        <input type="number" id="pension-num" value="0" min="0" max="300000" step="100"
+                                               class="mt-2 w-full px-3 py-2 text-sm border border-slate-300 dark:border-slate-600 rounded-xl font-mono"
+                                               onchange="syncFromNumber(this, 'pension'); updateRetirementInputs()">
+                                    </div>
+                                    <div>
+                                        <label class="text-xs text-slate-500">Pension start age</label>
+                                        <input type="number" id="s-pension-start-age" value="65" min="18" max="100"
+                                               class="mt-1 w-full px-3 py-2 text-sm border border-slate-300 dark:border-slate-600 rounded-xl font-mono text-center"
+                                               onchange="updateRetirementInputs()">
+                                    </div>
+                                    <div id="single-schedule" class="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed">
+                                        Benefits only count after your claim/start ages. Years in retirement count from your retirement age.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Household: two people -->
+                        <div id="household-panel" class="hidden space-y-4">
+                            <div class="text-[11px] font-semibold uppercase tracking-wider text-teal-600 dark:text-teal-400">You &amp; spouse</div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <!-- Person A -->
+                                <div class="bg-slate-50 dark:bg-slate-700/40 rounded-2xl p-3 border border-slate-200 dark:border-slate-600 space-y-2">
+                                    <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">You</div>
+                                    <div>
+                                        <label class="text-[10px] text-slate-500">Current age</label>
+                                        <input type="number" id="a-current-age" value="60" min="18" max="100" class="w-full mt-0.5 px-2 py-1.5 text-sm border border-slate-300 dark:border-slate-600 rounded-lg font-mono text-center" onchange="updateRetirementInputs()">
+                                    </div>
+                                    <div>
+                                        <label class="text-[10px] text-slate-500">Retirement age</label>
+                                        <input type="number" id="a-retire-age" value="65" min="18" max="100" class="w-full mt-0.5 px-2 py-1.5 text-sm border border-slate-300 dark:border-slate-600 rounded-lg font-mono text-center" onchange="updateRetirementInputs()">
+                                    </div>
+                                    <div>
+                                        <label class="text-[10px] text-slate-500">SS claim age</label>
+                                        <input type="number" id="a-ss-claim-age" value="67" min="62" max="75" class="w-full mt-0.5 px-2 py-1.5 text-sm border border-slate-300 dark:border-slate-600 rounded-lg font-mono text-center" onchange="updateRetirementInputs()">
+                                    </div>
+                                    <div>
+                                        <label class="text-[10px] text-slate-500">Annual SS (today’s $)</label>
+                                        <input type="number" id="a-ss-annual" value="0" min="0" max="300000" step="100" class="w-full mt-0.5 px-2 py-1.5 text-sm border border-slate-300 dark:border-slate-600 rounded-lg font-mono" onchange="updateRetirementInputs()">
+                                    </div>
+                                    <div>
+                                        <label class="text-[10px] text-slate-500">Pension / other (annual)</label>
+                                        <input type="number" id="a-pension-annual" value="0" min="0" max="300000" step="100" class="w-full mt-0.5 px-2 py-1.5 text-sm border border-slate-300 dark:border-slate-600 rounded-lg font-mono" onchange="updateRetirementInputs()">
+                                    </div>
+                                    <div>
+                                        <label class="text-[10px] text-slate-500">Pension start age</label>
+                                        <input type="number" id="a-pension-start-age" value="65" min="18" max="100" class="w-full mt-0.5 px-2 py-1.5 text-sm border border-slate-300 dark:border-slate-600 rounded-lg font-mono text-center" onchange="updateRetirementInputs()">
+                                    </div>
+                                </div>
+                                <!-- Person B -->
+                                <div class="bg-slate-50 dark:bg-slate-700/40 rounded-2xl p-3 border border-slate-200 dark:border-slate-600 space-y-2">
+                                    <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Spouse</div>
+                                    <div>
+                                        <label class="text-[10px] text-slate-500">Current age</label>
+                                        <input type="number" id="b-current-age" value="58" min="18" max="100" class="w-full mt-0.5 px-2 py-1.5 text-sm border border-slate-300 dark:border-slate-600 rounded-lg font-mono text-center" onchange="updateRetirementInputs()">
+                                    </div>
+                                    <div>
+                                        <label class="text-[10px] text-slate-500">Retirement age</label>
+                                        <input type="number" id="b-retire-age" value="65" min="18" max="100" class="w-full mt-0.5 px-2 py-1.5 text-sm border border-slate-300 dark:border-slate-600 rounded-lg font-mono text-center" onchange="updateRetirementInputs()">
+                                    </div>
+                                    <div>
+                                        <label class="text-[10px] text-slate-500">SS claim age</label>
+                                        <input type="number" id="b-ss-claim-age" value="67" min="62" max="75" class="w-full mt-0.5 px-2 py-1.5 text-sm border border-slate-300 dark:border-slate-600 rounded-lg font-mono text-center" onchange="updateRetirementInputs()">
+                                    </div>
+                                    <div>
+                                        <label class="text-[10px] text-slate-500">Annual SS (today’s $)</label>
+                                        <input type="number" id="b-ss-annual" value="0" min="0" max="300000" step="100" class="w-full mt-0.5 px-2 py-1.5 text-sm border border-slate-300 dark:border-slate-600 rounded-lg font-mono" onchange="updateRetirementInputs()">
+                                    </div>
+                                    <div>
+                                        <label class="text-[10px] text-slate-500">Pension / other (annual)</label>
+                                        <input type="number" id="b-pension-annual" value="0" min="0" max="300000" step="100" class="w-full mt-0.5 px-2 py-1.5 text-sm border border-slate-300 dark:border-slate-600 rounded-lg font-mono" onchange="updateRetirementInputs()">
+                                    </div>
+                                    <div>
+                                        <label class="text-[10px] text-slate-500">Pension start age</label>
+                                        <input type="number" id="b-pension-start-age" value="65" min="18" max="100" class="w-full mt-0.5 px-2 py-1.5 text-sm border border-slate-300 dark:border-slate-600 rounded-lg font-mono text-center" onchange="updateRetirementInputs()">
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="household-schedule" class="text-[11px] text-slate-600 dark:text-slate-400 bg-teal-50 dark:bg-teal-900/20 border border-teal-100 dark:border-teal-800 rounded-xl p-3 leading-relaxed">
+                                Enter ages and benefits to see when income starts.
+                            </div>
+                        </div>
+
+                        <!-- Estimated Effective Tax Rate -->
+                        <div>
+                            <div class="flex justify-between mb-1.5">
+                                <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Estimated Effective Tax Rate on Withdrawals (%)</label>
+                                <span id="tax-rate-value" class="font-mono text-sm font-semibold text-amber-600">0%</span>
+                            </div>
+                            <input type="range" id="tax-rate" min="0" max="40" step="1" value="0"
+                                   class="w-full accent-amber-500" oninput="updateRetirementInputs()">
+                            <div class="text-xs text-slate-500 mt-1">
+                                Used to gross-up the portfolio withdrawal so that after-tax spending matches your target. A mid-range estimate for many retirees is around 15–20%.
+                            </div>
+                        </div>
+
+                        <!-- Years + Inflation -->
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="text-xs font-semibold text-slate-600 dark:text-slate-400">Years in Retirement</label>
+                                <input type="number" id="retirement-years" value="10" min="10" max="50"
+                                       class="w-full mt-1 px-3 py-2 text-sm border border-slate-300 dark:border-slate-600 rounded-xl font-mono text-center"
+                                       onchange="updateRetirementInputs()">
+                            </div>
+                            <div>
+                                <label class="text-xs font-semibold text-slate-600 dark:text-slate-400">Inflation Rate %</label>
+                                <input type="number" id="inflation-rate" value="0" min="0" max="6" step="0.25"
+                                       class="w-full mt-1 px-3 py-2 text-sm border border-slate-300 dark:border-slate-600 rounded-xl font-mono text-center"
+                                       onchange="updateRetirementInputs()">
+                            </div>
+                        </div>
+
+                        <!-- Simulation Mode -->
+                        <div>
+                            <label class="text-sm font-semibold text-slate-700 dark:text-slate-300 block mb-2">Simulation Mode</label>
+                            <div class="flex rounded-2xl border border-slate-200 dark:border-slate-600 p-1 bg-slate-50 dark:bg-slate-700/50">
+                                <button onclick="setSimMode('deterministic')" id="mode-det-btn"
+                                        class="flex-1 py-2.5 text-xs sm:text-sm font-medium rounded-xl transition-all">Deterministic</button>
+                                <button onclick="setSimMode('montecarlo')" id="mode-mc-btn"
+                                        class="flex-1 py-2.5 text-xs sm:text-sm font-medium rounded-xl transition-all bg-emerald-600 text-white">Monte Carlo</button>
+                            </div>
+                        </div>
+
+                        <!-- MC Params -->
+                        <div id="mc-params" class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="text-xs text-slate-500">Mean Return %</label>
+                                <input type="number" id="mean-return" value="8" step="0.5"
+                                       class="w-full mt-1 px-3 py-2 text-sm border border-slate-300 dark:border-slate-600 rounded-xl font-mono text-center">
+                            </div>
+                            <div>
+                                <label class="text-xs text-slate-500">Volatility %</label>
+                                <input type="number" id="volatility" value="15"
+                                       class="w-full mt-1 px-3 py-2 text-sm border border-slate-300 dark:border-slate-600 rounded-xl font-mono text-center">
+                            </div>
+                        </div>
+
+                        <button onclick="runRetirementSimulation()" 
+                                class="w-full py-4 bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700 text-white font-semibold rounded-2xl shadow-lg shadow-teal-600/25 transition-all active:scale-[0.98] text-sm sm:text-base">
+                            <i class="fa-solid fa-play mr-2"></i>
+                            <span id="sim-btn-text">RUN MONTE CARLO SIMULATION</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Results -->
+                <div class="lg:col-span-7 bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6 shadow-sm flex flex-col">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="font-semibold text-lg dark:text-white">Retirement Sustainability Analysis</div>
+                        <div id="sim-mode-badge" class="text-xs px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 font-medium">
+                            Monte Carlo • 1000 runs
+                        </div>
+                    </div>
+
+                    <!-- Plain-English results summary (High Priority #3) -->
+                    <div id="retirement-summary" class="hidden mb-4 p-4 rounded-2xl bg-slate-50 dark:bg-slate-700/40 border border-slate-200 dark:border-slate-600 text-sm text-slate-700 dark:text-slate-200 leading-relaxed">
+                    </div>
+                    
+                    <!-- Key Metrics -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
+                        <div class="bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-100 dark:border-emerald-800 rounded-2xl p-3 sm:p-4 text-center">
+                            <div class="text-[10px] uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-semibold">Success Rate</div>
+                            <div id="success-rate" class="text-3xl sm:text-4xl font-display font-bold text-emerald-700 dark:text-emerald-300">—</div>
+                            <div class="text-xs text-emerald-600">percent</div>
+                        </div>
+                        <div class="bg-slate-50 dark:bg-slate-700/50 rounded-2xl p-3 sm:p-4 text-center">
+                            <div class="text-[10px] uppercase tracking-wider text-slate-500 font-semibold leading-tight">10th<br>Percentile</div>
+                            <div id="p10-final" class="text-xl sm:text-2xl font-display font-bold text-amber-600 mt-1">—</div>
+                        </div>
+                        <div class="bg-slate-50 dark:bg-slate-700/50 rounded-2xl p-3 sm:p-4 text-center">
+                            <div class="text-[10px] uppercase tracking-wider text-slate-500 font-semibold leading-tight">Median<br>Ending</div>
+                            <div id="median-final" class="text-xl sm:text-2xl font-display font-bold dark:text-white mt-1">—</div>
+                        </div>
+                        <div class="bg-slate-50 dark:bg-slate-700/50 rounded-2xl p-3 sm:p-4 text-center">
+                            <div class="text-[10px] uppercase tracking-wider text-slate-500 font-semibold leading-tight">90th<br>Percentile</div>
+                            <div id="p90-final" class="text-xl sm:text-2xl font-display font-bold text-emerald-600 mt-1">—</div>
+                        </div>
+                    </div>
+
+                    <div class="chart-container mb-2 relative">
+                        <canvas id="retirement-paths-chart"></canvas>
+                    </div>
+                    <div class="mb-4 flex items-center justify-between text-[11px] text-slate-400 dark:text-slate-500">
+                        <span>Hover for exact values · Drag to zoom · Scroll/pinch to zoom · Double-click to reset</span>
+                        <button onclick="if(retirementChart) retirementChart.resetZoom()" 
+                                class="px-2.5 py-1 rounded-lg border border-slate-200 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-colors">
+                            Reset Zoom
+                        </button>
+                    </div>
+                    
+                    <div class="text-xs text-slate-500 dark:text-slate-400 border-t border-slate-100 dark:border-slate-700 pt-3 space-y-1.5">
+                        <div>
+                            <strong>Monte Carlo</strong> runs 1,000 random market sequences using your expected mean return + volatility to model sequence-of-returns risk (like FIREcalc historical testing).
+                        </div>
+                        <div>
+                            <strong>Deterministic</strong> uses a fixed return each year for a single, smooth projection path (no randomness).
+                        </div>
+                        <div>
+                            <strong>Volatility %</strong> is the expected year-to-year fluctuation (standard deviation) of portfolio returns. Higher volatility (e.g. 15–20%) creates wider outcome ranges and more uncertainty; lower volatility produces more stable paths. The default of 15% approximates a typical diversified stock portfolio.
+                        </div>
+                        <div class="pt-1.5 mt-1.5 border-t border-slate-100 dark:border-slate-700">
+                            <strong class="text-slate-600 dark:text-slate-300">Chart path meanings:</strong>
+                            <ul class="mt-1 space-y-0.5 list-disc list-inside">
+                                <li><strong>10th Percentile</strong> — Tough market sequence (only 10% of outcomes were worse)</li>
+                                <li><strong>25th Percentile</strong> — Below-average sequence</li>
+                                <li><strong>Median (50th)</strong> — Typical / middle outcome (half of simulations did better, half worse)</li>
+                                <li><strong>75th Percentile</strong> — Above-average sequence</li>
+                                <li><strong>90th Percentile</strong> — Strong market sequence (only 10% of outcomes were better)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Export PDF Button -->
+                    <button onclick="exportToPDF()" 
+                            class="mt-4 w-full py-3 border-2 border-emerald-600 text-emerald-700 dark:text-emerald-400 font-semibold rounded-2xl hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-colors">
+                        <i class="fa-solid fa-file-pdf mr-2"></i>
+                        Export Results to PDF
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Homepage intro — educational context below the calculator -->
+        <section class="mb-10 sm:mb-14 max-w-3xl scroll-mt-20" id="about-this-tool">
+            <div class="space-y-6 text-slate-700 dark:text-slate-300 leading-relaxed">
+                <div>
+                    <h3 class="text-lg font-display font-semibold text-slate-900 dark:text-white mb-2">Who this is for</h3>
+                    <p>
+                        If you’re new to investing, starting later than you wanted, unsure how to budget for contributions, or trying to decide <em>when</em> retirement is realistic, this tool is built for you. It won’t replace discipline or a conversation with someone you trust—but it will replace vague worry with a clearer picture.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-display font-semibold text-slate-900 dark:text-white mb-2">What you’ll do here</h3>
+                    <p class="mb-3">
+                        <strong class="text-slate-900 dark:text-white">Growth Projection</strong> shows how a starting balance, monthly contributions, and time can compound. Use it for retirement <em>or</em> a longer legacy horizon.
+                    </p>
+                    <p>
+                        <strong class="text-slate-900 dark:text-white">Test Your Retirement Plan</strong> stress-tests spending against market uncertainty—including different retirement ages and Social Security claim ages for one person or a couple.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-display font-semibold text-slate-900 dark:text-white mb-2">How to use it well</h3>
+                    <p>
+                        Enter numbers you can defend, not numbers that only look good on a chart. Run the growth section first, then import the result into the retirement test. Change one input at a time so you can see what actually moves the plan.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-display font-semibold text-slate-900 dark:text-white mb-2">A personal note</h3>
+                    <p class="mb-3">
+                        I built this after learning—sometimes the hard way—that a finance background doesn’t automatically create good money habits. Knowledge helps. Behavior and a shared plan matter more. This site is free, runs in your browser, and is for education only—not personalized financial advice.
+                    </p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">
+                        <a href="blog.html" class="text-emerald-700 dark:text-emerald-400 hover:underline font-medium">Learning</a>
+                        <span class="mx-2 text-slate-300 dark:text-slate-600">·</span>
+                        <a href="blog/how-monte-carlo-works.html" class="text-emerald-700 dark:text-emerald-400 hover:underline font-medium">How Monte Carlo works</a>
+                        <span class="mx-2 text-slate-300 dark:text-slate-600">·</span>
+                        <a href="about.html" class="text-emerald-700 dark:text-emerald-400 hover:underline font-medium">About</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center text-xs text-slate-400 dark:text-slate-500 py-8 border-t border-slate-200 dark:border-slate-700">
+            <div class="flex flex-wrap justify-center gap-4 mb-4 text-sm">
+                <a href="index.html" class="hover:text-emerald-600">Calculator</a>
+                <a href="blog.html" class="hover:text-emerald-600">Learning</a>
+                <a href="about.html" class="hover:text-emerald-600">About</a>
+                <a href="privacy.html" class="hover:text-emerald-600">Privacy</a>
+                <a href="terms.html" class="hover:text-emerald-600">Terms</a>
+                <a href="contact.html" class="hover:text-emerald-600">Contact</a>
+            </div>
+            The Path to Sound Retirement by Jasper Saunders • For educational purposes only. Not financial advice.
+        </footer>
+    </main>
+
+    <script>
+        // ========== GLOBAL STATE ==========
+        let accumulationData = null;
+        let lastRetirementResults = null;
+        let currentSimMode = 'montecarlo';
+        let currentPlanningMode = 'individual';
+        let accumulationChart = null;
+        let retirementChart = null;
+        let deferredInstallPrompt = null;
+
+        // ========== DARK MODE ==========
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const html = document.documentElement;
+        
+        // Safe localStorage access (handles sandboxed iframes, private browsing, etc.)
+        function getDarkModePref() {
+            try {
+                const saved = localStorage.getItem('darkMode');
+                if (saved !== null) {
+                    return saved === 'true';
+                }
+                return window.matchMedia('(prefers-color-scheme: dark)').matches;
+            } catch (e) {
+                // Sandboxed or storage unavailable
+                return window.matchMedia('(prefers-color-scheme: dark)').matches;
+            }
+        }
+        
+        function setDarkModePref(isDark) {
+            try {
+                localStorage.setItem('darkMode', isDark);
+            } catch (e) {
+                // Ignore if storage unavailable (e.g., sandboxed document)
+            }
+        }
+        
+        // Check saved preference
+        if (getDarkModePref()) {
+            html.classList.add('dark');
+        }
+        
+        darkModeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            setDarkModePref(html.classList.contains('dark'));
+        });
+
+        // ========== MOBILE MENU ==========
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                const icon = mobileMenuBtn.querySelector('i');
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                } else {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-xmark');
+                }
+            });
+        }
+
+        // ========== PWA INSTALL ==========
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredInstallPrompt = e;
+            document.getElementById('installPwaBtn').classList.add('show');
+        });
+        
+        document.getElementById('installPwaBtn').addEventListener('click', async () => {
+            if (deferredInstallPrompt) {
+                deferredInstallPrompt.prompt();
+                const { outcome } = await deferredInstallPrompt.userChoice;
+                deferredInstallPrompt = null;
+                document.getElementById('installPwaBtn').classList.remove('show');
+            }
+        });
+
+        // ========== HELPERS ==========
+        function roundToHundred(amount) {
+            return Math.round(amount / 100) * 100;
+        }
+        
+        function formatCurrency(amount) {
+            // Used for result displays — still rounds for clean summary numbers
+            amount = roundToHundred(amount);
+            if (amount >= 1000000) return '$' + (amount / 1000000).toFixed(2) + 'M';
+            if (amount >= 1000) return '$' + (amount / 1000).toFixed(0) + 'k';
+            return '$' + amount.toLocaleString();
+        }
+        
+        function formatFullCurrency(amount) {
+            // Exact currency formatting (no forced rounding) for input displays
+            const n = Math.round(Number(amount) || 0);
+            return '$' + n.toLocaleString('en-US');
+        }
+        
+        function formatFullCurrencyExact(amount) {
+            // Alias kept for clarity — no rounding beyond integer dollars
+            const n = Math.round(Number(amount) || 0);
+            return '$' + n.toLocaleString('en-US');
+        }
+        
+        function syncFromNumber(inputEl, sliderId) {
+            const slider = document.getElementById(sliderId);
+            let val = parseFloat(inputEl.value) || 0;
+            val = Math.max(parseFloat(slider.min), Math.min(val, parseFloat(slider.max)));
+            slider.value = val;
+            inputEl.value = val;
+        }
+
+        // ========== ACCUMULATION ==========
+        function updateAccumulationInputs() {
+            const start = parseFloat(document.getElementById('starting-balance').value);
+            const monthly = parseFloat(document.getElementById('monthly-contrib').value);
+            const years = parseInt(document.getElementById('years-to-retire').value);
+            const rate = parseFloat(document.getElementById('return-rate').value);
+            
+            document.getElementById('starting-balance-value').textContent = formatFullCurrency(start);
+            document.getElementById('starting-balance-num').value = start;
+            document.getElementById('monthly-contrib-value').textContent = formatFullCurrency(monthly);
+            document.getElementById('monthly-contrib-num').value = monthly;
+            document.getElementById('years-value').textContent = years + (years === 1 ? ' year' : ' years');
+            document.getElementById('years-num').value = years;
+            document.getElementById('return-rate-value').textContent = rate.toFixed(1) + '%';
+        }
+        
+        function setReturnPreset(rate, btn) {
+            document.querySelectorAll('.preset-btn').forEach(b => {
+                b.classList.remove('active', 'bg-emerald-600', 'text-white', 'border-emerald-600');
+                b.classList.add('border-slate-300');
+            });
+            btn.classList.add('active', 'bg-emerald-600', 'text-white', 'border-emerald-600');
+            document.getElementById('return-rate').value = rate;
+            updateAccumulationInputs();
+            setTimeout(calculateAccumulation, 100);
+        }
+        
+        function calculateAccumulation() {
+            const start = parseFloat(document.getElementById('starting-balance').value);
+            const monthly = parseFloat(document.getElementById('monthly-contrib').value);
+            const years = parseInt(document.getElementById('years-to-retire').value);
+            const annualRate = parseFloat(document.getElementById('return-rate').value) / 100;
+            
+            let balance = start;
+            let totalContributed = start;
+            const yearlyData = [];
+            const monthlyRate = annualRate / 12;
+            
+            for (let y = 0; y < years; y++) {
+                for (let m = 0; m < 12; m++) {
+                    balance = balance * (1 + monthlyRate) + monthly;
+                }
+                totalContributed += monthly * 12;
+                yearlyData.push({ year: y + 1, balance: Math.round(balance) });
+            }
+            
+            // Store exact (nearest-dollar) values — no forced rounding to nearest $100
+            const endingBal = Math.round(balance);
+            const totalCont = Math.round(totalContributed);
+            const totalGr = Math.round(balance - totalContributed);
+            
+            accumulationData = {
+                endingBalance: endingBal,
+                totalContributed: totalCont,
+                totalGrowth: totalGr,
+                yearlyData,
+                years,
+                annualRate
+            };
+            
+            // Compact format for metric cards (avoids overflow on mobile)
+            document.getElementById('ending-balance').textContent = formatCurrency(endingBal);
+            document.getElementById('total-contributed').textContent = formatCurrency(totalCont);
+            document.getElementById('total-growth').textContent = formatCurrency(totalGr);
+
+            // Plain-English summary
+            const sumEl = document.getElementById('accumulation-summary');
+            if (sumEl) {
+                const years = accumulationData.years;
+                const ratePct = (accumulationData.annualRate * 100).toFixed(1);
+                sumEl.innerHTML = `After <strong>${years} years</strong> of contributions and growth at <strong>${ratePct}%</strong> average annual return, your portfolio is projected to reach about <strong>${formatFullCurrency(endingBal)}</strong>. Of that, <strong>${formatFullCurrency(totalCont)}</strong> comes from what you put in and <strong>${formatFullCurrency(totalGr)}</strong> from investment growth.`;
+                sumEl.classList.remove('hidden');
+            }
+            
+            // Chart
+            if (accumulationChart) accumulationChart.destroy();
+            const ctx = document.getElementById('accumulation-chart');
+            accumulationChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: yearlyData.map(d => 'Y' + d.year),
+                    datasets: [{
+                        label: 'Portfolio',
+                        data: yearlyData.map(d => d.balance),
+                        borderColor: '#059669',
+                        backgroundColor: 'rgba(5, 150, 105, 0.1)',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.35,
+                        pointRadius: 0,
+                        pointHoverRadius: 6,
+                        pointHitRadius: 12
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: {
+                        mode: 'index',
+                        intersect: false
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: 'rgba(15, 23, 42, 0.95)',
+                            titleFont: { size: 13, weight: '600' },
+                            bodyFont: { size: 13 },
+                            padding: 12,
+                            cornerRadius: 10,
+                            displayColors: false,
+                            callbacks: {
+                                title: (items) => items[0] ? `Year ${items[0].label.replace('Y','')}` : '',
+                                label: (item) => {
+                                    const val = item.raw;
+                                    return 'Portfolio: $' + Math.round(val).toLocaleString('en-US');
+                                }
+                            }
+                        },
+                        zoom: {
+                            pan: {
+                                enabled: true,
+                                mode: 'xy',
+                                modifierKey: null
+                            },
+                            zoom: {
+                                wheel: { enabled: true },
+                                pinch: { enabled: true },
+                                drag: {
+                                    enabled: true,
+                                    backgroundColor: 'rgba(5, 150, 105, 0.15)',
+                                    borderColor: '#059669',
+                                    borderWidth: 1
+                                },
+                                mode: 'xy'
+                            },
+                            limits: {
+                                x: { min: 'original', max: 'original' },
+                                y: { min: 'original', max: 'original' }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: { display: true, text: 'Year', color: '#64748b', font: { size: 11 } }
+                        },
+                        y: {
+                            title: { display: true, text: 'Portfolio Value', color: '#64748b', font: { size: 11 } },
+                            ticks: {
+                                callback: v => '$' + (v >= 1e6 ? (v/1e6).toFixed(1)+'M' : Math.round(v/1000)+'k')
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // ========== RETIREMENT ==========
+        function setPlanningMode(mode) {
+            currentPlanningMode = mode;
+            const indBtn = document.getElementById('plan-individual-btn');
+            const hhBtn = document.getElementById('plan-household-btn');
+            const indPanel = document.getElementById('individual-income-panel');
+            const hhPanel = document.getElementById('household-panel');
+            const portLabel = document.getElementById('portfolio-label');
+
+            if (mode === 'household') {
+                indBtn.classList.remove('bg-emerald-600', 'text-white');
+                hhBtn.classList.add('bg-emerald-600', 'text-white');
+                indPanel.classList.add('hidden');
+                hhPanel.classList.remove('hidden');
+                if (portLabel) portLabel.textContent = 'Combined Portfolio at First Retirement';
+            } else {
+                hhBtn.classList.remove('bg-emerald-600', 'text-white');
+                indBtn.classList.add('bg-emerald-600', 'text-white');
+                hhPanel.classList.add('hidden');
+                indPanel.classList.remove('hidden');
+                if (portLabel) portLabel.textContent = 'Portfolio at Retirement';
+            }
+            updateRetirementInputs();
+        }
+
+        function numVal(id, fallback) {
+            const v = parseFloat(document.getElementById(id).value);
+            return isNaN(v) ? fallback : v;
+        }
+
+        /** Build nominal net portfolio withdrawals for each year 0..years-1 */
+        function buildNetWithdrawalSchedule(years, inflation, taxRate, spendingToday) {
+            const taxFactor = 1 - (taxRate / 100);
+            const schedule = [];
+
+            if (currentPlanningMode === 'individual') {
+                const ss = numVal('social-security', 0);
+                const pen = numVal('pension', 0);
+                const cur = numVal('s-current-age', 60);
+                const ret = numVal('s-retire-age', 65);
+                const ssClaim = numVal('s-ss-claim-age', 67);
+                const penStart = numVal('s-pension-start-age', ret);
+                const yearsToRet = Math.max(0, ret - cur);
+                const age0 = cur + yearsToRet; // age at simulation year 0 (first retirement year)
+
+                for (let t = 0; t < years; t++) {
+                    const infl = Math.pow(1 + inflation, t);
+                    const age = age0 + t;
+                    let other = 0;
+                    if (age >= ssClaim) other += ss * infl;
+                    if (age >= penStart) other += pen * infl;
+                    const spending = spendingToday * infl;
+                    const gross = taxFactor > 0 ? spending / taxFactor : spending;
+                    schedule.push(Math.max(0, gross - other));
+                }
+
+                const segments = [];
+                let prevOther = null;
+                let segStart = 0;
+                for (let t = 0; t <= years; t++) {
+                    let otherToday = 0;
+                    if (t < years) {
+                        const age = age0 + t;
+                        if (age >= ssClaim) otherToday += ss;
+                        if (age >= penStart) otherToday += pen;
+                    }
+                    if (t === years || (prevOther !== null && otherToday !== prevOther)) {
+                        if (prevOther !== null) {
+                            segments.push({ from: segStart + 1, to: t, other: prevOther });
+                        }
+                        segStart = t;
+                    }
+                    if (t < years) prevOther = otherToday;
+                }
+
+                return {
+                    schedule,
+                    meta: {
+                        firstRetireYear: yearsToRet,
+                        bridgeYears: 0,
+                        age0,
+                        segments,
+                        single: true
+                    }
+                };
+            }
+
+            // Household: t=0 is first year someone is retired
+            const aCur = numVal('a-current-age', 60);
+            const bCur = numVal('b-current-age', 58);
+            const aRet = numVal('a-retire-age', 65);
+            const bRet = numVal('b-retire-age', 65);
+            const aSsClaim = numVal('a-ss-claim-age', 67);
+            const bSsClaim = numVal('b-ss-claim-age', 67);
+            const aSs = numVal('a-ss-annual', 0);
+            const bSs = numVal('b-ss-annual', 0);
+            const aPen = numVal('a-pension-annual', 0);
+            const bPen = numVal('b-pension-annual', 0);
+            const aPenStart = numVal('a-pension-start-age', aRet);
+            const bPenStart = numVal('b-pension-start-age', bRet);
+
+            const yearsToA = Math.max(0, aRet - aCur);
+            const yearsToB = Math.max(0, bRet - bCur);
+            const firstRetireYear = Math.min(yearsToA, yearsToB);
+            const ageA0 = aCur + firstRetireYear;
+            const ageB0 = bCur + firstRetireYear;
+            const bridgeYears = Math.abs(yearsToA - yearsToB);
+
+            for (let t = 0; t < years; t++) {
+                const infl = Math.pow(1 + inflation, t);
+                const ageA = ageA0 + t;
+                const ageB = ageB0 + t;
+                let other = 0;
+                if (ageA >= aSsClaim) other += aSs * infl;
+                if (ageB >= bSsClaim) other += bSs * infl;
+                if (ageA >= aPenStart) other += aPen * infl;
+                if (ageB >= bPenStart) other += bPen * infl;
+                const spending = spendingToday * infl;
+                const gross = taxFactor > 0 ? spending / taxFactor : spending;
+                schedule.push(Math.max(0, gross - other));
+            }
+
+            // Income schedule summary in today's $ (for UI)
+            const segments = [];
+            let prevOther = null;
+            let segStart = 0;
+            for (let t = 0; t <= years; t++) {
+                let otherToday = 0;
+                if (t < years) {
+                    const ageA = ageA0 + t;
+                    const ageB = ageB0 + t;
+                    if (ageA >= aSsClaim) otherToday += aSs;
+                    if (ageB >= bSsClaim) otherToday += bSs;
+                    if (ageA >= aPenStart) otherToday += aPen;
+                    if (ageB >= bPenStart) otherToday += bPen;
+                }
+                if (t === years || (prevOther !== null && otherToday !== prevOther)) {
+                    if (prevOther !== null) {
+                        const from = segStart + 1;
+                        const to = t;
+                        segments.push({ from, to, other: prevOther });
+                    }
+                    segStart = t;
+                }
+                if (t < years) prevOther = otherToday;
+            }
+
+            return {
+                schedule,
+                meta: {
+                    firstRetireYear,
+                    bridgeYears,
+                    ageA0,
+                    ageB0,
+                    segments,
+                    yearsToA,
+                    yearsToB
+                }
+            };
+        }
+
+        function updateRetirementInputs() {
+            const port = parseFloat(document.getElementById('retire-portfolio').value) || 0;
+            const wd = parseFloat(document.getElementById('initial-withdrawal').value) || 0;
+            const ss = parseFloat(document.getElementById('social-security').value) || 0;
+            const pen = parseFloat(document.getElementById('pension').value) || 0;
+            const taxRate = parseFloat(document.getElementById('tax-rate').value) || 0;
+            const years = parseInt(document.getElementById('retirement-years').value) || 10;
+            const inflation = (parseFloat(document.getElementById('inflation-rate').value) || 0) / 100;
+            
+            document.getElementById('retire-portfolio-value').textContent = formatFullCurrency(port);
+            document.getElementById('retire-portfolio-num').value = port;
+            document.getElementById('initial-withdrawal-value').textContent = formatFullCurrency(wd);
+            document.getElementById('initial-withdrawal-num').value = wd;
+            
+            document.getElementById('social-security-value').textContent = formatFullCurrency(ss);
+            document.getElementById('social-security-num').value = ss;
+            document.getElementById('pension-value').textContent = formatFullCurrency(pen);
+            document.getElementById('pension-num').value = pen;
+            document.getElementById('tax-rate-value').textContent = taxRate + '%';
+
+            const { schedule, meta } = buildNetWithdrawalSchedule(years, inflation, taxRate, wd);
+            const netYear0 = schedule[0] || 0;
+            const ratePct = port > 0 ? ((netYear0 / port) * 100).toFixed(1) : 0;
+            document.getElementById('withdrawal-rate-display').textContent =
+                `${ratePct}% of portfolio in year 1 (net draw ${formatFullCurrency(netYear0)} after tax + other income)`;
+
+            const hhSched = document.getElementById('household-schedule');
+            const sSched = document.getElementById('single-schedule');
+            if (meta && meta.segments) {
+                const segText = meta.segments.map(s => {
+                    const range = s.from === s.to ? `Year ${s.from}` : `Years ${s.from}–${s.to}`;
+                    return `${range}: other income ${formatFullCurrency(s.other)}/yr (today’s $)`;
+                }).join('<br>');
+                if (currentPlanningMode === 'household' && hhSched) {
+                    hhSched.innerHTML =
+                        `<strong>First retirement in ${meta.firstRetireYear} year${meta.firstRetireYear === 1 ? '' : 's'}</strong> (simulation year 1).` +
+                        (meta.bridgeYears > 0 ? ` Bridge with one person still working: ${meta.bridgeYears} year${meta.bridgeYears === 1 ? '' : 's'}.` : ' Both retire the same year.') +
+                        (segText ? `<br><span class="text-slate-500">${segText}</span>` : '') +
+                        `<br><span class="text-slate-500">Years in retirement are counted from when the first person retires. Benefits only count after each person’s claim/start age.</span>`;
+                }
+                if (currentPlanningMode === 'individual' && sSched) {
+                    sSched.innerHTML =
+                        `<strong>Retirement in ${meta.firstRetireYear} year${meta.firstRetireYear === 1 ? '' : 's'}</strong> (simulation year 1).` +
+                        (segText ? `<br>${segText}` : '') +
+                        `<br>Years in retirement count from your retirement age. SS and pension only reduce portfolio draw after their start ages.`;
+                }
+            }
+        }
+        
+        function importFromAccumulation() {
+            if (!accumulationData) {
+                alert('Please calculate the growth projection first.');
+                return;
+            }
+            document.getElementById('retire-portfolio').value = accumulationData.endingBalance;
+            document.getElementById('retire-portfolio-num').value = accumulationData.endingBalance;
+            updateRetirementInputs();
+            
+            // Suggest 4%
+            const suggested = roundToHundred(accumulationData.endingBalance * 0.04);
+            if (confirm(`Set annual spending need to 4% rule suggestion of ${formatFullCurrency(suggested)}?`)) {
+                document.getElementById('initial-withdrawal').value = suggested;
+                updateRetirementInputs();
+            }
+        }
+        
+        function setSimMode(mode) {
+            currentSimMode = mode;
+            const detBtn = document.getElementById('mode-det-btn');
+            const mcBtn = document.getElementById('mode-mc-btn');
+            
+            if (mode === 'deterministic') {
+                detBtn.classList.add('bg-emerald-600', 'text-white');
+                mcBtn.classList.remove('bg-emerald-600', 'text-white');
+                document.getElementById('sim-btn-text').textContent = 'RUN DETERMINISTIC PROJECTION';
+                document.getElementById('sim-mode-badge').textContent = 'Deterministic • Fixed return';
+                document.getElementById('mc-params').style.opacity = '0.4';
+            } else {
+                mcBtn.classList.add('bg-emerald-600', 'text-white');
+                detBtn.classList.remove('bg-emerald-600', 'text-white');
+                document.getElementById('sim-btn-text').textContent = 'RUN MONTE CARLO SIMULATION';
+                document.getElementById('sim-mode-badge').textContent = 'Monte Carlo • 1000 runs';
+                document.getElementById('mc-params').style.opacity = '1';
+            }
+        }
+        
+        // ========== MONTE CARLO WEB WORKER ==========
+        // Runs the heavy simulation off the main thread so the UI stays responsive
+        const monteCarloWorkerCode = `
+            function randomNormal(mean, std) {
+                let u = 0, v = 0;
+                while (u === 0) u = Math.random();
+                while (v === 0) v = Math.random();
+                return mean + std * Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
+            }
+
+            self.onmessage = function(e) {
+                // withdrawals[t] = nominal net portfolio withdrawal for year t+1 (already includes inflation & other income)
+                const { start, withdrawals, mean, vol, n } = e.data;
+                const years = withdrawals.length;
+                const finals = [];
+                let success = 0;
+                const yearBalances = Array.from({ length: years + 1 }, () => []);
+
+                for (let i = 0; i < n; i++) {
+                    let bal = start;
+                    let failed = false;
+                    yearBalances[0].push(bal);
+
+                    for (let y = 1; y <= years; y++) {
+                        const r = randomNormal(mean, vol);
+                        bal = bal * (1 + r);
+                        const wd = withdrawals[y - 1];
+                        if (bal < wd) {
+                            failed = true;
+                            bal = 0;
+                            for (let k = y; k <= years; k++) yearBalances[k].push(0);
+                            break;
+                        }
+                        bal -= wd;
+                        bal = Math.max(0, bal);
+                        yearBalances[y].push(bal);
+                    }
+
+                    finals.push(bal);
+                    if (!failed && bal > 0) success++;
+                }
+
+                function percentilePath(p) {
+                    return yearBalances.map(arr => {
+                        const sorted = arr.slice().sort((a, b) => a - b);
+                        const idx = Math.min(sorted.length - 1, Math.floor(p * sorted.length));
+                        return sorted[idx];
+                    });
+                }
+
+                finals.sort((a, b) => a - b);
+                self.postMessage({
+                    successRate: (success / n * 100).toFixed(1),
+                    medianFinal: finals[Math.floor(n * 0.5)],
+                    p10Final: finals[Math.floor(n * 0.1)],
+                    p90Final: finals[Math.floor(n * 0.9)],
+                    percentilePaths: {
+                        p10: percentilePath(0.10),
+                        p25: percentilePath(0.25),
+                        p50: percentilePath(0.50),
+                        p75: percentilePath(0.75),
+                        p90: percentilePath(0.90)
+                    },
+                    mode: 'montecarlo'
+                });
+            };
+        `;
+
+        let monteCarloWorker = null;
+        let simulationInProgress = false;
+
+        function getMonteCarloWorker() {
+            if (!monteCarloWorker) {
+                const blob = new Blob([monteCarloWorkerCode], { type: 'application/javascript' });
+                monteCarloWorker = new Worker(URL.createObjectURL(blob));
+            }
+            return monteCarloWorker;
+        }
+
+        function runRetirementSimulation() {
+            if (simulationInProgress) return;
+
+            const startPort = parseFloat(document.getElementById('retire-portfolio').value) || 0;
+            const spending = parseFloat(document.getElementById('initial-withdrawal').value) || 0;
+            const taxRate = parseFloat(document.getElementById('tax-rate').value) || 0;
+            const years = parseInt(document.getElementById('retirement-years').value) || 10;
+            const inflation = (parseFloat(document.getElementById('inflation-rate').value) || 0) / 100;
+            const meanR = (parseFloat(document.getElementById('mean-return').value) || 0) / 100;
+            const vol = (parseFloat(document.getElementById('volatility').value) || 0) / 100;
+
+            const { schedule } = buildNetWithdrawalSchedule(years, inflation, taxRate, spending);
+            
+            const btn = document.getElementById('sim-btn-text');
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> SIMULATING...';
+            simulationInProgress = true;
+
+            if (currentSimMode === 'montecarlo') {
+                // Recreate worker if code changed in session (optional); reuse existing
+                const worker = getMonteCarloWorker();
+                worker.onmessage = function(e) {
+                    lastRetirementResults = e.data;
+                    displayRetirementResults(e.data);
+                    btn.textContent = 'RUN MONTE CARLO SIMULATION';
+                    simulationInProgress = false;
+                };
+                worker.onerror = function(err) {
+                    console.error('Monte Carlo worker error:', err);
+                    btn.textContent = 'RUN MONTE CARLO SIMULATION';
+                    simulationInProgress = false;
+                    alert('Simulation error. Please try again.');
+                };
+                worker.postMessage({
+                    start: startPort,
+                    withdrawals: schedule,
+                    mean: meanR,
+                    vol,
+                    n: 1000
+                });
+            } else {
+                setTimeout(() => {
+                    const results = runDeterministic(startPort, schedule, meanR);
+                    lastRetirementResults = results;
+                    displayRetirementResults(results);
+                    btn.textContent = 'RUN DETERMINISTIC PROJECTION';
+                    simulationInProgress = false;
+                }, 10);
+            }
+        }
+        
+        function runDeterministic(start, withdrawals, fixedR) {
+            let bal = start;
+            const years = withdrawals.length;
+            const path = [bal];
+            let depleted = null;
+            
+            for (let y = 1; y <= years; y++) {
+                bal = bal * (1 + fixedR);
+                const wd = withdrawals[y - 1];
+                if (bal < wd) {
+                    depleted = y;
+                    bal = 0;
+                    path.push(0);
+                    break;
+                }
+                bal -= wd;
+                path.push(Math.max(0, bal));
+            }
+            
+            return {
+                successRate: depleted ? 0 : 100,
+                medianFinal: bal,
+                p10Final: bal,
+                p90Final: bal,
+                percentilePaths: {
+                    p10: path,
+                    p25: path,
+                    p50: path,
+                    p75: path,
+                    p90: path
+                },
+                mode: 'deterministic',
+                depleted
+            };
+        }
+        
+        function displayRetirementResults(res) {
+            document.getElementById('success-rate').textContent = res.successRate;
+            document.getElementById('median-final').textContent = formatCurrency(res.medianFinal);
+            document.getElementById('p10-final').textContent = formatCurrency(res.p10Final);
+            document.getElementById('p90-final').textContent = formatCurrency(res.p90Final);
+
+            // Plain-English results storytelling
+            const retSum = document.getElementById('retirement-summary');
+            if (retSum) {
+                const rate = parseFloat(res.successRate);
+                let tone;
+                if (rate >= 90) tone = 'Your plan looks strong.';
+                else if (rate >= 75) tone = 'Your plan is reasonably solid.';
+                else if (rate >= 50) tone = 'Your plan has meaningful risk.';
+                else tone = 'Your plan faces significant pressure in many market sequences.';
+
+                if (res.mode === 'montecarlo') {
+                    retSum.innerHTML = `<strong>${tone}</strong> It succeeds in <strong>${res.successRate}%</strong> of the 1,000 market scenarios tested. The typical (median) ending balance is about <strong>${formatFullCurrency(res.medianFinal)}</strong>. In tougher markets (10th percentile) it ends near <strong>${formatFullCurrency(res.p10Final)}</strong>; in stronger ones (90th percentile) near <strong>${formatFullCurrency(res.p90Final)}</strong>.`;
+                } else {
+                    retSum.innerHTML = `<strong>Deterministic projection:</strong> With a fixed return each year, the plan ${rate >= 100 ? 'lasts the full retirement period' : 'runs out of money early'}. Ending balance: <strong>${formatFullCurrency(res.medianFinal)}</strong>.`;
+                }
+                retSum.classList.remove('hidden');
+            }
+            
+            if (retirementChart) retirementChart.destroy();
+            
+            const pp = res.percentilePaths || {};
+            const pathDefs = [
+                { key: 'p10', label: '10th Percentile', color: '#f59e0b', width: 1.8 },
+                { key: 'p25', label: '25th Percentile', color: '#94a3b8', width: 1.4 },
+                { key: 'p50', label: 'Median (50th)', color: '#059669', width: 2.8 },
+                { key: 'p75', label: '75th Percentile', color: '#94a3b8', width: 1.4 },
+                { key: 'p90', label: '90th Percentile', color: '#10b981', width: 1.8 }
+            ];
+            
+            const datasets = pathDefs
+                .filter(d => pp[d.key] && pp[d.key].length)
+                .map(d => ({
+                    label: d.label,
+                    data: pp[d.key],
+                    borderColor: d.color,
+                    borderWidth: d.width,
+                    tension: 0.3,
+                    pointRadius: 0,
+                    pointHoverRadius: 5,
+                    pointHitRadius: 10,
+                    fill: false
+                }));
+            
+            const pathLen = (pp.p50 || pp.p10 || []).length || 31;
+            
+            retirementChart = new Chart(document.getElementById('retirement-paths-chart'), {
+                type: 'line',
+                data: {
+                    labels: Array.from({length: pathLen}, (_, i) => i),
+                    datasets
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: {
+                        mode: 'index',
+                        intersect: false
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: 'rgba(15, 23, 42, 0.95)',
+                            titleFont: { size: 13, weight: '600' },
+                            bodyFont: { size: 12 },
+                            padding: 12,
+                            cornerRadius: 10,
+                            callbacks: {
+                                title: (items) => items[0] ? `Year ${items[0].label}` : '',
+                                label: (item) => {
+                                    const val = item.raw;
+                                    const name = item.dataset.label || 'Path';
+                                    return name + ': $' + Math.round(val).toLocaleString('en-US');
+                                }
+                            }
+                        },
+                        zoom: {
+                            pan: {
+                                enabled: true,
+                                mode: 'xy',
+                                modifierKey: null
+                            },
+                            zoom: {
+                                wheel: { enabled: true },
+                                pinch: { enabled: true },
+                                drag: {
+                                    enabled: true,
+                                    backgroundColor: 'rgba(5, 150, 105, 0.15)',
+                                    borderColor: '#059669',
+                                    borderWidth: 1
+                                },
+                                mode: 'xy'
+                            },
+                            limits: {
+                                x: { min: 'original', max: 'original' },
+                                y: { min: 'original', max: 'original' }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: { display: true, text: 'Year in Retirement', color: '#64748b', font: { size: 11 } }
+                        },
+                        y: {
+                            title: { display: true, text: 'Portfolio Value', color: '#64748b', font: { size: 11 } },
+                            ticks: {
+                                callback: v => '$' + (v >= 1e6 ? (v/1e6).toFixed(1)+'M' : Math.round(v/1000)+'k')
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // ========== PDF EXPORT ==========
+        function loadImagePromise(src) {
+            return new Promise((resolve) => {
+                const img = new Image();
+                img.crossOrigin = 'anonymous';
+                img.onload = () => resolve(img);
+                img.onerror = () => resolve(null);
+                img.src = src;
+            });
+        }
+
+        function exportToPDF() {
+            const qrUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=10&data=' +
+                encodeURIComponent('https://pathtosoundretirement.com');
+            Promise.all([
+                loadImagePromise('ptsr.png'),
+                loadImagePromise(qrUrl)
+            ]).then(([logo, qr]) => buildRetirementPDF(logo, qr));
+        }
+
+        function buildRetirementPDF(logoImg, qrImg) {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF({ unit: 'mm', format: 'letter' });
+            const pageW = doc.internal.pageSize.getWidth();
+            const pageH = doc.internal.pageSize.getHeight();
+            const margin = 18;
+            const contentW = pageW - margin * 2;
+            const brand = [5, 150, 105]; // emerald
+            const dark = [30, 41, 59];
+            const muted = [100, 116, 139];
+            const lightBg = [240, 253, 244];
+            const qrSize = 18; // mm
+
+            // ---- helpers ----
+            function addFooter() {
+                const pages = doc.internal.getNumberOfPages();
+                for (let i = 1; i <= pages; i++) {
+                    doc.setPage(i);
+                    doc.setDrawColor(226, 232, 240);
+                    doc.setLineWidth(0.3);
+                    doc.line(margin, pageH - 12, pageW - margin, pageH - 12);
+                    doc.setFontSize(7.5);
+                    doc.setTextColor(...muted);
+                    // Left: brand + disclaimer (no center text — avoids overlap)
+                    doc.text('The Path to Sound Retirement  ·  by Jasper Saunders', margin, pageH - 7);
+                    doc.text('Educational only — not financial advice', margin, pageH - 3.5);
+                    // Right: page number
+                    doc.text(`Page ${i} of ${pages}`, pageW - margin, pageH - 5, { align: 'right' });
+                }
+            }
+
+            function sectionTitle(text, y) {
+                doc.setFontSize(13);
+                doc.setTextColor(...brand);
+                doc.setFont(undefined, 'bold');
+                doc.text(text, margin, y);
+                const tw = doc.getTextWidth(text);
+                doc.setFont(undefined, 'normal');
+                doc.setDrawColor(...brand);
+                doc.setLineWidth(0.45);
+                // Underline matches title width exactly
+                doc.line(margin, y + 1.8, margin + tw, y + 1.8);
+                return y + 8;
+            }
+
+            function placeQr(x, y, size) {
+                if (!qrImg) return;
+                try {
+                    doc.addImage(qrImg, 'PNG', x, y, size, size);
+                } catch (e) { /* ignore */ }
+            }
+
+            function addChartPreservingAspect(canvas, y, maxW, maxH) {
+                const aspect = canvas.height / Math.max(1, canvas.width);
+                let w = maxW;
+                let h = w * aspect;
+                if (h > maxH) {
+                    h = maxH;
+                    w = h / aspect;
+                }
+                const x = margin + (maxW - w) / 2;
+                try {
+                    const imgData = canvas.toDataURL('image/png', 1.0);
+                    doc.addImage(imgData, 'PNG', x, y, w, h);
+                } catch (e) { /* chart capture failed */ }
+                return y + h + 6;
+            }
+
+            function drawKVTable(rows, startY, col1W) {
+                let y = startY;
+                const rowH = 7;
+                rows.forEach((row, idx) => {
+                    if (idx % 2 === 0) {
+                        doc.setFillColor(248, 250, 252);
+                        doc.rect(margin, y - 4.5, contentW, rowH, 'F');
+                    }
+                    doc.setFontSize(10);
+                    doc.setTextColor(...muted);
+                    doc.text(row[0], margin + 3, y);
+                    doc.setTextColor(...dark);
+                    doc.setFont(undefined, 'bold');
+                    doc.text(String(row[1]), margin + col1W, y);
+                    doc.setFont(undefined, 'normal');
+                    y += rowH;
+                });
+                return y + 2;
+            }
+
+            function metricBox(x, y, w, h, label, value, accent) {
+                doc.setFillColor(...(accent ? lightBg : [248, 250, 252]));
+                doc.setDrawColor(...(accent ? brand : [226, 232, 240]));
+                doc.setLineWidth(0.4);
+                doc.roundedRect(x, y, w, h, 2, 2, 'FD');
+                doc.setFontSize(8);
+                doc.setTextColor(...muted);
+                doc.text(label, x + w / 2, y + 6, { align: 'center' });
+                doc.setFontSize(14);
+                doc.setTextColor(...(accent ? brand : dark));
+                doc.setFont(undefined, 'bold');
+                doc.text(String(value), x + w / 2, y + 15, { align: 'center' });
+                doc.setFont(undefined, 'normal');
+            }
+
+            function ensureSpace(y, needed) {
+                if (y + needed > pageH - 22) {
+                    doc.addPage();
+                    return 20;
+                }
+                return y;
+            }
+
+            // Gather inputs
+            const startBal = parseFloat(document.getElementById('starting-balance').value) || 0;
+            const monthlyContrib = parseFloat(document.getElementById('monthly-contrib').value) || 0;
+            const yearsToRetire = parseInt(document.getElementById('years-to-retire').value) || 0;
+            const returnRate = parseFloat(document.getElementById('return-rate').value) || 0;
+            const retirePort = parseFloat(document.getElementById('retire-portfolio').value) || 0;
+            const initWithdrawal = parseFloat(document.getElementById('initial-withdrawal').value) || 0;
+            const socialSec = parseFloat(document.getElementById('social-security').value) || 0;
+            const pensionIncome = parseFloat(document.getElementById('pension').value) || 0;
+            const taxRatePdf = parseFloat(document.getElementById('tax-rate').value) || 0;
+            const retYears = parseInt(document.getElementById('retirement-years').value) || 0;
+            const inflationRate = parseFloat(document.getElementById('inflation-rate').value) || 0;
+            const meanRet = parseFloat(document.getElementById('mean-return').value) || 0;
+            const volatility = parseFloat(document.getElementById('volatility').value) || 0;
+            const inflationPdf = inflationRate / 100;
+            const { schedule: wdSchedule, meta: planMeta } = buildNetWithdrawalSchedule(retYears, inflationPdf, taxRatePdf, initWithdrawal);
+            const netWdPdf = wdSchedule[0] || 0;
+            const planLabel = currentPlanningMode === 'household' ? 'Married' : 'Single';
+            const now = new Date();
+            const dateStr = now.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+            const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            const fileDate = now.toISOString().slice(0, 10);
+
+            // ========== PAGE 1: Cover / Executive Summary ==========
+            // Top brand bar
+            doc.setFillColor(...brand);
+            doc.rect(0, 0, pageW, 3, 'F');
+
+            let y = 12;
+            // QR code top-right (links to site)
+            placeQr(pageW - margin - qrSize, y, qrSize);
+            if (qrImg) {
+                doc.setFontSize(6.5);
+                doc.setTextColor(...muted);
+                doc.text('Scan for site', pageW - margin - qrSize / 2, y + qrSize + 3.5, { align: 'center' });
+            }
+
+            if (logoImg) {
+                try {
+                    doc.addImage(logoImg, 'PNG', margin, y, 16, 24);
+                } catch (e) { /* ignore logo failure */ }
+            }
+            const titleX = margin + (logoImg ? 20 : 0);
+            doc.setFontSize(17);
+            doc.setTextColor(...brand);
+            doc.setFont(undefined, 'bold');
+            doc.text('The Path to Sound Retirement', titleX, y + 9);
+            doc.setFont(undefined, 'normal');
+            doc.setFontSize(9.5);
+            doc.setTextColor(...muted);
+            doc.text('by Jasper Saunders', titleX, y + 15);
+            doc.text('Personal Retirement Planning Report', titleX, y + 20);
+            // Date sits left of QR
+            doc.setFontSize(8.5);
+            doc.text(`Generated ${dateStr}`, pageW - margin - qrSize - 4, y + 8, { align: 'right' });
+            doc.text(`at ${timeStr}`, pageW - margin - qrSize - 4, y + 12, { align: 'right' });
+
+            y = 44;
+            // Promise line
+            doc.setFillColor(...lightBg);
+            doc.roundedRect(margin, y, contentW, 14, 2, 2, 'F');
+            doc.setFontSize(12);
+            doc.setTextColor(...brand);
+            doc.setFont(undefined, 'bold');
+            doc.text('From pressure to peace.', margin + contentW / 2, y + 9, { align: 'center' });
+            doc.setFont(undefined, 'normal');
+
+            y = 70;
+            // Executive summary
+            y = sectionTitle('Executive Summary', y);
+
+            let summaryText = 'Run the growth projection and retirement simulation on the website to populate a full plain-English summary here.';
+            if (lastRetirementResults && accumulationData) {
+                const rate = parseFloat(lastRetirementResults.successRate);
+                let tone = rate >= 90 ? 'Your plan looks strong.'
+                    : rate >= 75 ? 'Your plan is reasonably solid.'
+                    : rate >= 50 ? 'Your plan has meaningful risk.'
+                    : 'Your plan faces significant pressure in many market sequences.';
+                if (lastRetirementResults.mode === 'montecarlo') {
+                    summaryText = `${tone} It succeeds in ${lastRetirementResults.successRate}% of 1,000 market scenarios. After ${accumulationData.years} years of growth, the projected portfolio is about ${formatFullCurrency(accumulationData.endingBalance)}. In retirement, the typical (median) ending balance is ${formatFullCurrency(lastRetirementResults.medianFinal)}; tougher markets (10th percentile) end near ${formatFullCurrency(lastRetirementResults.p10Final)}, and stronger ones (90th percentile) near ${formatFullCurrency(lastRetirementResults.p90Final)}.`;
+                } else {
+                    summaryText = `Deterministic projection: with a fixed return each year, the plan ${rate >= 100 ? 'lasts the full retirement period' : 'runs out of money early'}. Projected portfolio at retirement: ${formatFullCurrency(accumulationData.endingBalance)}. Ending balance: ${formatFullCurrency(lastRetirementResults.medianFinal)}.`;
+                }
+            } else if (accumulationData) {
+                summaryText = `After ${accumulationData.years} years of contributions and growth at ${(accumulationData.annualRate * 100).toFixed(1)}% average annual return, your portfolio is projected to reach about ${formatFullCurrency(accumulationData.endingBalance)}. Of that, ${formatFullCurrency(accumulationData.totalContributed)} comes from contributions and ${formatFullCurrency(accumulationData.totalGrowth)} from investment growth. Run a retirement simulation for sustainability results.`;
+            } else if (lastRetirementResults) {
+                const rate = parseFloat(lastRetirementResults.successRate);
+                summaryText = `Retirement simulation success rate: ${lastRetirementResults.successRate}%. Median ending balance: ${formatFullCurrency(lastRetirementResults.medianFinal)}. Run a growth projection for a complete picture.`;
+            }
+
+            doc.setFontSize(10);
+            doc.setTextColor(...dark);
+            const splitSummary = doc.splitTextToSize(summaryText, contentW);
+            doc.text(splitSummary, margin, y);
+            y += splitSummary.length * 5 + 8;
+
+            // Key metric callouts
+            if (lastRetirementResults || accumulationData) {
+                const boxW = (contentW - 9) / 4;
+                const boxH = 22;
+                if (lastRetirementResults) {
+                    metricBox(margin, y, boxW, boxH, 'SUCCESS RATE', lastRetirementResults.successRate + '%', true);
+                    metricBox(margin + boxW + 3, y, boxW, boxH, '10TH PERCENTILE', formatCurrency(lastRetirementResults.p10Final), false);
+                    metricBox(margin + 2 * (boxW + 3), y, boxW, boxH, 'MEDIAN ENDING', formatCurrency(lastRetirementResults.medianFinal), true);
+                    metricBox(margin + 3 * (boxW + 3), y, boxW, boxH, '90TH PERCENTILE', formatCurrency(lastRetirementResults.p90Final), false);
+                } else if (accumulationData) {
+                    metricBox(margin, y, boxW, boxH, 'ENDING PORTFOLIO', formatCurrency(accumulationData.endingBalance), true);
+                    metricBox(margin + boxW + 3, y, boxW, boxH, 'TOTAL CONTRIBUTED', formatCurrency(accumulationData.totalContributed), false);
+                    metricBox(margin + 2 * (boxW + 3), y, boxW, boxH, 'TOTAL GROWTH', formatCurrency(accumulationData.totalGrowth), true);
+                    metricBox(margin + 3 * (boxW + 3), y, boxW, boxH, 'YEARS TO GROW', String(accumulationData.years), false);
+                }
+                y += boxH + 12;
+            }
+
+            // ========== SECTION 1: Growth Projection (matches site order) ==========
+            doc.addPage();
+            y = 20;
+            y = sectionTitle('1. Growth Projection', y);
+            doc.setFontSize(9);
+            doc.setTextColor(...muted);
+            doc.text('Starting balance, contributions, and compounding over time — same order as on the website.', margin, y);
+            y += 8;
+
+            y = sectionTitle('Inputs', y);
+            y = drawKVTable([
+                ['Current Portfolio Balance', formatFullCurrency(startBal)],
+                ['Monthly Contribution', formatFullCurrency(monthlyContrib)],
+                ['Years to Grow', yearsToRetire + ' years'],
+                ['Expected Annual Return', returnRate + '%']
+            ], y, 70);
+
+            y = ensureSpace(y, 45);
+            y = sectionTitle('Results', y);
+            if (accumulationData) {
+                y = drawKVTable([
+                    ['Total Contributed', formatFullCurrency(accumulationData.totalContributed)],
+                    ['Total Growth', formatFullCurrency(accumulationData.totalGrowth)],
+                    ['Ending Portfolio', formatFullCurrency(accumulationData.endingBalance)],
+                    ['Compounding Period', `${accumulationData.years} years at ${(accumulationData.annualRate * 100).toFixed(1)}% avg annual return`]
+                ], y, 75);
+            } else {
+                doc.setFontSize(10);
+                doc.setTextColor(...muted);
+                doc.text('Growth projection has not been calculated yet.', margin, y);
+                y += 10;
+            }
+
+            const accCanvas = document.getElementById('accumulation-chart');
+            if (accCanvas && accCanvas.width > 0 && accumulationData) {
+                y = ensureSpace(y, 85);
+                y = sectionTitle('Growth Chart', y);
+                y = addChartPreservingAspect(accCanvas, y, contentW, 72);
+            }
+
+            // ========== SECTION 2: Test Your Retirement Plan ==========
+            doc.addPage();
+            y = 20;
+            y = sectionTitle('2. Test Your Retirement Plan', y);
+            doc.setFontSize(9);
+            doc.setTextColor(...muted);
+            doc.text('Risk assessment & sustainability analysis — inputs, then results, matching the site.', margin, y);
+            y += 8;
+
+            const simLabel = currentSimMode === 'montecarlo'
+                ? `Monte Carlo (${meanRet}% mean, ${volatility}% vol, 1,000 runs)`
+                : 'Deterministic (fixed return)';
+
+            y = sectionTitle('Planning mode & portfolio', y);
+            y = drawKVTable([
+                ['Planning for', planLabel + ' (planning only — not tax filing status)'],
+                [planLabel === 'Married' ? 'Combined portfolio at first retirement' : 'Portfolio at retirement', formatFullCurrency(retirePort)],
+                ['Annual retirement spending (after-tax)', formatFullCurrency(initWithdrawal)],
+                ['Effective tax rate on withdrawals', taxRatePdf + '%'],
+                ['Year-1 net portfolio withdrawal', formatFullCurrency(netWdPdf)]
+            ], y, 95);
+
+            y = ensureSpace(y, 55);
+            y = sectionTitle(planLabel === 'Married' ? 'You & spouse' : 'Your ages & other income', y);
+            let personRows;
+            if (currentPlanningMode === 'individual') {
+                personRows = [
+                    ['Current age', String(numVal('s-current-age', 0))],
+                    ['Retirement age', String(numVal('s-retire-age', 0))],
+                    ['SS claim age', String(numVal('s-ss-claim-age', 0))],
+                    ['Annual Social Security (today’s $)', formatFullCurrency(socialSec)],
+                    ['Annual pension / other (today’s $)', formatFullCurrency(pensionIncome)],
+                    ['Pension start age', String(numVal('s-pension-start-age', 0))]
+                ];
+            } else {
+                personRows = [
+                    ['You — current / retire / SS claim age',
+                        `${numVal('a-current-age', 0)} / ${numVal('a-retire-age', 0)} / ${numVal('a-ss-claim-age', 0)}`],
+                    ['You — annual SS / pension (today’s $)',
+                        `${formatFullCurrency(numVal('a-ss-annual', 0))} / ${formatFullCurrency(numVal('a-pension-annual', 0))}`],
+                    ['You — pension start age', String(numVal('a-pension-start-age', 0))],
+                    ['Spouse — current / retire / SS claim age',
+                        `${numVal('b-current-age', 0)} / ${numVal('b-retire-age', 0)} / ${numVal('b-ss-claim-age', 0)}`],
+                    ['Spouse — annual SS / pension (today’s $)',
+                        `${formatFullCurrency(numVal('b-ss-annual', 0))} / ${formatFullCurrency(numVal('b-pension-annual', 0))}`],
+                    ['Spouse — pension start age', String(numVal('b-pension-start-age', 0))]
+                ];
+            }
+            y = drawKVTable(personRows, y, 95);
+
+            y = ensureSpace(y, 40);
+            y = sectionTitle('Simulation settings', y);
+            y = drawKVTable([
+                ['Years in retirement (from first retirement)', retYears + ' years'],
+                ['Inflation rate', inflationRate + '% per year'],
+                ['Simulation mode', simLabel]
+            ], y, 95);
+
+            // Other-income schedule
+            if (planMeta && planMeta.segments && planMeta.segments.length) {
+                y = ensureSpace(y, 20 + planMeta.segments.length * 7);
+                y = sectionTitle('Other income schedule', y);
+                doc.setFontSize(9);
+                doc.setTextColor(...muted);
+                doc.text('Benefits reduce portfolio draw only after each claim/start age. Amounts in today’s dollars.', margin, y);
+                y += 6;
+                const schedRows = planMeta.segments.map(s => {
+                    const range = s.from === s.to ? `Year ${s.from}` : `Years ${s.from}–${s.to}`;
+                    return [range, formatFullCurrency(s.other) + ' / year'];
+                });
+                if (planMeta.firstRetireYear !== undefined) {
+                    schedRows.unshift([
+                        planMeta.single ? 'Retirement (from today)' : 'First retirement (from today)',
+                        planMeta.firstRetireYear + (planMeta.firstRetireYear === 1 ? ' year' : ' years')
+                    ]);
+                }
+                if (planMeta.bridgeYears > 0) {
+                    schedRows.splice(1, 0, ['One-spouse work bridge', planMeta.bridgeYears + ' years']);
+                }
+                y = drawKVTable(schedRows, y, 70);
+            }
+
+            y = ensureSpace(y, 50);
+            y = sectionTitle('Sustainability results', y);
+            if (lastRetirementResults) {
+                y = drawKVTable([
+                    ['Success Rate', lastRetirementResults.successRate + '% of simulations'],
+                    ['10th Percentile (tough markets)', formatFullCurrency(lastRetirementResults.p10Final)],
+                    ['Median Final Portfolio Value', formatFullCurrency(lastRetirementResults.medianFinal)],
+                    ['90th Percentile (favorable markets)', formatFullCurrency(lastRetirementResults.p90Final)],
+                    ['Year-1 net portfolio withdrawal', formatFullCurrency(netWdPdf)]
+                ], y, 85);
+                if (lastRetirementResults.mode === 'deterministic' && lastRetirementResults.depleted) {
+                    doc.setFontSize(10);
+                    doc.setTextColor(180, 83, 9);
+                    doc.text(`Note: Portfolio depleted after approximately ${lastRetirementResults.depleted} years in deterministic mode.`, margin, y);
+                    y += 8;
+                }
+            } else {
+                doc.setFontSize(10);
+                doc.setTextColor(...muted);
+                doc.text('Retirement simulation has not been run yet.', margin, y);
+                y += 10;
+            }
+
+            // Retirement percentile chart
+            const retCanvas = document.getElementById('retirement-paths-chart');
+            if (retCanvas && retCanvas.width > 0 && lastRetirementResults) {
+                doc.addPage();
+                y = 18;
+                placeQr(pageW - margin - 14, 10, 14);
+                y = sectionTitle('Retirement path percentiles', y);
+                doc.setFontSize(10);
+                doc.setTextColor(...dark);
+                doc.text('Portfolio value over the retirement period across percentile outcomes from the simulation.', margin, y);
+                y += 6;
+                doc.setFontSize(9);
+                doc.setTextColor(...muted);
+                doc.text('10th = tough markets · 25th = below average · Median = typical · 75th = above average · 90th = strong markets', margin, y);
+                y += 8;
+                y = addChartPreservingAspect(retCanvas, y, contentW, 92);
+
+                doc.setFontSize(9);
+                doc.setTextColor(...muted);
+                const legend = [
+                    '10th Percentile — Only 10% of outcomes were worse (stress case)',
+                    '25th Percentile — Below-average market sequence',
+                    'Median (50th) — Typical outcome; half of simulations did better, half worse',
+                    '75th Percentile — Above-average market sequence',
+                    '90th Percentile — Only 10% of outcomes were better (strong case)'
+                ];
+                legend.forEach(line => {
+                    doc.text('•  ' + line, margin, y);
+                    y += 5;
+                });
+            }
+
+            // ========== Notes page ==========
+            doc.addPage();
+            y = 20;
+            y = sectionTitle('Notes & Key Assumptions', y);
+            doc.setFontSize(10);
+            doc.setTextColor(...dark);
+            const notes = [
+                'Monetary values in summary cards may be rounded for readability; detailed figures use full precision where shown.',
+                'Volatility % is the expected year-to-year fluctuation (standard deviation) of portfolio returns. Higher volatility creates wider outcome ranges. The default of 15% approximates a typical diversified stock portfolio.',
+                'Monte Carlo runs 1,000 random market sequences drawn from a normal distribution using your mean return and volatility to model sequence-of-returns risk (the order of returns matters).',
+                'Social Security and pension reduce portfolio withdrawals only in years after each person’s claim or start age. Single and Married modes use the same timing rules; Married supports two people with different ages. “Single” and “Married” are planning labels, not tax filing status.',
+                'The estimated tax rate grosses up the required portfolio withdrawal so after-tax spending matches your target.',
+                'This tool assumes constant contribution and spending rates and does not model changing tax law, investment fees, or variable lifestyle spending.',
+                'Deterministic mode uses a fixed return every year for a single smooth path (no randomness).',
+                'Results are educational and illustrative only. Past or simulated returns do not guarantee future results.'
+            ];
+            notes.forEach(note => {
+                const lines = doc.splitTextToSize('•  ' + note, contentW);
+                y = ensureSpace(y, lines.length * 5 + 3);
+                doc.text(lines, margin, y);
+                y += lines.length * 5 + 3;
+            });
+
+            y = ensureSpace(y, 28);
+            y += 6;
+            doc.setFillColor(254, 252, 232);
+            doc.roundedRect(margin, y, contentW, 22, 2, 2, 'F');
+            doc.setFontSize(9);
+            doc.setTextColor(120, 113, 108);
+            doc.text('Disclaimer', margin + 4, y + 7);
+            doc.setFontSize(8.5);
+            doc.text('For educational and illustrative purposes only. Not financial, investment, tax, or legal advice.', margin + 4, y + 13);
+            doc.text('Consult a qualified financial advisor before making retirement decisions.', margin + 4, y + 18);
+
+            y += 28;
+            // Closing block with QR on last page
+            const closeH = qrImg ? 28 : 12;
+            y = ensureSpace(y, closeH + 4);
+            doc.setFillColor(...lightBg);
+            doc.roundedRect(margin, y, contentW, closeH, 2, 2, 'F');
+            if (qrImg) {
+                placeQr(margin + 4, y + 5, 18);
+                doc.setFontSize(10);
+                doc.setTextColor(...brand);
+                doc.setFont(undefined, 'bold');
+                doc.text('Continue your path', margin + 26, y + 11);
+                doc.setFont(undefined, 'normal');
+                doc.setFontSize(9);
+                doc.setTextColor(...dark);
+                doc.text('pathtosoundretirement.com', margin + 26, y + 17);
+                doc.setFontSize(8);
+                doc.setTextColor(...muted);
+                doc.text('Scan the code or visit the site to update your plan anytime.', margin + 26, y + 22);
+            } else {
+                doc.setFontSize(10);
+                doc.setTextColor(...brand);
+                doc.text('Continue your path: pathtosoundretirement.com', margin + 4, y + 8);
+            }
+
+            addFooter();
+            doc.save(`Path-to-Sound-Retirement-${fileDate}.pdf`);
+        }
+
+        // ========== RESET ==========
+        function resetAllInputs() {
+            if (!confirm('Reset all inputs and clear results?')) return;
+            location.reload();
+        }
+
+        // ========== INIT ==========
+        window.onload = function() {
+            updateAccumulationInputs();
+            updateRetirementInputs();
+            setSimMode('montecarlo');
+            setTimeout(calculateAccumulation, 300);
+        };
+    </script>
+</body>
+</html>
