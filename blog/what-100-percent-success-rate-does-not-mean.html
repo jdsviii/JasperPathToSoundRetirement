@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="What a 100% Monte Carlo success rate means — and what it does not guarantee for your retirement plan.">
+    <title>What a 100% Success Rate Does *Not* Mean | The Path to Sound Retirement</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { display: ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif'], sans: ['Inter', 'system-ui', 'sans-serif'] } } } }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .font-display { font-family: 'Space Grotesk', 'Inter', sans-serif; }
+        .dark body { background-color: #0f172a; color: #e2e8f0; }
+        .dark .bg-white { background-color: #1e293b !important; }
+        .dark .text-slate-900 { color: #f1f5f9 !important; }
+        .dark .text-slate-700, .dark .text-slate-600 { color: #94a3b8 !important; }
+        .dark .border-slate-200 { border-color: #334155 !important; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+    <header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3">
+            <div class="flex items-center justify-between">
+                <a href="../index.html" class="flex items-center gap-3">
+                    <img src="../ptsr.png" alt="The Path to Sound Retirement" class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl shadow-lg object-contain">
+                    <div>
+                        <h1 class="text-lg sm:text-2xl font-display font-semibold text-slate-900 dark:text-white leading-tight">The Path to Sound Retirement</h1>
+                        <p class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400">by Jasper Saunders</p>
+                    </div>
+                </a>
+                <nav class="hidden sm:flex items-center gap-6 text-sm font-medium">
+                    <a href="../index.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600">Calculator</a>
+                    <a href="../blog.html" class="text-emerald-600 font-semibold">Learning</a>
+                    <a href="../about.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600">About</a>
+                    <a href="../contact.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600">Contact</a>
+                </nav>
+                <button id="darkModeToggle" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+                    <i class="fa-solid fa-moon dark:hidden"></i>
+                    <i class="fa-solid fa-sun hidden dark:inline"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-3xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
+        <article class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 p-6 sm:p-10 shadow-sm">
+            <div class="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-3">Reading Results</div>
+            <h1 class="text-3xl sm:text-4xl font-display font-bold text-slate-900 dark:text-white mb-4">What a 100% Success Rate Does *Not* Mean</h1>
+            <p class="text-sm text-slate-500 mb-8">By Jasper Saunders • Educational content only</p>
+
+            <div class="prose prose-slate dark:prose-invert max-w-none space-y-5 text-slate-700 dark:text-slate-300 leading-relaxed">
+                <p>Seeing <strong>100%</strong> on a retirement simulation feels like a finish line. The chart is green. The summary says the plan looks strong. It is tempting to exhale, close the laptop, and treat the problem as solved.</p>
+                <p>I want you to enjoy a strong result. I also want you to understand it. A 100% success rate in a Monte Carlo exercise is <strong>not</strong> a guarantee that you cannot run out of money. It is a statement about a specific set of rules, assumptions, and random paths—not about the full future.</p>
+                <p>This article explains what that number is, what it is not, and how to use it without false comfort or false despair.</p>
+                <hr class="border-slate-200 dark:border-slate-700 my-6">
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">What the success rate measures</h2>
+                <p>In the calculator’s Monte Carlo mode, the tool runs many simulated market sequences (on the order of a thousand) using your assumed <strong>mean return</strong> and <strong>volatility</strong>. For each sequence it applies your withdrawal rules, other income, inflation setting, and time horizon.</p>
+                <p><strong>Success</strong> for a path means the portfolio made it through the full retirement period under those rules without being depleted. <strong>Success rate</strong> is the percentage of those simulated paths that succeeded.</p>
+                <p>So if you see 100%, it means: <em>Under these assumptions, in these simulations, every tested sequence lasted.</em> If you see 80%, it means: <em>About four out of five tested sequences lasted; about one out of five did not.</em></p>
+                <p>That is useful information. It is still a model.</p>
+                <hr class="border-slate-200 dark:border-slate-700 my-6">
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">What 100% does <strong>not</strong> mean</h2>
+                <h3 class="text-xl font-display font-semibold text-slate-900 dark:text-white mt-6">1. It does not mean markets cannot surprise you</h3>
+                <p>Simulations draw from a statistical model of returns. Real markets can produce longer storms, different inflation, policy shocks, or personal shocks (health, divorce, job loss before retirement) that your inputs never encoded. History and models inform. They do not bind the future.</p>
+                <h3 class="text-xl font-display font-semibold text-slate-900 dark:text-white mt-6">2. It does not mean your inputs are “correct”</h3>
+                <p>100% on aggressive returns, tiny spending, and a short horizon is a different claim than 100% on moderate returns, full lifestyle spending, and a long horizon. The rate always inherits your assumptions. Optimistic inputs can “earn” a high success rate the same way a generous grading curve can produce high scores.</p>
+                <h3 class="text-xl font-display font-semibold text-slate-900 dark:text-white mt-6">3. It does not mean you should increase spending until the rate drops</h3>
+                <p>Some people treat 100% as unused capacity: <em>If I’m at 100%, I must be able to spend more.</em> Sometimes spending can rise modestly. Sometimes the buffer is what lets you sleep at night or absorb a long care event. A plan can be strong and still deserve margin.</p>
+                <h3 class="text-xl font-display font-semibold text-slate-900 dark:text-white mt-6">4. It does not replace tax, fee, or product detail</h3>
+                <p>The tool uses simplified tax gross-up and constant rules. Account types, brackets, Roth conversions, sequence of account withdrawals, and advisory fees can change real-world durability. Treat the simulation as a structural stress test, not a full financial plan.</p>
+                <h3 class="text-xl font-display font-semibold text-slate-900 dark:text-white mt-6">5. It does not mean you are done monitoring</h3>
+                <p>Life changes. Markets change. Health and family obligations change. A result from this year is a snapshot. Revisit when major inputs move—not every day, but when reality shifts.</p>
+                <hr class="border-slate-200 dark:border-slate-700 my-6">
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">What a lower success rate does <strong>not</strong> mean</h2>
+                <p>While we are clearing misunderstandings: a 70% or 60% result is not a moral verdict and not a prophecy of failure.</p>
+                <p>It often means one or more of the following:</p>
+                <ul class="list-disc pl-6 space-y-2"><li>Spending is high relative to the portfolio</li><li>The retirement horizon is long</li><li>Other income is low</li><li>Return/volatility assumptions are conservative (or optimistic spending meets harsh markets in the tails)</li><li>You’re testing a tough sequence environment on purpose</li></ul>
+                <p>The productive response is to <strong>identify the lever</strong>: save more before retirement, spend less, delay retirement, adjust asset mix with eyes open, or build flexible spending rules. Panic is not a lever. Neither is ignoring the result.</p>
+                <hr class="border-slate-200 dark:border-slate-700 my-6">
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">How to read 100% like an adult</h2>
+                <p>When the calculator shows a very high success rate, run a short challenge routine:</p>
+                <ol class="list-decimal pl-6 space-y-2"><li><strong>Raise annual spending by 10–20%</strong> and rerun. How far did the rate fall?</li><li><strong>Lower the mean return</strong> by a percentage point or two and rerun.</li><li><strong>Increase volatility</strong> modestly and rerun.</li><li><strong>Add two to five years</strong> to the retirement horizon and rerun.</li></ol>
+                <p>If the plan only looks perfect under the friendliest framing, you have learned something important. If it remains resilient under mild stress, you have a sturdier reason for confidence.</p>
+                <p>Also look at the <strong>percentiles</strong>, not only the success rate:</p>
+                <ul class="list-disc pl-6 space-y-2"><li>The <strong>10th percentile</strong> ending value shows tougher worlds.</li><li>The <strong>median</strong> shows a typical middle.</li><li>The <strong>90th percentile</strong> shows stronger worlds.</li></ul>
+                <p>A plan can succeed in most paths and still leave a wide range of ending wealth. Success means “did not fail.” It does not mean “always finished rich.”</p>
+                <hr class="border-slate-200 dark:border-slate-700 my-6">
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">A plain example</h2>
+                <p>Imagine two households, both shown 100% in a simulation.</p>
+                <p><strong>Household A:</strong> Large portfolio, modest spending, Social Security covering a big share of the budget, moderate return assumption. <strong>Household B:</strong> Borderline portfolio, spending stretched, minimal other income, high return assumption.</p>
+                <p>Same headline number. Different fragility. Household B’s 100% may collapse when return assumptions are normalized. Household A’s may hold. The responsible move is to pressure-test both—especially B.</p>
+                <p>This is why the calculator pairs a success rate with percentile paths and a short written summary. The number is the start of interpretation, not the end.</p>
+                <hr class="border-slate-200 dark:border-slate-700 my-6">
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">Confidence without superstition</h2>
+                <p>I want you to feel peace when the math supports it. Peace is not the same as superstition about a percentage.</p>
+                <p><strong>Healthy confidence</strong> sounds like: “Under conservative-enough assumptions, the plan held up across a wide set of sequences. We have margin. We’ll revisit if spending or markets change our situation.”</p>
+                <p><strong>Unhealthy confidence</strong> sounds like: “The tool said 100%, so nothing can go wrong.”</p>
+                <p><strong>Healthy concern</strong> sounds like: “The rate is lower than I want. Here’s the input I’m changing this year.”</p>
+                <p><strong>Unhealthy despair</strong> sounds like: “The rate isn’t 100%, so there’s no point in trying.”</p>
+                <p>Your character shows up in which voice you choose.</p>
+                <hr class="border-slate-200 dark:border-slate-700 my-6">
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">Practical next steps after any result</h2>
+                <ul class="list-disc pl-6 space-y-2"><li>Save or export the run so you remember the inputs, not only the headline.</li><li>Discuss it with a spouse or trusted advisor using the same numbers.</li><li>Link behavior to the result: contribution rate, debt payoff, spending caps, work horizon.</li><li>Read related Learning articles on sequence of returns, volatility, and the 4% rule so the mechanics make sense.</li><li>Re-run when your life changes—not when cable news is loud.</li></ul>
+                <hr class="border-slate-200 dark:border-slate-700 my-6">
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">Closing</h2>
+                <p>A 100% success rate means the simulated plan survived the simulated storms you asked the computer to throw at it. That is encouraging. It is not a covenant with the future.</p>
+                <p>Use strong results as evidence that your direction is reasonable—then keep the habits that made the inputs possible. Use weak results as information—then adjust with a clear head.</p>
+                <p>The path to a sound retirement is not a single score. It is a pattern of honest assumptions, durable behavior, and enough humility to keep learning when the chart looks good and when it does not.</p>
+                <p class="text-sm text-slate-500 italic">This article is for educational purposes only and is not financial advice. Always consult a qualified advisor for decisions about your personal situation.</p>
+            </div>
+
+            <div class="mt-10 pt-6 border-t border-slate-200 dark:border-slate-700 flex flex-wrap gap-4">
+                <a href="../blog.html" class="text-emerald-600 hover:underline font-medium">← Back to Learning</a>
+                <a href="../index.html" class="text-emerald-600 hover:underline font-medium">Try the Calculator →</a>
+            </div>
+        </article>
+    </main>
+
+        <footer class="text-center text-xs text-slate-400 dark:text-slate-500 py-8 border-t border-slate-200 dark:border-slate-700 mt-10">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-4 mb-4 text-sm">
+                <a href="../index.html" class="hover:text-emerald-600">Calculator</a>
+                <a href="../blog.html" class="hover:text-emerald-600">Learning</a>
+                <a href="../about.html" class="hover:text-emerald-600">About</a>
+                <a href="../privacy.html" class="hover:text-emerald-600">Privacy</a>
+                <a href="../terms.html" class="hover:text-emerald-600">Terms</a>
+                <a href="../contact.html" class="hover:text-emerald-600">Contact</a>
+            </div>
+            The Path to Sound Retirement by Jasper Saunders • For educational purposes only. Not financial advice.
+        </div>
+    </footer>
+
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const html = document.documentElement;
+        function getDarkModePref() {
+            try {
+                const saved = localStorage.getItem('darkMode');
+                if (saved !== null) return saved === 'true';
+                return window.matchMedia('(prefers-color-scheme: dark)').matches;
+            } catch (e) {
+                return window.matchMedia('(prefers-color-scheme: dark)').matches;
+            }
+        }
+        function setDarkModePref(val) {
+            try { localStorage.setItem('darkMode', val); } catch (e) {}
+        }
+        if (getDarkModePref()) html.classList.add('dark');
+        darkModeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            setDarkModePref(html.classList.contains('dark'));
+        });
+    </script>
+</body>
+</html>
