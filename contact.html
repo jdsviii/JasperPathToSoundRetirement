@@ -65,7 +65,26 @@
     <main class="max-w-3xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
         <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 p-6 sm:p-10 shadow-sm">
             <h1 class="text-3xl sm:text-4xl font-display font-bold text-slate-900 dark:text-white mb-2">Contact</h1>
-            <p class="text-slate-600 dark:text-slate-300 mb-8">Have a question, suggestion, or found a bug? I’d love to hear from you.</p>
+            <p class="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
+                I'm Jasper Saunders, creator of The Path to Sound Retirement. If you have a question about the calculator, a suggestion for the Learning articles, a bug report, or a privacy-related request, you're welcome to reach out.
+            </p>
+
+            <div class="prose prose-slate dark:prose-invert max-w-none space-y-4 text-slate-700 dark:text-slate-300 mb-8">
+                <h2 class="text-xl font-display font-semibold text-slate-900 dark:text-white">What I can help with</h2>
+                <ul class="list-disc pl-6 space-y-2 text-sm sm:text-base">
+                    <li>How a control or result on the calculator is meant to be read</li>
+                    <li>Bugs, unclear wording, or accessibility issues on the site</li>
+                    <li>Ideas for new Learning topics that fit the educational focus</li>
+                    <li>Privacy or data questions about how the tool runs in your browser</li>
+                </ul>
+                <h2 class="text-xl font-display font-semibold text-slate-900 dark:text-white">What I cannot provide</h2>
+                <p class="text-sm sm:text-base">
+                    I cannot give personalized financial, investment, tax, or legal advice. I will not recommend specific products, tell you how much you should save, or review your full financial situation. The site is educational. Decisions about your money remain yours - ideally with a qualified professional when the stakes are high.
+                </p>
+                <p class="text-sm sm:text-base">
+                    For background on who built this tool and how it is framed, see the <a href="about.html" class="text-emerald-600 hover:underline">About</a> page. For how data is handled, see <a href="privacy.html" class="text-emerald-600 hover:underline">Privacy</a>.
+                </p>
+            </div>
 
             <div class="space-y-6">
                 <div class="flex items-start gap-4 p-4 bg-slate-50 dark:bg-slate-700/50 rounded-2xl">
@@ -74,7 +93,7 @@
                     </div>
                     <div>
                         <h3 class="font-semibold text-slate-900 dark:text-white">X (Twitter)</h3>
-                        <p class="text-sm text-slate-600 dark:text-slate-300 mb-1">Best for quick questions and feedback</p>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 mb-1">Best for quick questions and public feedback</p>
                         <a href="https://x.com/jasper_saunders" target="_blank" rel="noopener" class="text-emerald-600 hover:underline font-medium">@jasper_saunders</a>
                     </div>
                 </div>
@@ -85,15 +104,14 @@
                     </div>
                     <div>
                         <h3 class="font-semibold text-slate-900 dark:text-white">Email</h3>
-                        <p class="text-sm text-slate-600 dark:text-slate-300 mb-1">For longer messages or privacy-related requests</p>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 mb-1">Longer messages, bug details, or privacy-related requests</p>
                         <a href="mailto:jasper.saunders.tools@gmail.com" class="text-emerald-600 hover:underline font-medium">jasper.saunders.tools@gmail.com</a>
-                        <p class="text-xs text-slate-500 mt-1">(Replace with your preferred email if different)</p>
                     </div>
                 </div>
 
-                <div class="pt-4">
-                    <p class="text-sm text-slate-500 dark:text-slate-400">
-                        I aim to respond within a few days. Please note that I cannot provide personalized financial advice.
+                <div class="p-4 rounded-2xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800/50">
+                    <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                        I aim to respond within a few days. Response times may be longer during busy periods. If your message is about a bug, a short description of the page, device, and what you expected versus what happened helps a lot.
                     </p>
                 </div>
 
@@ -124,38 +142,23 @@
     <script>
         const darkModeToggle = document.getElementById('darkModeToggle');
         const html = document.documentElement;
-
-        // Safe localStorage access (handles sandboxed iframes, private browsing, etc.)
         function getDarkModePref() {
             try {
                 const saved = localStorage.getItem('darkMode');
-                if (saved !== null) {
-                    return saved === 'true';
-                }
+                if (saved !== null) return saved === 'true';
                 return window.matchMedia('(prefers-color-scheme: dark)').matches;
             } catch (e) {
-                // Sandboxed or storage unavailable
                 return window.matchMedia('(prefers-color-scheme: dark)').matches;
             }
         }
-        
         function setDarkModePref(isDark) {
-            try {
-                localStorage.setItem('darkMode', isDark);
-            } catch (e) {
-                // Ignore if storage unavailable (e.g., sandboxed document)
-            }
+            try { localStorage.setItem('darkMode', isDark); } catch (e) {}
         }
-        
-        if (getDarkModePref()) {
-            html.classList.add('dark');
-        }
+        if (getDarkModePref()) html.classList.add('dark');
         darkModeToggle.addEventListener('click', () => {
             html.classList.toggle('dark');
             setDarkModePref(html.classList.contains('dark'));
         });
-
-        // Mobile menu
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
         if (mobileMenuBtn && mobileMenu) {
