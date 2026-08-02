@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Jasper Saunders - B.S. Finance, financial analyst, and creator of The Path to Sound Retirement, a free browser-based retirement planning tool.">
+    <title>About | The Path to Sound Retirement by Jasper Saunders</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .font-display { font-family: 'Space Grotesk', 'Inter', sans-serif; }
+        .dark body { background-color: #0f172a; color: #e2e8f0; }
+        .dark .bg-white { background-color: #1e293b !important; }
+        .dark .bg-slate-50 { background-color: #0f172a !important; }
+        .dark .text-slate-900 { color: #f1f5f9 !important; }
+        .dark .text-slate-700, .dark .text-slate-600, .dark .text-slate-500 { color: #94a3b8 !important; }
+        .dark .border-slate-200 { border-color: #334155 !important; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center gap-3">
+                    <img src="ptsr.png" alt="The Path to Sound Retirement" class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl shadow-lg object-contain">
+                    <div>
+                        <h1 class="text-lg sm:text-2xl font-display font-semibold text-slate-900 dark:text-white leading-tight">
+                            The Path to Sound Retirement
+                        </h1>
+                        <p class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400">
+                            by Jasper Saunders
+                        </p>
+                    </div>
+                </a>
+                <div class="flex items-center gap-2">
+                    <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+                        <a href="index.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600 transition-colors">Calculator</a>
+                        <a href="blog.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600 transition-colors">Learning</a>
+                        <a href="about.html" class="text-emerald-600 font-semibold">About</a>
+                        <a href="contact.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600 transition-colors">Contact</a>
+                    </nav>
+                    <button id="darkModeToggle" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:inline"></i>
+                    </button>
+                    <button id="mobileMenuBtn" class="md:hidden p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors" title="Menu">
+                        <i class="fa-solid fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-700 mt-3 pt-3 pb-2">
+                <nav class="flex flex-col gap-1">
+                    <a href="index.html" class="px-4 py-3 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">Calculator</a>
+                    <a href="blog.html" class="px-4 py-3 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">Learning</a>
+                    <a href="about.html" class="px-4 py-3 rounded-xl text-emerald-600 font-semibold bg-emerald-50 dark:bg-emerald-900/30">About</a>
+                    <a href="contact.html" class="px-4 py-3 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">Contact</a>
+                    <a href="privacy.html" class="px-4 py-3 rounded-xl text-slate-500 dark:text-slate-400 text-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">Privacy</a>
+                    <a href="terms.html" class="px-4 py-3 rounded-xl text-slate-500 dark:text-slate-400 text-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">Terms</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
+        <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 p-6 sm:p-10 shadow-sm">
+            <div class="flex flex-col sm:flex-row items-start gap-8 mb-10">
+                <!-- Logo / Photo -->
+                <img src="ptsr.png" alt="The Path to Sound Retirement" class="w-32 h-32 sm:w-40 sm:h-40 rounded-2xl shadow-lg object-contain flex-shrink-0">
+                <div>
+                    <h1 class="text-3xl sm:text-4xl font-display font-bold text-slate-900 dark:text-white mb-2">Jasper Saunders</h1>
+                    <p class="text-emerald-600 font-medium mb-4">Creator of The Path to Sound Retirement</p>
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                        I’m a husband, father, and lifelong learner living in Virginia. I hold a B.S. in Finance from George Mason University and have spent my professional career in financial analysis, pricing, and risk modeling for large federal telecommunications contracts. That work taught me to respect numbers, test assumptions, and explain complexity without hiding the hard parts - the same habits I bring to this site.
+                    </p>
+                </div>
+            </div>
+
+            <div class="prose prose-slate dark:prose-invert max-w-none space-y-6 text-slate-700 dark:text-slate-300">
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white">Professional Background</h2>
+                <p>
+                    For more than two decades I have worked at the intersection of finance, data, and complex contracts. My roles have included Lead Analyst and Lead Technical Analyst at Noblis, Senior Data Analyst and Requirements Manager at TurningPoint Global Solutions, and, since 2015, Executive Director of Federal Government Program Management at MetTel in Washington, DC.
+                </p>
+                <p>
+                    Day to day, that has meant financial modeling and risk analysis on solicitations and modifications totaling over $2.1 billion in awards; designing and defending pricing under GSA Schedule 70, EIS, and open-market structures; building business cases; and translating dense FAR and contract language into decisions leadership could act on. Earlier in my career I spent years processing and analyzing federal telecom billing data at scale - including Networx billing streams exceeding $100 million per month - using SQL, Excel, Access, and statistical methods to produce accurate, actionable reports for government clients.
+                </p>
+                <p>
+                    I have also led requirements work for systems aimed at detecting fraud, waste, and abuse in Medicare and Medicaid programs: scoping projects, writing business requirement documents, collaborating with development and analytics teams, and applying data modeling so decision-makers received clear information with appropriate caveats. Along the way I supervised and trained colleagues, mentored interns, and documented processes so institutional knowledge did not walk out the door.
+                </p>
+                <p>
+                    None of that makes me a licensed financial advisor, and this site does not pretend otherwise. What it does provide is a disciplined way of thinking about money under uncertainty: define the question, state the assumptions, run the numbers, stress the plan, and own the decision. That is the same posture I use when a multi-hundred-million-dollar pricing submission has to be right.
+                </p>
+
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-10">Why I Built This Tool</h2>
+                <p>
+                    Outside of work I spent years studying evidence-based retirement planning - reading research, testing popular calculators, and comparing tools such as Dave Ramsey’s calculators and FIREcalc. Most products I found either offered a simple growth projection or a complex historical stress test. Very few did both well, and even fewer explained the underlying ideas in plain language so a non-specialist could understand <em>why</em> a plan looked strong or fragile.
+                </p>
+                <p>
+                    I wanted a single, free, browser-based tool that would walk a person through three questions in order:
+                </p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Where am I today - current balance, contribution rate, and time horizon?</li>
+                    <li>How might this nest egg grow until retirement under transparent assumptions?</li>
+                    <li>Is that nest egg likely to sustain the spending I want through retirement, when returns are random and sequence risk is real?</li>
+                </ul>
+                <p>
+                    The result is <strong>The Path to Sound Retirement</strong>: growth projection and Monte Carlo sustainability testing in one place, with Learning articles that teach the concepts behind the buttons. Calculations run entirely in your browser. Nothing is sold, and nothing is hidden behind a paywall.
+                </p>
+
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-10">My Approach</h2>
+                <p>
+                    I believe in transparent assumptions, clear explanations, and tools that educate rather than overwhelm. Every major calculation on this site is designed to be understandable. You will see brief explanations of Monte Carlo simulation, volatility, sequence-of-returns risk, and related ideas next to the controls that use them - not buried in a separate manual.
+                </p>
+                <p>
+                    The voice of the site is intentional: logical, accountable, and teacher-hearted. There is no get-rich-quick framing and no promise that a single rule of thumb will carry you for thirty years. Rules of thumb are starting points. Your numbers, your other income, and a range of market sequences are the real test. The tool exists so you can run that test yourself and adjust the levers you control - savings rate, spending, work horizon, and withdrawal flexibility - with eyes open.
+                </p>
+                <p>
+                    That same stance shows up in the Learning section. Articles are written to build understanding, not to sell a product or a philosophy. When research is cited, the goal is to help you interpret it, not to outsource your judgment to a headline.
+                </p>
+
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-10">What You Can Expect</h2>
+                <p>
+                    The calculator lets you model portfolio growth with monthly contributions and then stress-test retirement spending with a Monte Carlo simulation that runs in a Web Worker so your browser stays responsive. You can export a summary to PDF. The Learning pages cover topics such as the 4% rule and its limits, sequence-of-returns risk, volatility, compound interest, nest-egg building, and how to use the calculator itself.
+                </p>
+                <p>
+                    Privacy is built in by design: your inputs are processed on your device. There is no account system and no requirement to upload personal financial data to a server in order to run the core tools.
+                </p>
+
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-10">Important Disclaimer</h2>
+                <p class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4 text-sm">
+                    This tool is for educational and illustrative purposes only. It is not financial, investment, tax, or legal advice. I am not a licensed financial advisor, investment adviser, or tax professional. Always consult a qualified advisor before making decisions about your personal situation. Past performance and simulated results do not guarantee future outcomes.
+                </p>
+
+                <div class="pt-6">
+                    <a href="index.html" class="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-2xl transition-colors">
+                        <i class="fa-solid fa-calculator"></i>
+                        Try the Calculator
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center text-xs text-slate-400 dark:text-slate-500 py-8 border-t border-slate-200 dark:border-slate-700 mt-10">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-4 mb-4 text-sm">
+                <a href="index.html" class="hover:text-emerald-600">Calculator</a>
+                <a href="blog.html" class="hover:text-emerald-600">Learning</a>
+                <a href="about.html" class="hover:text-emerald-600">About</a>
+                <a href="privacy.html" class="hover:text-emerald-600">Privacy</a>
+                <a href="terms.html" class="hover:text-emerald-600">Terms</a>
+                <a href="contact.html" class="hover:text-emerald-600">Contact</a>
+            </div>
+            The Path to Sound Retirement by Jasper Saunders • For educational purposes only. Not financial advice.
+        </div>
+    </footer>
+
+    <script>
+        // Dark mode
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const html = document.documentElement;
+
+        // Safe localStorage access (handles sandboxed iframes, private browsing, etc.)
+        function getDarkModePref() {
+            try {
+                const saved = localStorage.getItem('darkMode');
+                if (saved !== null) {
+                    return saved === 'true';
+                }
+                return window.matchMedia('(prefers-color-scheme: dark)').matches;
+            } catch (e) {
+                // Sandboxed or storage unavailable
+                return window.matchMedia('(prefers-color-scheme: dark)').matches;
+            }
+        }
+        
+        function setDarkModePref(isDark) {
+            try {
+                localStorage.setItem('darkMode', isDark);
+            } catch (e) {
+                // Ignore if storage unavailable (e.g., sandboxed document)
+            }
+        }
+        
+        if (getDarkModePref()) {
+            html.classList.add('dark');
+        }
+        darkModeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            setDarkModePref(html.classList.contains('dark'));
+        });
+
+        // Mobile menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                const icon = mobileMenuBtn.querySelector('i');
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                } else {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-xmark');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
