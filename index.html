@@ -322,14 +322,14 @@
                         <div>
                             <div class="flex justify-between mb-1.5">
                                 <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Expected Annual Return</label>
-                                <span id="return-rate-value" class="font-mono text-sm font-semibold text-emerald-600">1.0%</span>
+                                <span id="return-rate-value" class="font-mono text-sm font-semibold text-emerald-600">8.0%</span>
                             </div>
                             <div class="flex gap-2 mb-3">
                                 <button onclick="setReturnPreset(7, this)" class="preset-btn flex-1 text-xs py-2.5 border border-slate-300 dark:border-slate-600 rounded-xl">Conservative<br>7%</button>
                                 <button onclick="setReturnPreset(10, this)" class="preset-btn flex-1 text-xs py-2.5 border border-slate-300 dark:border-slate-600 rounded-xl">Balanced<br>10%</button>
                                 <button onclick="setReturnPreset(12, this)" class="preset-btn flex-1 text-xs py-2.5 border border-slate-300 dark:border-slate-600 rounded-xl">Optimistic<br>12%</button>
                             </div>
-                            <input type="range" id="return-rate" min="1" max="15" step="0.5" value="1"
+                            <input type="range" id="return-rate" min="1" max="15" step="0.5" value="8"
                                    class="w-full accent-emerald-600" oninput="updateAccumulationInputs()">
                         </div>
 
@@ -567,12 +567,16 @@
                         <div>
                             <div class="flex justify-between mb-1.5">
                                 <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Estimated Effective Tax Rate on Withdrawals (%)</label>
-                                <span id="tax-rate-value" class="font-mono text-sm font-semibold text-amber-600">0%</span>
+                                <span id="tax-rate-value" class="font-mono text-sm font-semibold text-amber-600">15%</span>
                             </div>
-                            <input type="range" id="tax-rate" min="0" max="40" step="1" value="0"
-                                   class="w-full accent-amber-500" oninput="updateRetirementInputs()">
+                            <input type="range" id="tax-rate" min="0" max="40" step="0.5" value="15"
+                                   class="w-full accent-amber-500" oninput="syncTaxRateFromSlider(); updateRetirementInputs()">
+                            <input type="number" id="tax-rate-num" value="15" min="0" max="40" step="0.5"
+                                   class="mt-2 w-full px-3 py-2.5 text-sm border border-slate-300 dark:border-slate-600 rounded-xl font-mono"
+                                   onchange="syncTaxRateFromNum(); updateRetirementInputs()"
+                                   oninput="syncTaxRateFromNum(); updateRetirementInputs()">
                             <div class="text-xs text-slate-500 mt-1">
-                                Used to gross-up the portfolio withdrawal so that after-tax spending matches your target. A mid-range estimate for many retirees is around 15–20%.
+                                Used to gross-up the portfolio withdrawal so that after-tax spending matches your target. A mid-range estimate for many retirees is around 15-20%.
                             </div>
                         </div>
 
@@ -916,6 +920,23 @@
             inputEl.value = val;
         }
 
+        function syncTaxRateFromSlider() {
+            const slider = document.getElementById('tax-rate');
+            const num = document.getElementById('tax-rate-num');
+            if (slider && num) num.value = slider.value;
+        }
+
+        function syncTaxRateFromNum() {
+            const slider = document.getElementById('tax-rate');
+            const num = document.getElementById('tax-rate-num');
+            if (!slider || !num) return;
+            let val = parseFloat(num.value);
+            if (isNaN(val)) val = 0;
+            val = Math.max(parseFloat(slider.min), Math.min(val, parseFloat(slider.max)));
+            slider.value = val;
+            num.value = val;
+        }
+
         // ========== ACCUMULATION ==========
         function updateAccumulationInputs() {
             const start = parseFloat(document.getElementById('starting-balance').value);
@@ -1252,6 +1273,8 @@
             document.getElementById('pension-value').textContent = formatFullCurrency(pen);
             document.getElementById('pension-num').value = pen;
             document.getElementById('tax-rate-value').textContent = taxRate + '%';
+            const taxRateNumEl = document.getElementById('tax-rate-num');
+            if (taxRateNumEl && document.activeElement !== taxRateNumEl) taxRateNumEl.value = taxRate;
 
             const { schedule, meta } = buildNetWithdrawalSchedule(years, inflation, taxRate, wd);
             const netYear0 = schedule[0] || 0;
