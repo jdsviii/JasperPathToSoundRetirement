@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Virtual financial coaching with Jasper Saunders - teacher-hearted guidance for accountable people who want clarity, a written path, and optional execution support. From pressure to peace.">
+    <title>Virtual Financial Coaching | The Path to Sound Retirement</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .font-display { font-family: 'Space Grotesk', 'Inter', sans-serif; }
+        .dark body { background-color: #0f172a; color: #e2e8f0; }
+        .dark .bg-white { background-color: #1e293b !important; }
+        .dark .bg-slate-50 { background-color: #0f172a !important; }
+        .dark .text-slate-900 { color: #f1f5f9 !important; }
+        .dark .text-slate-700, .dark .text-slate-600, .dark .text-slate-500 { color: #94a3b8 !important; }
+        .dark .border-slate-200 { border-color: #334155 !important; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+    <header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center gap-3">
+                    <img src="ptsr.png" alt="The Path to Sound Retirement" class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl shadow-lg object-contain">
+                    <div>
+                        <h1 class="text-lg sm:text-2xl font-display font-semibold text-slate-900 dark:text-white leading-tight">The Path to Sound Retirement</h1>
+                        <p class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400">by Jasper Saunders</p>
+                    </div>
+                </a>
+                <div class="flex items-center gap-2">
+                    <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+                        <a href="index.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600 transition-colors">Calculator</a>
+                        <a href="blog.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600 transition-colors">Learning</a>
+                        <a href="coaching.html" class="text-emerald-600 font-semibold">Coaching</a>
+                        <a href="about.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600 transition-colors">About</a>
+                        <a href="contact.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600 transition-colors">Contact</a>
+                    </nav>
+                    <button id="darkModeToggle" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:inline"></i>
+                    </button>
+                    <button id="mobileMenuBtn" class="md:hidden p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors" title="Menu">
+                        <i class="fa-solid fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-700 mt-3 pt-3 pb-2">
+                <nav class="flex flex-col gap-1">
+                    <a href="index.html" class="px-4 py-3 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">Calculator</a>
+                    <a href="blog.html" class="px-4 py-3 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">Learning</a>
+                    <a href="coaching.html" class="px-4 py-3 rounded-xl text-emerald-600 font-semibold bg-emerald-50 dark:bg-emerald-900/30">Coaching</a>
+                    <a href="about.html" class="px-4 py-3 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">About</a>
+                    <a href="contact.html" class="px-4 py-3 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">Contact</a>
+                    <a href="privacy.html" class="px-4 py-3 rounded-xl text-slate-500 dark:text-slate-400 text-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">Privacy</a>
+                    <a href="terms.html" class="px-4 py-3 rounded-xl text-slate-500 dark:text-slate-400 text-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">Terms</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-3xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
+        <div class="mb-10">
+            <h1 class="text-3xl sm:text-4xl font-display font-bold text-slate-900 dark:text-white mb-4">Virtual Financial Coaching</h1>
+            <p class="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+                From pressure to peace - with a clear path and real accountability.
+            </p>
+        </div>
+
+        <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 p-6 sm:p-8 shadow-sm mb-8">
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
+                The calculator and articles on this site are free. Coaching is for people who want more than information. It is for people who are ready to own their plan and want a teacher-hearted guide to help them see the path and stay with it.
+            </p>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+                This is not about someone managing everything for you. It is about clarity, a written strategy, and optional support while <em>you</em> do the work.
+            </p>
+        </div>
+
+        <section class="mb-10">
+            <h2 class="text-2xl font-display font-bold text-slate-900 dark:text-white mb-4">Who this is for</h2>
+            <ul class="space-y-3 text-slate-700 dark:text-slate-300">
+                <li class="flex gap-3">
+                    <span class="text-emerald-600 mt-1"><i class="fa-solid fa-check"></i></span>
+                    <span>You want clarity on your goals and a practical strategy to reach them</span>
+                </li>
+                <li class="flex gap-3">
+                    <span class="text-emerald-600 mt-1"><i class="fa-solid fa-check"></i></span>
+                    <span>You are willing to do the work - you are not looking for someone to manage everything for you</span>
+                </li>
+                <li class="flex gap-3">
+                    <span class="text-emerald-600 mt-1"><i class="fa-solid fa-check"></i></span>
+                    <span>You value accountability, honest feedback, and learning as you go</span>
+                </li>
+                <li class="flex gap-3">
+                    <span class="text-emerald-600 mt-1"><i class="fa-solid fa-check"></i></span>
+                    <span>You prefer a teacher’s heart over a sales pitch or a black-box “plan”</span>
+                </li>
+            </ul>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="text-2xl font-display font-bold text-slate-900 dark:text-white mb-4">Who this is not for</h2>
+            <ul class="space-y-3 text-slate-700 dark:text-slate-300">
+                <li class="flex gap-3">
+                    <span class="text-slate-400 mt-1"><i class="fa-solid fa-xmark"></i></span>
+                    <span>People who want someone else to make all the decisions</span>
+                </li>
+                <li class="flex gap-3">
+                    <span class="text-slate-400 mt-1"><i class="fa-solid fa-xmark"></i></span>
+                    <span>Anyone seeking personalized investment recommendations or portfolio management</span>
+                </li>
+                <li class="flex gap-3">
+                    <span class="text-slate-400 mt-1"><i class="fa-solid fa-xmark"></i></span>
+                    <span>Those looking for a one-time “fix” without follow-through</span>
+                </li>
+            </ul>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="text-2xl font-display font-bold text-slate-900 dark:text-white mb-6">The 3-Phase Path</h2>
+
+            <div class="space-y-6">
+                <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 shadow-sm">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-900/40 flex items-center justify-center flex-shrink-0">
+                            <span class="font-display font-bold text-emerald-700 dark:text-emerald-400">1</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-display font-semibold text-slate-900 dark:text-white mb-2">Clarity Conversation</h3>
+                            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                                We meet virtually and build a high-level picture of where you are. The focus is on your goals - what “enough” and “peace” actually look like for you. Numbers support the conversation; they do not drive it alone.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 shadow-sm">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-900/40 flex items-center justify-center flex-shrink-0">
+                            <span class="font-display font-bold text-emerald-700 dark:text-emerald-400">2</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-display font-semibold text-slate-900 dark:text-white mb-2">Your Written Path</h3>
+                            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                                You receive a clear, written strategy that connects your current situation to your goals. It is prioritized, practical, and designed so you can follow it. This is your map, not a document that sits in a drawer.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 shadow-sm">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-900/40 flex items-center justify-center flex-shrink-0">
+                            <span class="font-display font-bold text-emerald-700 dark:text-emerald-400">3</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-display font-semibold text-slate-900 dark:text-white mb-2">Execution Support <span class="text-sm font-normal text-slate-500">(optional)</span></h3>
+                            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                                You execute the plan. If you want ongoing accountability and guidance while you do the work, we can walk through it together. The ownership stays with you. The support is there when you want it.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="text-2xl font-display font-bold text-slate-900 dark:text-white mb-4">How it connects to the free tools</h2>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+                Coaching clients are encouraged to use the free calculator, checklists, and articles as part of the process. The free resources stay free. Coaching adds personal clarity, a written strategy, and optional accountability.
+            </p>
+        </section>
+
+        <section class="mb-10 bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-2xl p-6 sm:p-8">
+            <h2 class="text-xl font-display font-bold text-slate-900 dark:text-white mb-3">Next step</h2>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-6">
+                Start with a short discovery conversation so we can both confirm this is a good fit. No pressure and no obligation.
+            </p>
+            <a href="contact.html" class="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-2xl transition-colors">
+                <i class="fa-solid fa-envelope"></i>
+                Contact to start a discovery conversation
+            </a>
+        </section>
+
+        <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+            This coaching is educational and accountability-focused. It is not financial, investment, tax, or legal advice. You remain responsible for your own decisions. Always consult qualified professionals for advice specific to your situation.
+        </p>
+    </main>
+
+    <footer class="text-center text-xs text-slate-400 dark:text-slate-500 py-8 border-t border-slate-200 dark:border-slate-700 mt-10">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-4 mb-4 text-sm">
+                <a href="index.html" class="hover:text-emerald-600">Calculator</a>
+                <a href="blog.html" class="hover:text-emerald-600">Learning</a>
+                <a href="coaching.html" class="hover:text-emerald-600">Coaching</a>
+                <a href="about.html" class="hover:text-emerald-600">About</a>
+                <a href="privacy.html" class="hover:text-emerald-600">Privacy</a>
+                <a href="terms.html" class="hover:text-emerald-600">Terms</a>
+                <a href="contact.html" class="hover:text-emerald-600">Contact</a>
+            </div>
+            The Path to Sound Retirement by Jasper Saunders • For educational purposes only. Not financial advice.
+        </div>
+    </footer>
+
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const html = document.documentElement;
+        function getDarkModePref() {
+            try {
+                const saved = localStorage.getItem('darkMode');
+                if (saved !== null) return saved === 'true';
+                return window.matchMedia('(prefers-color-scheme: dark)').matches;
+            } catch (e) {
+                return window.matchMedia('(prefers-color-scheme: dark)').matches;
+            }
+        }
+        function setDarkModePref(isDark) {
+            try { localStorage.setItem('darkMode', isDark); } catch (e) {}
+            if (isDark) html.classList.add('dark');
+            else html.classList.remove('dark');
+        }
+        setDarkModePref(getDarkModePref());
+        darkModeToggle.addEventListener('click', () => {
+            setDarkModePref(!html.classList.contains('dark'));
+        });
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                const icon = mobileMenuBtn.querySelector('i');
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                } else {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-xmark');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
