@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Coaching pricing for The Path to Sound Retirement - clear packages based on the 3-phase path: Clarity Conversation, Written Path, and optional Execution Support.">
+    <title>Coaching Pricing | The Path to Sound Retirement</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .font-display { font-family: 'Space Grotesk', 'Inter', sans-serif; }
+        .dark body { background-color: #0f172a; color: #e2e8f0; }
+        .dark .bg-white { background-color: #1e293b !important; }
+        .dark .bg-slate-50 { background-color: #0f172a !important; }
+        .dark .text-slate-900 { color: #f1f5f9 !important; }
+        .dark .text-slate-700, .dark .text-slate-600, .dark .text-slate-500 { color: #94a3b8 !important; }
+        .dark .border-slate-200 { border-color: #334155 !important; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+    <header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center gap-3">
+                    <img src="ptsr.png" alt="The Path to Sound Retirement" class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl shadow-lg object-contain">
+                    <div>
+                        <h1 class="text-lg sm:text-2xl font-display font-semibold text-slate-900 dark:text-white leading-tight">The Path to Sound Retirement</h1>
+                        <p class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400">by Jasper Saunders</p>
+                    </div>
+                </a>
+                <div class="flex items-center gap-2">
+                    <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+                        <a href="index.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600 transition-colors">Calculator</a>
+                        <a href="blog.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600 transition-colors">Learning</a>
+                        <a href="coaching.html" class="text-emerald-600 font-semibold">Coaching</a>
+                        <a href="about.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600 transition-colors">About</a>
+                        <a href="contact.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600 transition-colors">Contact</a>
+                    </nav>
+                    <button id="darkModeToggle" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:inline"></i>
+                    </button>
+                    <button id="mobileMenuBtn" class="md:hidden p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors" title="Menu">
+                        <i class="fa-solid fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-700 mt-3 pt-3 pb-2">
+                <nav class="flex flex-col gap-1">
+                    <a href="index.html" class="px-4 py-3 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">Calculator</a>
+                    <a href="blog.html" class="px-4 py-3 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">Learning</a>
+                    <a href="coaching.html" class="px-4 py-3 rounded-xl text-emerald-600 font-semibold bg-emerald-50 dark:bg-emerald-900/30">Coaching</a>
+                    <a href="about.html" class="px-4 py-3 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">About</a>
+                    <a href="contact.html" class="px-4 py-3 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">Contact</a>
+                    <a href="privacy.html" class="px-4 py-3 rounded-xl text-slate-500 dark:text-slate-400 text-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">Privacy</a>
+                    <a href="terms.html" class="px-4 py-3 rounded-xl text-slate-500 dark:text-slate-400 text-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">Terms</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
+        <div class="mb-10 text-center max-w-2xl mx-auto">
+            <p class="text-sm font-semibold text-emerald-600 uppercase tracking-wider mb-2">Coaching</p>
+            <h1 class="text-3xl sm:text-4xl font-display font-bold text-slate-900 dark:text-white mb-4">Pricing</h1>
+            <p class="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+                Clear packages based on the 3-phase path. Start with a free discovery call. Choose the level of support that fits how you work.
+            </p>
+        </div>
+
+        <!-- Discovery -->
+        <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 p-6 sm:p-8 shadow-sm mb-8">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
+                <div>
+                    <h2 class="text-xl font-display font-bold text-slate-900 dark:text-white">Discovery Call</h2>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">15-20 minutes · Virtual</p>
+                </div>
+                <div class="text-2xl font-display font-bold text-emerald-600">Free</div>
+            </div>
+            <p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                A short, no-pressure conversation to confirm fit. We briefly discuss your goals, whether coaching is the right next step, and which package makes sense if you decide to continue.
+            </p>
+            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300 mb-6">
+                <li class="flex gap-2"><span class="text-emerald-600"><i class="fa-solid fa-check"></i></span> Confirm goals and fit</li>
+                <li class="flex gap-2"><span class="text-emerald-600"><i class="fa-solid fa-check"></i></span> No obligation to continue</li>
+                <li class="flex gap-2"><span class="text-emerald-600"><i class="fa-solid fa-check"></i></span> Book via scheduling tool (link coming soon)</li>
+            </ul>
+            <a href="contact.html" class="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-medium">
+                Contact to book a discovery call <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+        </div>
+
+        <!-- Packages grid -->
+        <div class="grid md:grid-cols-2 gap-6 mb-10">
+            <!-- Clarity Path -->
+            <div class="bg-white dark:bg-slate-800 rounded-3xl border-2 border-emerald-500 dark:border-emerald-600 p-6 sm:p-8 shadow-sm relative">
+                <div class="absolute -top-3 left-6 px-3 py-1 bg-emerald-600 text-white text-xs font-semibold rounded-full">Most common starting point</div>
+                <h2 class="text-xl font-display font-bold text-slate-900 dark:text-white mt-2 mb-1">Clarity Path</h2>
+                <p class="text-sm text-slate-500 dark:text-slate-400 mb-4">Phases 1 &amp; 2</p>
+                <div class="mb-6">
+                    <span class="text-3xl font-display font-bold text-slate-900 dark:text-white">$497</span>
+                    <span class="text-slate-500 text-sm"> one-time</span>
+                </div>
+                <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-6">
+                    For people who want clarity and a written strategy they can own and execute. You leave with a map - not ongoing dependency.
+                </p>
+                <ul class="space-y-3 text-sm text-slate-600 dark:text-slate-300 mb-8">
+                    <li class="flex gap-2"><span class="text-emerald-600 mt-0.5"><i class="fa-solid fa-check"></i></span> <span><strong>Phase 1:</strong> Clarity Conversation (virtual session focused on goals and high-level picture)</span></li>
+                    <li class="flex gap-2"><span class="text-emerald-600 mt-0.5"><i class="fa-solid fa-check"></i></span> <span><strong>Phase 2:</strong> Your Written Path - a prioritized strategy from where you are to where you want to be</span></li>
+                    <li class="flex gap-2"><span class="text-emerald-600 mt-0.5"><i class="fa-solid fa-check"></i></span> <span>Guidance on using free tools and checklists on this site</span></li>
+                    <li class="flex gap-2"><span class="text-emerald-600 mt-0.5"><i class="fa-solid fa-check"></i></span> <span>One follow-up email for clarifying questions on the written path</span></li>
+                </ul>
+                <a href="contact.html" class="block w-full text-center px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-2xl transition-colors">
+                    Start with a discovery call
+                </a>
+            </div>
+
+            <!-- Full Path -->
+            <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 p-6 sm:p-8 shadow-sm">
+                <h2 class="text-xl font-display font-bold text-slate-900 dark:text-white mb-1">Full Path</h2>
+                <p class="text-sm text-slate-500 dark:text-slate-400 mb-4">Phases 1, 2 &amp; 3</p>
+                <div class="mb-6">
+                    <span class="text-3xl font-display font-bold text-slate-900 dark:text-white">$997</span>
+                    <span class="text-slate-500 text-sm"> one-time</span>
+                </div>
+                <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-6">
+                    For people who want the written path plus structured accountability while they execute. Ownership stays with you; support is there when you need it.
+                </p>
+                <ul class="space-y-3 text-sm text-slate-600 dark:text-slate-300 mb-8">
+                    <li class="flex gap-2"><span class="text-emerald-600 mt-0.5"><i class="fa-solid fa-check"></i></span> <span>Everything in Clarity Path</span></li>
+                    <li class="flex gap-2"><span class="text-emerald-600 mt-0.5"><i class="fa-solid fa-check"></i></span> <span><strong>Phase 3:</strong> 4 execution check-in sessions over ~8-12 weeks</span></li>
+                    <li class="flex gap-2"><span class="text-emerald-600 mt-0.5"><i class="fa-solid fa-check"></i></span> <span>Progress review against your written path</span></li>
+                    <li class="flex gap-2"><span class="text-emerald-600 mt-0.5"><i class="fa-solid fa-check"></i></span> <span>Accountability and course-correction as you do the work</span></li>
+                    <li class="flex gap-2"><span class="text-emerald-600 mt-0.5"><i class="fa-solid fa-check"></i></span> <span>Email support between sessions for path-related questions</span></li>
+                </ul>
+                <a href="contact.html" class="block w-full text-center px-6 py-3 bg-slate-900 dark:bg-slate-100 hover:bg-slate-800 dark:hover:bg-white text-white dark:text-slate-900 font-semibold rounded-2xl transition-colors">
+                    Start with a discovery call
+                </a>
+            </div>
+        </div>
+
+        <!-- Execution only -->
+        <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 p-6 sm:p-8 shadow-sm mb-10">
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
+                <div>
+                    <h2 class="text-xl font-display font-bold text-slate-900 dark:text-white">Execution Support Only</h2>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Phase 3 · For those who already have a written path</p>
+                </div>
+                <div class="text-right">
+                    <div class="text-2xl font-display font-bold text-slate-900 dark:text-white">$397</div>
+                    <div class="text-sm text-slate-500">4 check-ins</div>
+                </div>
+            </div>
+            <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">
+                Already completed Clarity Path (or have a clear plan from elsewhere) and want accountability while you execute? This add-on provides structured check-ins without repeating Phases 1 and 2.
+            </p>
+            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300">
+                <li class="flex gap-2"><span class="text-emerald-600"><i class="fa-solid fa-check"></i></span> 4 virtual check-in sessions</li>
+                <li class="flex gap-2"><span class="text-emerald-600"><i class="fa-solid fa-check"></i></span> Focus on progress, obstacles, and next actions</li>
+                <li class="flex gap-2"><span class="text-emerald-600"><i class="fa-solid fa-check"></i></span> Available after Clarity Path or by agreement if you already have a solid plan</li>
+            </ul>
+        </div>
+
+        <!-- What's included / not -->
+        <div class="grid sm:grid-cols-2 gap-6 mb-10">
+            <div class="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-2xl p-6">
+                <h3 class="font-display font-semibold text-slate-900 dark:text-white mb-3">What coaching includes</h3>
+                <ul class="space-y-2 text-sm text-slate-700 dark:text-slate-300">
+                    <li class="flex gap-2"><span class="text-emerald-600"><i class="fa-solid fa-check"></i></span> Goal clarity and prioritization</li>
+                    <li class="flex gap-2"><span class="text-emerald-600"><i class="fa-solid fa-check"></i></span> A written, practical strategy</li>
+                    <li class="flex gap-2"><span class="text-emerald-600"><i class="fa-solid fa-check"></i></span> Accountability and teaching-style guidance</li>
+                    <li class="flex gap-2"><span class="text-emerald-600"><i class="fa-solid fa-check"></i></span> Use of free tools and education on this site</li>
+                </ul>
+            </div>
+            <div class="bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-2xl p-6">
+                <h3 class="font-display font-semibold text-slate-900 dark:text-white mb-3">What coaching does not include</h3>
+                <ul class="space-y-2 text-sm text-slate-700 dark:text-slate-300">
+                    <li class="flex gap-2"><span class="text-slate-400"><i class="fa-solid fa-xmark"></i></span> Investment product recommendations</li>
+                    <li class="flex gap-2"><span class="text-slate-400"><i class="fa-solid fa-xmark"></i></span> Portfolio management or ongoing advisory</li>
+                    <li class="flex gap-2"><span class="text-slate-400"><i class="fa-solid fa-xmark"></i></span> Tax, legal, or insurance advice</li>
+                    <li class="flex gap-2"><span class="text-slate-400"><i class="fa-solid fa-xmark"></i></span> Someone else doing the work for you</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- How it maps -->
+        <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 p-6 sm:p-8 shadow-sm mb-10">
+            <h2 class="text-xl font-display font-bold text-slate-900 dark:text-white mb-4">How packages map to the 3 phases</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm text-left">
+                    <thead>
+                        <tr class="border-b border-slate-200 dark:border-slate-700">
+                            <th class="py-3 pr-4 font-semibold text-slate-900 dark:text-white">Phase</th>
+                            <th class="py-3 pr-4 font-semibold text-slate-900 dark:text-white">Clarity Path</th>
+                            <th class="py-3 pr-4 font-semibold text-slate-900 dark:text-white">Full Path</th>
+                            <th class="py-3 font-semibold text-slate-900 dark:text-white">Execution Only</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-slate-600 dark:text-slate-300">
+                        <tr class="border-b border-slate-100 dark:border-slate-700/50">
+                            <td class="py-3 pr-4">1 · Clarity Conversation</td>
+                            <td class="py-3 pr-4 text-emerald-600"><i class="fa-solid fa-check"></i></td>
+                            <td class="py-3 pr-4 text-emerald-600"><i class="fa-solid fa-check"></i></td>
+                            <td class="py-3 text-slate-400">-</td>
+                        </tr>
+                        <tr class="border-b border-slate-100 dark:border-slate-700/50">
+                            <td class="py-3 pr-4">2 · Written Path</td>
+                            <td class="py-3 pr-4 text-emerald-600"><i class="fa-solid fa-check"></i></td>
+                            <td class="py-3 pr-4 text-emerald-600"><i class="fa-solid fa-check"></i></td>
+                            <td class="py-3 text-slate-400">-</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 pr-4">3 · Execution Support</td>
+                            <td class="py-3 pr-4 text-slate-400">-</td>
+                            <td class="py-3 pr-4 text-emerald-600"><i class="fa-solid fa-check"></i></td>
+                            <td class="py-3 text-emerald-600"><i class="fa-solid fa-check"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="text-center mb-8">
+            <p class="text-slate-600 dark:text-slate-300 mb-4">Not sure which package fits? Start with a free discovery call.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="contact.html" class="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-2xl transition-colors">
+                    Contact to book discovery
+                </a>
+                <a href="coaching.html" class="inline-flex items-center gap-2 px-6 py-3 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 font-semibold rounded-2xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                    Back to Coaching overview
+                </a>
+            </div>
+        </div>
+
+        <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed text-center max-w-2xl mx-auto">
+            This coaching is educational and accountability-focused. It is not financial, investment, tax, or legal advice. You remain responsible for your own decisions. Prices are listed in USD and may be updated; confirm current pricing during your discovery call.
+        </p>
+    </main>
+
+    <footer class="text-center text-xs text-slate-400 dark:text-slate-500 py-8 border-t border-slate-200 dark:border-slate-700 mt-10">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-4 mb-4 text-sm">
+                <a href="index.html" class="hover:text-emerald-600">Calculator</a>
+                <a href="blog.html" class="hover:text-emerald-600">Learning</a>
+                <a href="coaching.html" class="hover:text-emerald-600">Coaching</a>
+                <a href="about.html" class="hover:text-emerald-600">About</a>
+                <a href="privacy.html" class="hover:text-emerald-600">Privacy</a>
+                <a href="terms.html" class="hover:text-emerald-600">Terms</a>
+                <a href="contact.html" class="hover:text-emerald-600">Contact</a>
+            </div>
+            The Path to Sound Retirement by Jasper Saunders • For educational purposes only. Not financial advice.
+        </div>
+    </footer>
+
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const html = document.documentElement;
+        function getDarkModePref() {
+            try {
+                const saved = localStorage.getItem('darkMode');
+                if (saved !== null) return saved === 'true';
+                return window.matchMedia('(prefers-color-scheme: dark)').matches;
+            } catch (e) {
+                return window.matchMedia('(prefers-color-scheme: dark)').matches;
+            }
+        }
+        function setDarkModePref(isDark) {
+            try { localStorage.setItem('darkMode', isDark); } catch (e) {}
+            if (isDark) html.classList.add('dark');
+            else html.classList.remove('dark');
+        }
+        setDarkModePref(getDarkModePref());
+        darkModeToggle.addEventListener('click', () => {
+            setDarkModePref(!html.classList.contains('dark'));
+        });
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                const icon = mobileMenuBtn.querySelector('i');
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                } else {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-xmark');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
