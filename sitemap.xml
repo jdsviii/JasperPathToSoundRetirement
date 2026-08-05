@@ -213,4 +213,23 @@
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
+
+    <url>
+        <loc>https://pathtosoundretirement.com/blog/interpreting-monte-carlo-success-rate.html</loc>
+        <lastmod>2026-08-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pathtosoundretirement.com/blog/flexible-spending-guardrails.html</loc>
+        <lastmod>2026-08-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pathtosoundretirement.com/blog/roth-vs-traditional-near-retirement.html</loc>
+        <lastmod>2026-08-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
 </urlset>
