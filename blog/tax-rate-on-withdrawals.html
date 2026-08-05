@@ -35,6 +35,7 @@
                 <nav class="hidden sm:flex items-center gap-6 text-sm font-medium">
                     <a href="../index.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600">Calculator</a>
                     <a href="../blog.html" class="text-emerald-600 font-semibold">Learning</a>
+                    <a href="../coaching.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600">Coaching</a>
                     <a href="../about.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600">About</a>
                     <a href="../contact.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600">Contact</a>
                 </nav>
@@ -58,15 +59,15 @@
                 <p>This article explains what the input is doing, how to choose a starting estimate, and how to avoid false precision.</p>
                 <hr class="border-slate-200 dark:border-slate-700 my-6">
                 <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">What the input does in the tool</h2>
-                <p>You enter an <strong>annual retirement spending</strong> need—the lifestyle number you care about in after-tax terms as the tool frames it.</p>
+                <p>You enter an <strong>annual retirement spending</strong> need-the lifestyle number you care about in after-tax terms as the tool frames it.</p>
                 <p>You also enter an <strong>effective tax rate</strong> estimate on withdrawals.</p>
                 <p>The calculator uses that rate to <strong>gross up</strong> the portfolio withdrawal: it increases the amount that must come from the portfolio so that, after applying your estimated tax rate, the remaining amount can meet your spending target. Social Security and pension inputs then reduce how much of that burden sits on the portfolio.</p>
                 <p>In plain language: <em>If part of every dollar you take is lost to tax, the portfolio has to work harder.</em></p>
-                <p>If you set the tax rate to 0%, the tool assumes no tax drag on withdrawals in that gross-up step. That may be roughly appropriate for some Roth-heavy situations—and completely wrong for a portfolio that is mostly pre-tax.</p>
+                <p>If you set the tax rate to 0%, the tool assumes no tax drag on withdrawals in that gross-up step. That may be roughly appropriate for some Roth-heavy situations-and completely wrong for a portfolio that is mostly pre-tax.</p>
                 <hr class="border-slate-200 dark:border-slate-700 my-6">
                 <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">Effective rate vs marginal rate</h2>
                 <p>A few definitions in everyday terms:</p>
-                <ul class="list-disc pl-6 space-y-2"><li><strong>Marginal tax rate:</strong> the rate on the next dollar of taxable income.</li><li><strong>Effective tax rate:</strong> total tax divided by a defined income base—an average sense of burden, not the top bracket alone.</li></ul>
+                <ul class="list-disc pl-6 space-y-2"><li><strong>Marginal tax rate:</strong> the rate on the next dollar of taxable income.</li><li><strong>Effective tax rate:</strong> total tax divided by a defined income base-an average sense of burden, not the top bracket alone.</li></ul>
                 <p>For a retirement <strong>planning estimate</strong>, people often use a blended effective rate because retirement cash flow can mix:</p>
                 <ul class="list-disc pl-6 space-y-2"><li>Social Security (sometimes partially taxable)</li><li>Pension income</li><li>Traditional IRA/401(k) withdrawals (generally taxable as ordinary income)</li><li>Roth withdrawals (often tax-free if rules are met)</li><li>Taxable-account capital gains (different rates and basis rules)</li></ul>
                 <p>Your “true” rate depends on that mix. The calculator asks for one effective estimate to keep the stress test usable. Start reasonable, then sensitivity-test.</p>
@@ -77,37 +78,37 @@
                 <ul class="list-disc pl-6 space-y-2"><li><strong>Pre-tax</strong> (traditional IRA, 401(k), similar)?</li><li><strong>Roth</strong>?</li><li><strong>Taxable brokerage</strong>?</li></ul>
                 <p>If most spending will be funded from Roth, a low effective rate on withdrawals may be fair in this simplified model. If most will come from traditional accounts, ignore tax and you will understate the portfolio draw.</p>
                 <h3 class="text-xl font-display font-semibold text-slate-900 dark:text-white mt-6">Step 2: Ballpark ordinary income rates</h3>
-                <p>For many U.S. households, ordinary income from retirement withdrawals might face a blended effective burden that is <strong>lower than peak working-year marginal rates</strong>—but not zero. Depending on income, state tax, and deductions, people often explore planning estimates in a <strong>mid-teens to low-twenties</strong> percent range for heavily pre-tax withdrawal patterns. Some will be lower; some higher.</p>
+                <p>For many U.S. households, ordinary income from retirement withdrawals might face a blended effective burden that is <strong>lower than peak working-year marginal rates</strong>-but not zero. Depending on income, state tax, and deductions, people often explore planning estimates in a <strong>mid-teens to low-twenties</strong> percent range for heavily pre-tax withdrawal patterns. Some will be lower; some higher.</p>
                 <p>This is not a recommendation of a single correct rate. It is a recognition that <strong>0% and 37%</strong> are both common mistakes when used carelessly: one ignores tax, the other assumes every dollar is hit at the top federal marginal rate with no nuance.</p>
                 <h3 class="text-xl font-display font-semibold text-slate-900 dark:text-white mt-6">Step 3: Include state tax if it applies</h3>
                 <p>State income tax can matter. A federal-only mental model may understate the gross-up you need if you retire in a state that taxes retirement distributions.</p>
                 <h3 class="text-xl font-display font-semibold text-slate-900 dark:text-white mt-6">Step 4: Use the slider as a sensitivity tool</h3>
                 <p>Run the retirement test at:</p>
-                <ul class="list-disc pl-6 space-y-2"><li>0%</li><li>~10%</li><li>~15–18%</li><li>~22–25%</li></ul>
+                <ul class="list-disc pl-6 space-y-2"><li>0%</li><li>~10%</li><li>~15-18%</li><li>~22-25%</li></ul>
                 <p>Hold everything else fixed. Watch the <strong>net portfolio withdrawal</strong>, <strong>success rate</strong>, and <strong>percentiles</strong>. You will see how sensitive <em>your</em> plan is to the tax assumption. That sensitivity is the educational payoff.</p>
                 <hr class="border-slate-200 dark:border-slate-700 my-6">
                 <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">Example (illustrative only)</h2>
                 <p>Assume:</p>
                 <ul class="list-disc pl-6 space-y-2"><li>Annual retirement spending target: $60,000</li><li>Estimated effective tax rate on withdrawals: 15%</li><li>Social Security: $20,000</li><li>Pension: $0</li></ul>
-                <p>A simple gross-up mindset: if tax takes 15% of the taxable withdrawal structure the tool approximates, the portfolio may need to generate more than $60,000 before tax so that $60,000 remains for spending—then other income reduces the portfolio’s share.</p>
+                <p>A simple gross-up mindset: if tax takes 15% of the taxable withdrawal structure the tool approximates, the portfolio may need to generate more than $60,000 before tax so that $60,000 remains for spending-then other income reduces the portfolio’s share.</p>
                 <p>If you instead assumed 0% tax, the portfolio draw looks lighter and success rates look better. If your real withdrawals are mostly taxable, that “better” result is partly an artifact.</p>
                 <p>Run both. The difference is a warning light about assumption quality.</p>
                 <p><em>(Your actual tax calculation will depend on filing status, deductions, brackets, state law, and how Social Security interacts with other income. This example is for intuition only.)</em></p>
                 <hr class="border-slate-200 dark:border-slate-700 my-6">
                 <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">What not to do</h2>
-                <ul class="list-disc pl-6 space-y-2"><li><strong>Don’t treat the slider as exact tax prep.</strong> April still needs real forms or a professional.</li><li><strong>Don’t copy a neighbor’s rate.</strong> Account mix and location differ.</li><li><strong>Don’t chase a prettier success rate by lowering the tax assumption without a real basis.</strong></li><li><strong>Don’t ignore Roth conversions, charitable strategies, or bracket management</strong> if those are part of your real plan—those belong in a detailed tax conversation, not only in a single effective rate.</li><li><strong>Don’t assume today’s brackets last forever.</strong> Law changes. Build margin.</li></ul>
+                <ul class="list-disc pl-6 space-y-2"><li><strong>Don’t treat the slider as exact tax prep.</strong> April still needs real forms or a professional.</li><li><strong>Don’t copy a neighbor’s rate.</strong> Account mix and location differ.</li><li><strong>Don’t chase a prettier success rate by lowering the tax assumption without a real basis.</strong></li><li><strong>Don’t ignore Roth conversions, charitable strategies, or bracket management</strong> if those are part of your real plan-those belong in a detailed tax conversation, not only in a single effective rate.</li><li><strong>Don’t assume today’s brackets last forever.</strong> Law changes. Build margin.</li></ul>
                 <hr class="border-slate-200 dark:border-slate-700 my-6">
                 <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">How this fits a sound process</h2>
-                <ol class="list-decimal pl-6 space-y-2"><li>Estimate spending in today’s dollars honestly.</li><li>Estimate other income (Social Security, pension).</li><li>Choose an effective withdrawal tax rate that matches your likely account mix—not your hopes.</li><li>Stress-test with Monte Carlo.</li><li>Note how much the tax assumption moves the result.</li><li>If the plan is tight, consider whether account location (Roth vs traditional), spending, or work horizon matters as much as investment return.</li><li>For implementation, consult a qualified tax professional. Bring your simulation printout as a conversation piece, not as a verdict.</li></ol>
+                <ol class="list-decimal pl-6 space-y-2"><li>Estimate spending in today’s dollars honestly.</li><li>Estimate other income (Social Security, pension).</li><li>Choose an effective withdrawal tax rate that matches your likely account mix-not your hopes.</li><li>Stress-test with Monte Carlo.</li><li>Note how much the tax assumption moves the result.</li><li>If the plan is tight, consider whether account location (Roth vs traditional), spending, or work horizon matters as much as investment return.</li><li>For implementation, consult a qualified tax professional. Bring your simulation printout as a conversation piece, not as a verdict.</li></ol>
                 <hr class="border-slate-200 dark:border-slate-700 my-6">
                 <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">Connection to peace of mind</h2>
                 <p>Tax surprise is one of the ways a “perfect” spreadsheet fails in real retirement. People budget for the mortgage and forget the tax on the IRA withdrawal that funds the mortgage.</p>
-                <p>Putting a non-zero effective rate into the model—when appropriate—is a form of respect for reality. It may make the chart less flattering. It may also make the plan more trustworthy.</p>
+                <p>Putting a non-zero effective rate into the model-when appropriate-is a form of respect for reality. It may make the chart less flattering. It may also make the plan more trustworthy.</p>
                 <p>If your situation is Roth-heavy and carefully designed, a low rate may be justified. If you don’t know your mix, find out before you treat a 0% assumption as truth.</p>
                 <hr class="border-slate-200 dark:border-slate-700 my-6">
                 <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">Closing</h2>
                 <p>The tax rate input is a bridge between <strong>lifestyle spending</strong> and <strong>portfolio stress</strong>. Use it to learn how sensitive your retirement plan is to tax drag. Start with a reasoned estimate, test nearby values, and let the results inform whether you need a deeper tax plan.</p>
-                <p>Clarity beats false precision. A sound retirement path includes the ugly lines—tax among them—so the peace you want is built on something sturdier than an incomplete withdrawal number.</p>
+                <p>Clarity beats false precision. A sound retirement path includes the ugly lines-tax among them-so the peace you want is built on something sturdier than an incomplete withdrawal number.</p>
                 <p class="text-sm text-slate-500 italic">This article is for educational purposes only and is not financial advice. Always consult a qualified advisor for decisions about your personal situation.</p>
             </div>
 
@@ -134,6 +135,7 @@
             <div class="flex flex-wrap justify-center gap-4 mb-4 text-sm">
                 <a href="../index.html" class="hover:text-emerald-600">Calculator</a>
                 <a href="../blog.html" class="hover:text-emerald-600">Learning</a>
+                <a href="../coaching.html" class="hover:text-emerald-600">Coaching</a>
                 <a href="../about.html" class="hover:text-emerald-600">About</a>
                 <a href="../privacy.html" class="hover:text-emerald-600">Privacy</a>
                 <a href="../terms.html" class="hover:text-emerald-600">Terms</a>
