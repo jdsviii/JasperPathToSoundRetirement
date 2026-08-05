@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="How to interpret Monte Carlo retirement success rates: what 70%, 85%, and 95% mean in plain language and what to change when the number is low.">
+    <title>How to Interpret Your Monte Carlo Success Rate | The Path to Sound Retirement</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { display: ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif'], sans: ['Inter', 'system-ui', 'sans-serif'] } } } }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .font-display { font-family: 'Space Grotesk', 'Inter', sans-serif; }
+        .dark body { background-color: #0f172a; color: #e2e8f0; }
+        .dark .bg-white { background-color: #1e293b !important; }
+        .dark .text-slate-900 { color: #f1f5f9 !important; }
+        .dark .text-slate-700, .dark .text-slate-600 { color: #94a3b8 !important; }
+        .dark .border-slate-200 { border-color: #334155 !important; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+    <header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3">
+            <div class="flex items-center justify-between">
+                <a href="../index.html" class="flex items-center gap-3">
+                    <img src="../ptsr.png" alt="The Path to Sound Retirement" class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl shadow-lg object-contain">
+                    <div>
+                        <h1 class="text-lg sm:text-2xl font-display font-semibold text-slate-900 dark:text-white leading-tight">The Path to Sound Retirement</h1>
+                        <p class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400">by Jasper Saunders</p>
+                    </div>
+                </a>
+                <nav class="hidden sm:flex items-center gap-6 text-sm font-medium">
+                    <a href="../index.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600">Calculator</a>
+                    <a href="../blog.html" class="text-emerald-600 font-semibold">Learning</a>
+                    <a href="../coaching.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600">Coaching</a>
+                    <a href="../about.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600">About</a>
+                    <a href="../contact.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600">Contact</a>
+                </nav>
+                <button id="darkModeToggle" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+                    <i class="fa-solid fa-moon dark:hidden"></i>
+                    <i class="fa-solid fa-sun hidden dark:inline"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-3xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
+        <article class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 p-6 sm:p-10 shadow-sm">
+            <div class="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-3">Core Concept</div>
+            <h1 class="text-3xl sm:text-4xl font-display font-bold text-slate-900 dark:text-white mb-4">How to Interpret Your Monte Carlo Success Rate</h1>
+            <p class="text-sm text-slate-500 mb-8">By Jasper Saunders • Educational content only</p>
+
+            <div class="prose prose-slate dark:prose-invert max-w-none space-y-5 text-slate-700 dark:text-slate-300 leading-relaxed">
+
+                <p>When you run a Monte Carlo simulation on a retirement plan, one number often grabs all the attention: the success rate. You see 72%, or 88%, or 96%, and you immediately want a verdict - safe or not safe. That is understandable. It is also incomplete.</p>
+                <p>A success rate is not a promise about your future. It is a count of how many simulated market paths kept your portfolio from running out under the rules you entered. Reading it well means understanding what 70% versus 85% versus 95% is saying, what assumptions sit underneath, and which levers to pull when the number is lower than you want.</p>
+
+                <hr class="border-slate-200 dark:border-slate-700 my-6">
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">What "success" means in the model</h2>
+                <p>In The Path to Sound Retirement calculator, Monte Carlo typically runs 1,000 complete retirement journeys. Each journey draws a different sequence of returns around the mean and volatility you chose. A path is counted as successful if the portfolio never hits zero (or never fails your defined rules) over the full horizon.</p>
+                <p>So a 85% success rate means: in about 850 of those 1,000 sequences, the plan lasted. In about 150, it did not. Those failures are often concentrated in paths with weak returns early in retirement - sequence-of-returns risk made visible.</p>
+                <p>The number does not mean there is an 85% chance the real world will be kind. The real world is one path, not a thousand. The number means: under these assumptions, this spending plan survived most of the storms the model knows how to generate.</p>
+
+                <hr class="border-slate-200 dark:border-slate-700 my-6">
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">Plain language for 70%, 85%, and 95%</h2>
+                <p>These bands are not sacred thresholds. They are useful ways to talk about pressure.</p>
+                <p><strong>Around 70% (roughly 65-75%).</strong> The plan is fragile under the assumptions you used. A sizable minority of simulated futures ran out. That often means spending is high relative to the portfolio, other income is thin, the horizon is long, return assumptions are modest, or volatility is high - or several of those at once. A 70% result is information, not a moral failure. It is a signal to change an input you control before you treat the plan as settled.</p>
+                <p><strong>Around 85% (roughly 80-90%).</strong> Many planners treat this neighborhood as a practical comfort zone for a base case: the plan works in a large majority of simulated sequences without requiring extreme frugality. It is still not a guarantee. Look at the 10th percentile ending balance and the gap between median and tough-case outcomes. An 85% success rate with a very weak 10th percentile is different from 85% with a still-respectable stress case.</p>
+                <p><strong>Around 95% or higher.</strong> The plan is resilient under these assumptions. Failures are rare in the model. That can mean spending is conservative relative to assets, other income covers a large share of needs, or assumptions are favorable. High success rates are encouraging. They can also hide over-saving or under-spending relative to values if the only goal became "maximize the percentage." Peace includes being able to use the plan, not only survive it on paper.</p>
+                <p>Also remember: 100% is not available as a real-world promise. Models have limits. See the companion article on what a 100% success rate does not mean.</p>
+
+                <hr class="border-slate-200 dark:border-slate-700 my-6">
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">What the number is sensitive to</h2>
+                <p>Before you panic or relax, check whether the success rate is reacting to something you would defend under scrutiny.</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li><strong>Spending level</strong> - Small permanent increases in withdrawal often move the success rate more than people expect.</li>
+                    <li><strong>Mean return and volatility</strong> - Optimistic returns and low volatility inflate success rates. Conservative inputs deflate them.</li>
+                    <li><strong>Other income</strong> - Social Security, pensions, and part-time work reduce pressure on the portfolio.</li>
+                    <li><strong>Time horizon</strong> - Longer retirements need the money to last through more sequences.</li>
+                    <li><strong>Taxes</strong> - If you model gross-ups for taxes, higher effective tax needs raise withdrawals and can lower success rates.</li>
+                </ul>
+                <p>Change one lever at a time and rerun. That is how you learn which story the number is telling.</p>
+
+                <div class="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-xl p-5 my-8">
+                    <p class="text-sm font-medium text-emerald-800 dark:text-emerald-300">
+                        Tip: Record baseline success rate, median, and 10th percentile. Then raise spending 10%, rerun, and write down what moved. Then restore spending and lower mean return by 1 percentage point. The comparison teaches faster than staring at a single result.
+                    </p>
+                </div>
+
+                <hr class="border-slate-200 dark:border-slate-700 my-6">
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">What to change when the number is low</h2>
+                <p>When success sits near 70% or below under assumptions you consider fair, the productive response is to adjust the plan - not to argue with the model.</p>
+                <p><strong>Before retirement:</strong> Increase contributions, delay retirement by a year or two, reduce high-interest debt that competes with saving, or build a larger cash buffer so early-retirement withdrawals are less urgent.</p>
+                <p><strong>At or in retirement:</strong> Lower the initial withdrawal rate, build flexible spending rules (guardrails) so you can cut discretionary spending after bad markets, increase reliable other income if realistic, or adjust asset mix only with a clear reason - not as a search for guaranteed higher returns.</p>
+                <p><strong>Assumptions check:</strong> If you used aggressive returns, try a more moderate mean and realistic volatility. If the plan only "works" under rosy inputs, the success rate was flattering you.</p>
+                <p>Pick one primary lever for the next 30-90 days. Multiple simultaneous changes make it hard to know what helped.</p>
+
+                <hr class="border-slate-200 dark:border-slate-700 my-6">
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">Look past the single percentage</h2>
+                <p>The success rate answers "how often did the plan survive?" The percentiles answer "what did survival and failure look like?"</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li><strong>10th percentile</strong> - tougher market sequences; useful stress case</li>
+                    <li><strong>Median</strong> - middle of the distribution</li>
+                    <li><strong>90th percentile</strong> - stronger market sequences</li>
+                </ul>
+                <p>Two plans can share an 85% success rate and feel very different if one leaves a thin 10th-percentile balance and the other does not. Read the set of metrics together.</p>
+
+                <hr class="border-slate-200 dark:border-slate-700 my-6">
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">A simple reading workflow</h2>
+                <ol class="list-decimal pl-6 space-y-2">
+                    <li>Enter honest spending, income, taxes, and horizon.</li>
+                    <li>Choose a mean return and volatility you can defend out loud.</li>
+                    <li>Run Monte Carlo; record success rate, median, and 10th percentile.</li>
+                    <li>Classify the success rate in plain language (fragile / workable / highly resilient).</li>
+                    <li>Stress one lever (spending or return) and rerun.</li>
+                    <li>Choose one real-world action for the next month.</li>
+                </ol>
+                <p>That workflow turns a percentage into a teacher.</p>
+
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">Closing</h2>
+                <p>Seventy percent is not failure. Ninety-five percent is not a covenant with the market. Both are descriptions of how a set of rules behaved across many simulated sequences. Your job is to understand the description, test the assumptions, and change what you control until the distribution of outcomes matches the risk you are willing to carry.</p>
+                <p>From pressure to peace begins when a success rate stops being a verdict and becomes a map.</p>
+                <p class="text-sm text-slate-500 italic">This article is for educational purposes only and is not financial advice. Simulations depend on assumptions. Always consult a qualified advisor for decisions about your personal situation.</p>
+
+            </div>
+
+            <div class="mt-10 pt-6 border-t border-slate-200 dark:border-slate-700">
+                <h3 class="text-lg font-display font-semibold text-slate-900 dark:text-white mb-3">Related Reading</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="how-monte-carlo-works.html" class="text-emerald-600 hover:underline">How Monte Carlo Simulations Work for Retirement</a></li>
+                    <li><a href="what-100-percent-success-rate-does-not-mean.html" class="text-emerald-600 hover:underline">What a 100% Success Rate Does Not Mean</a></li>
+                    <li><a href="sequence-of-returns-risk.html" class="text-emerald-600 hover:underline">Sequence of Returns Risk</a></li>
+                    <li><a href="understanding-volatility.html" class="text-emerald-600 hover:underline">Understanding Volatility</a></li>
+                    <li><a href="4-percent-rule.html" class="text-emerald-600 hover:underline">The 4% Rule: What It Is and What It Is Not</a></li>
+                    <li><a href="flexible-spending-guardrails.html" class="text-emerald-600 hover:underline">Flexible Spending and Guardrails After the 4% Rule</a></li>
+                </ul>
+            </div>
+
+            <p class="mt-6 text-sm text-slate-600 dark:text-slate-400">
+                Want personalized clarity and accountability? <a href="../coaching.html" class="text-emerald-600 hover:underline font-medium">Explore virtual coaching</a>.
+            </p>
+
+            <div class="mt-6 flex flex-wrap gap-4">
+                <a href="../blog.html" class="text-emerald-600 hover:underline font-medium">← Back to Learning</a>
+                <a href="../index.html" class="text-emerald-600 hover:underline font-medium">Try the Calculator →</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="text-center text-xs text-slate-400 dark:text-slate-500 py-8 border-t border-slate-200 dark:border-slate-700 mt-10">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-4 mb-4 text-sm">
+                <a href="../index.html" class="hover:text-emerald-600">Calculator</a>
+                <a href="../blog.html" class="hover:text-emerald-600">Learning</a>
+                <a href="../coaching.html" class="hover:text-emerald-600">Coaching</a>
+                <a href="../about.html" class="hover:text-emerald-600">About</a>
+                <a href="../privacy.html" class="hover:text-emerald-600">Privacy</a>
+                <a href="../terms.html" class="hover:text-emerald-600">Terms</a>
+                <a href="../contact.html" class="hover:text-emerald-600">Contact</a>
+            </div>
+            The Path to Sound Retirement by Jasper Saunders • For educational purposes only. Not financial advice.
+        </div>
+    </footer>
+
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const html = document.documentElement;
+        function getDarkModePref() {
+            try {
+                const saved = localStorage.getItem('darkMode');
+                if (saved !== null) return saved === 'true';
+                return window.matchMedia('(prefers-color-scheme: dark)').matches;
+            } catch (e) {
+                return window.matchMedia('(prefers-color-scheme: dark)').matches;
+            }
+        }
+        function setDarkModePref(isDark) {
+            try { localStorage.setItem('darkMode', isDark); } catch (e) {}
+            if (isDark) html.classList.add('dark');
+            else html.classList.remove('dark');
+        }
+        setDarkModePref(getDarkModePref());
+        darkModeToggle.addEventListener('click', () => {
+            setDarkModePref(!html.classList.contains('dark'));
+        });
+    </script>
+</body>
+</html>

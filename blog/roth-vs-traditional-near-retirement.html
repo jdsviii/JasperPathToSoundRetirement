@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Roth vs traditional contributions near retirement: a decision framework using tax brackets, RMDs, and subsidies - not product picks.">
+    <title>Roth vs Traditional Contributions Near Retirement | The Path to Sound Retirement</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { display: ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif'], sans: ['Inter', 'system-ui', 'sans-serif'] } } } }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .font-display { font-family: 'Space Grotesk', 'Inter', sans-serif; }
+        .dark body { background-color: #0f172a; color: #e2e8f0; }
+        .dark .bg-white { background-color: #1e293b !important; }
+        .dark .text-slate-900 { color: #f1f5f9 !important; }
+        .dark .text-slate-700, .dark .text-slate-600 { color: #94a3b8 !important; }
+        .dark .border-slate-200 { border-color: #334155 !important; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+    <header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3">
+            <div class="flex items-center justify-between">
+                <a href="../index.html" class="flex items-center gap-3">
+                    <img src="../ptsr.png" alt="The Path to Sound Retirement" class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl shadow-lg object-contain">
+                    <div>
+                        <h1 class="text-lg sm:text-2xl font-display font-semibold text-slate-900 dark:text-white leading-tight">The Path to Sound Retirement</h1>
+                        <p class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400">by Jasper Saunders</p>
+                    </div>
+                </a>
+                <nav class="hidden sm:flex items-center gap-6 text-sm font-medium">
+                    <a href="../index.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600">Calculator</a>
+                    <a href="../blog.html" class="text-emerald-600 font-semibold">Learning</a>
+                    <a href="../coaching.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600">Coaching</a>
+                    <a href="../about.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600">About</a>
+                    <a href="../contact.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600">Contact</a>
+                </nav>
+                <button id="darkModeToggle" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+                    <i class="fa-solid fa-moon dark:hidden"></i>
+                    <i class="fa-solid fa-sun hidden dark:inline"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-3xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
+        <article class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 p-6 sm:p-10 shadow-sm">
+            <div class="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-3">Education</div>
+            <h1 class="text-3xl sm:text-4xl font-display font-bold text-slate-900 dark:text-white mb-4">Roth vs Traditional Contributions Near Retirement</h1>
+            <p class="text-sm text-slate-500 mb-8">By Jasper Saunders • Educational content only</p>
+
+            <div class="prose prose-slate dark:prose-invert max-w-none space-y-5 text-slate-700 dark:text-slate-300 leading-relaxed">
+
+                <p>Near retirement, the Roth versus traditional decision is less about slogans and more about tax brackets, future required distributions, and how income shows up on paper for things like Medicare premiums or marketplace subsidies. This article is a decision framework. It is not a product pitch, and it is not tax advice for your specific return.</p>
+                <p>The useful question is not "which account is best forever?" It is "given my current bracket, expected retirement income mix, and timeline, where does the next contribution - or the next conversion dollar - do the most good?"</p>
+
+                <hr class="border-slate-200 dark:border-slate-700 my-6">
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">The core tradeoff in one paragraph</h2>
+                <p>Traditional contributions (where allowed) generally reduce taxable income now and grow tax-deferred; withdrawals are usually taxed as ordinary income later. Roth contributions are made with after-tax dollars now; qualified withdrawals are generally tax-free later, and Roth IRAs typically have no lifetime RMDs for the original owner. You are choosing when to pay the tax and how much flexibility you want around future taxable income.</p>
+
+                <hr class="border-slate-200 dark:border-slate-700 my-6">
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">Factor 1: Current tax bracket versus expected future bracket</h2>
+                <p>If you are in a relatively high bracket now and expect a materially lower bracket in retirement, traditional contributions can be attractive: deduction now at a high rate, withdrawals later at a lower rate. If you are in a modest bracket now and expect similar or higher taxable income later - or you simply want tax-free flexibility - Roth contributions can be attractive.</p>
+                <p>Near retirement, "future bracket" is not abstract. Estimate Social Security, pensions, part-time work, and likely withdrawals from traditional balances. Add a rough tax rate on those withdrawals. That sketch is more useful than a generic rule of thumb from the internet.</p>
+
+                <hr class="border-slate-200 dark:border-slate-700 my-6">
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">Factor 2: RMDs and the size of traditional balances</h2>
+                <p>Large traditional balances can force sizable required minimum distributions later, whether or not you need the cash for spending. Those RMDs raise taxable income and can affect Medicare premiums (IRMAA) and taxation of Social Security. Building some Roth balance - through contributions or conversions in lower-income years - can reduce future mandatory taxable withdrawals.</p>
+                <p>Conversions create tax now. They are not free. The framework question is whether paying tax in a controlled year is better than larger forced taxable distributions later. Years with lower ordinary income, lower extra Medicare premium exposure, or temporarily lower brackets are often the ones people study for conversions - with professional help when the numbers are large.</p>
+
+                <hr class="border-slate-200 dark:border-slate-700 my-6">
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">Factor 3: Subsidies and income-linked costs</h2>
+                <p>Before Medicare, marketplace premium tax credits depend on household income. After Medicare, IRMAA tiers depend on income from prior years. Traditional withdrawals and conversions increase income; Roth withdrawals (when qualified) generally do not. If you are bridging to Medicare on marketplace coverage, a big traditional withdrawal or conversion in the wrong year can raise premiums. That does not mean "never traditional." It means sequence and timing matter.</p>
+                <p>Map the years when income-linked benefits or surcharges are most sensitive. Coordinate large taxable events with that map.</p>
+
+                <div class="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-xl p-5 my-8">
+                    <p class="text-sm font-medium text-emerald-800 dark:text-emerald-300">
+                        When you model retirement spending in the calculator, include a realistic tax rate on withdrawals from traditional accounts. Tax-free Roth withdrawals and taxable traditional withdrawals are not interchangeable inputs.
+                    </p>
+                </div>
+
+                <hr class="border-slate-200 dark:border-slate-700 my-6">
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">Factor 4: Employer match and contribution mechanics</h2>
+                <p>If a workplace plan offers a match, contribute at least enough to capture the full match before optimizing Roth versus traditional fine points - the match is usually the higher-return decision. After the match, allocate additional contributions between traditional and Roth according to the bracket and RMD factors above, subject to plan rules and limits.</p>
+                <p>Some plans offer Roth 401(k) and traditional 401(k) side by side. Contribution limits are shared. Priority is personal: match first, then tax location of the rest.</p>
+
+                <hr class="border-slate-200 dark:border-slate-700 my-6">
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">Factor 5: Flexibility and unknown policy</h2>
+                <p>Nobody knows future tax schedules with certainty. A mix of traditional and Roth balances is a practical hedge: you gain some control over taxable income in retirement by choosing which account to draw from (within the rules). Pure traditional can still be right for someone in a high bracket with a clear expectation of lower later income. Pure Roth can still be right for someone who values tax-free withdrawals and no lifetime RMDs on Roth IRAs. Many households land in the middle on purpose.</p>
+
+                <hr class="border-slate-200 dark:border-slate-700 my-6">
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">A simple decision sequence</h2>
+                <ol class="list-decimal pl-6 space-y-2">
+                    <li>Capture any full employer match.</li>
+                    <li>Sketch this year's marginal bracket and a realistic retirement income stack.</li>
+                    <li>Note RMD risk from existing traditional balances.</li>
+                    <li>Note any marketplace subsidy or IRMAA sensitivity in the next 1-10 years.</li>
+                    <li>Direct new contributions toward traditional, Roth, or a split based on that sketch.</li>
+                    <li>Consider conversions only with a tax estimate and a clear purpose (for example, reducing future RMDs), not as a reflex.</li>
+                </ol>
+
+                <hr class="border-slate-200 dark:border-slate-700 my-6">
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">Common mistakes</h2>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Choosing Roth or traditional only because a headline said so.</li>
+                    <li>Ignoring the employer match while optimizing account type.</li>
+                    <li>Converting large amounts without checking the current-year tax bill and Medicare/subsidy effects.</li>
+                    <li>Assuming retirement tax rates will automatically be lower without estimating income sources.</li>
+                    <li>Forgetting that traditional 401(k) and IRA RMDs still apply even if you prefer not to spend the money.</li>
+                </ul>
+
+                <hr class="border-slate-200 dark:border-slate-700 my-6">
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">What to do next</h2>
+                <p>This month: list current traditional versus Roth balances, this year's expected marginal bracket, and a rough retirement income list (Social Security, pension, withdrawals). Decide where the next contribution dollar goes using the sequence above. If conversions are on the table, run a tax estimate for a modest conversion first - not a maximum conversion by default. Update the tax-on-withdrawal assumption in your retirement projections so the plan stays honest.</p>
+
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">Closing</h2>
+                <p>Near retirement, Roth versus traditional is a timing and flexibility decision under uncertainty. Use brackets, RMD exposure, and income-linked costs as the frame. Skip product hype. Pay the tax when the tradeoff is clear, build flexibility when it is not, and keep the rest of the plan - spending, saving, and risk - in view.</p>
+                <p class="text-sm text-slate-500 italic">This article is for educational purposes only and is not tax, legal, or financial advice. Tax rules change. Always consult a qualified tax professional or advisor for decisions about your personal situation.</p>
+
+            </div>
+
+            <div class="mt-10 pt-6 border-t border-slate-200 dark:border-slate-700">
+                <h3 class="text-lg font-display font-semibold text-slate-900 dark:text-white mb-3">Related Reading</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="tax-rate-on-withdrawals.html" class="text-emerald-600 hover:underline">Tax Rate on Withdrawals</a></li>
+                    <li><a href="rmd-preparation-checklist.html" class="text-emerald-600 hover:underline">RMD Preparation Checklist</a></li>
+                    <li><a href="pre-medicare-health-coverage-checklist.html" class="text-emerald-600 hover:underline">Pre-Medicare Health Coverage Checklist</a></li>
+                    <li><a href="account-consolidation-decision-checklist.html" class="text-emerald-600 hover:underline">Account Consolidation Decision Checklist</a></li>
+                    <li><a href="budgeting-for-retirement-readiness.html" class="text-emerald-600 hover:underline">Budgeting for Retirement Readiness</a></li>
+                    <li><a href="interpreting-monte-carlo-success-rate.html" class="text-emerald-600 hover:underline">How to Interpret Your Monte Carlo Success Rate</a></li>
+                </ul>
+            </div>
+
+            <p class="mt-6 text-sm text-slate-600 dark:text-slate-400">
+                Want personalized clarity and accountability? <a href="../coaching.html" class="text-emerald-600 hover:underline font-medium">Explore virtual coaching</a>.
+            </p>
+
+            <div class="mt-6 flex flex-wrap gap-4">
+                <a href="../blog.html" class="text-emerald-600 hover:underline font-medium">← Back to Learning</a>
+                <a href="../index.html" class="text-emerald-600 hover:underline font-medium">Try the Calculator →</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="text-center text-xs text-slate-400 dark:text-slate-500 py-8 border-t border-slate-200 dark:border-slate-700 mt-10">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-4 mb-4 text-sm">
+                <a href="../index.html" class="hover:text-emerald-600">Calculator</a>
+                <a href="../blog.html" class="hover:text-emerald-600">Learning</a>
+                <a href="../coaching.html" class="hover:text-emerald-600">Coaching</a>
+                <a href="../about.html" class="hover:text-emerald-600">About</a>
+                <a href="../privacy.html" class="hover:text-emerald-600">Privacy</a>
+                <a href="../terms.html" class="hover:text-emerald-600">Terms</a>
+                <a href="../contact.html" class="hover:text-emerald-600">Contact</a>
+            </div>
+            The Path to Sound Retirement by Jasper Saunders • For educational purposes only. Not financial advice.
+        </div>
+    </footer>
+
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const html = document.documentElement;
+        function getDarkModePref() {
+            try {
+                const saved = localStorage.getItem('darkMode');
+                if (saved !== null) return saved === 'true';
+                return window.matchMedia('(prefers-color-scheme: dark)').matches;
+            } catch (e) {
+                return window.matchMedia('(prefers-color-scheme: dark)').matches;
+            }
+        }
+        function setDarkModePref(isDark) {
+            try { localStorage.setItem('darkMode', isDark); } catch (e) {}
+            if (isDark) html.classList.add('dark');
+            else html.classList.remove('dark');
+        }
+        setDarkModePref(getDarkModePref());
+        darkModeToggle.addEventListener('click', () => {
+            setDarkModePref(!html.classList.contains('dark'));
+        });
+    </script>
+</body>
+</html>
