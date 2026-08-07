@@ -578,7 +578,8 @@
                                    onchange="syncTaxRateFromNum(); updateRetirementInputs()"
                                    oninput="syncTaxRateFromNum(); updateRetirementInputs()">
                             <div class="text-xs text-slate-500 mt-1">
-                                Used to gross-up the portfolio withdrawal so that after-tax spending matches your target. A mid-range estimate for many retirees is around 15-20%.
+                                Used to increase the portfolio withdrawal so after-tax spending matches your target. A mid single-digit to low double-digit % is a planning estimate - not your exact tax return.
+                                <a href="blog/tax-rate-on-withdrawals.html" class="text-emerald-600 hover:underline">How to choose an estimate</a>
                             </div>
                         </div>
 
@@ -609,19 +610,27 @@
                             </div>
                         </div>
 
-                        <!-- MC Params -->
-                        <div id="mc-params" class="grid grid-cols-2 gap-3">
-                            <div>
-                                <label class="text-xs text-slate-500">Mean Return %</label>
-                                <input type="number" id="mean-return" value="8" step="0.5"
-                                       class="w-full mt-1 px-3 py-2 text-sm border border-slate-300 dark:border-slate-600 rounded-xl font-mono text-center">
+                        <!-- MC Params (collapsed assumptions) -->
+                        <details id="mc-params" class="rounded-2xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700/40 p-3 open:pb-3">
+                            <summary class="cursor-pointer text-sm font-semibold text-slate-700 dark:text-slate-200 list-none flex items-center justify-between gap-2">
+                                <span>Assumptions (affect every simulation)</span>
+                                <span class="text-xs font-normal text-slate-500">Mean return &amp; volatility</span>
+                            </summary>
+                            <div class="grid grid-cols-2 gap-3 mt-3">
+                                <div>
+                                    <label class="text-xs text-slate-500">Mean Return %</label>
+                                    <input type="number" id="mean-return" value="8" step="0.5"
+                                           class="w-full mt-1 px-3 py-2 text-sm border border-slate-300 dark:border-slate-600 rounded-xl font-mono text-center">
+                                    <p class="text-[11px] text-slate-500 mt-1">Long-term average you think is realistic - not last year’s return. Try 6-7% for a stricter test.</p>
+                                </div>
+                                <div>
+                                    <label class="text-xs text-slate-500">Volatility %</label>
+                                    <input type="number" id="volatility" value="15"
+                                           class="w-full mt-1 px-3 py-2 text-sm border border-slate-300 dark:border-slate-600 rounded-xl font-mono text-center">
+                                    <p class="text-[11px] text-slate-500 mt-1">Year-to-year bounce around the average. Higher vol usually lowers the success rate. 15% is a common stock-heavy starting point.</p>
+                                </div>
                             </div>
-                            <div>
-                                <label class="text-xs text-slate-500">Volatility %</label>
-                                <input type="number" id="volatility" value="15"
-                                       class="w-full mt-1 px-3 py-2 text-sm border border-slate-300 dark:border-slate-600 rounded-xl font-mono text-center">
-                            </div>
-                        </div>
+                        </details>
 
                         <button onclick="runRetirementSimulation()" 
                                 class="w-full py-4 bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700 text-white font-semibold rounded-2xl shadow-lg shadow-teal-600/25 transition-all active:scale-[0.98] text-sm sm:text-base">
@@ -650,6 +659,7 @@
                             <div class="text-[10px] uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-semibold">Success Rate</div>
                             <div id="success-rate" class="text-3xl sm:text-4xl font-display font-bold text-emerald-700 dark:text-emerald-300">-</div>
                             <div class="text-xs text-emerald-600">percent</div>
+                            <a href="blog/interpreting-monte-carlo-success-rate.html" class="text-[10px] text-emerald-700 dark:text-emerald-400 hover:underline">What this means</a>
                         </div>
                         <div class="bg-slate-50 dark:bg-slate-700/50 rounded-2xl p-3 sm:p-4 text-center">
                             <div class="text-[10px] uppercase tracking-wider text-slate-500 font-semibold leading-tight">10th<br>Percentile</div>
@@ -665,6 +675,25 @@
                         </div>
                     </div>
 
+                    <!-- How to read your results -->
+                    <div id="how-to-read-results" class="mb-4 p-4 rounded-2xl bg-emerald-50/80 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 text-sm text-slate-700 dark:text-slate-200 leading-relaxed">
+                        <div class="font-semibold text-slate-900 dark:text-white mb-1.5">How to read your results</div>
+                        <p class="mb-2">A success rate is not a verdict. It is how often the plan lasted across 1,000 simulated market paths under the rules you entered.</p>
+                        <ul class="list-disc pl-5 space-y-1 text-xs sm:text-sm mb-2">
+                            <li><strong>Around 70%</strong> - under pressure; change a lever you control before treating the plan as settled.</li>
+                            <li><strong>Around 85%</strong> - a practical comfort zone for many base cases; still check the 10th percentile.</li>
+                            <li><strong>Around 95%+</strong> - resilient on paper; make sure spending still funds the life you want.</li>
+                        </ul>
+                        <p class="text-xs sm:text-sm">
+                            <a href="blog/interpreting-monte-carlo-success-rate.html" class="text-emerald-700 dark:text-emerald-400 font-medium hover:underline">How to interpret your success rate</a>
+                            <span class="text-slate-400 mx-1">·</span>
+                            <a href="blog/flexible-spending-guardrails.html" class="text-emerald-700 dark:text-emerald-400 font-medium hover:underline">Flexible spending &amp; guardrails</a>
+                            <span class="text-slate-400 mx-1">·</span>
+                            <a href="blog/sequence-risk-what-to-do.html" class="text-emerald-700 dark:text-emerald-400 font-medium hover:underline">If markets fall early in retirement</a>
+                        </p>
+                    </div>
+                    <div id="what-to-try" class="hidden mb-4 p-4 rounded-2xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 text-sm text-slate-700 dark:text-slate-200 leading-relaxed"></div>
+
                     <div class="chart-container mb-2 relative">
                         <canvas id="retirement-paths-chart"></canvas>
                     </div>
@@ -678,20 +707,22 @@
                     
                     <div class="text-xs text-slate-500 dark:text-slate-400 border-t border-slate-100 dark:border-slate-700 pt-3 space-y-1.5">
                         <div>
-                            <strong>Monte Carlo</strong> runs 1,000 random market sequences using your expected mean return + volatility to model sequence-of-returns risk (like FIREcalc historical testing).
+                            <strong>Monte Carlo</strong> runs 1,000 random market sequences using your mean return and volatility to model sequence-of-returns risk.
+                            <a href="blog/how-monte-carlo-works.html" class="text-emerald-600 hover:underline">How Monte Carlo works</a>
                         </div>
                         <div>
-                            <strong>Deterministic</strong> uses a fixed return each year for a single, smooth projection path (no randomness).
+                            <strong>Deterministic</strong> uses a fixed return each year for a single smooth path (no randomness). Compare it to Monte Carlo to see what the smooth line was hiding.
                         </div>
                         <div>
-                            <strong>Volatility %</strong> is the expected year-to-year fluctuation (standard deviation) of portfolio returns. Higher volatility (e.g. 15-20%) creates wider outcome ranges and more uncertainty; lower volatility produces more stable paths. The default of 15% approximates a typical diversified stock portfolio.
+                            <strong>Volatility %</strong> is year-to-year fluctuation around the average. Higher volatility widens outcomes and often lowers the success rate. Default 15% approximates a diversified stock-heavy portfolio.
                         </div>
                         <div class="pt-1.5 mt-1.5 border-t border-slate-100 dark:border-slate-700">
                             <strong class="text-slate-600 dark:text-slate-300">Chart path meanings:</strong>
                             <ul class="mt-1 space-y-0.5 list-disc list-inside">
-                                <li><strong>10th Percentile</strong> - Tough market sequence (only 10% of outcomes were worse)</li>
+                                <li><strong>10th Percentile</strong> - Tough market sequence (only 10% of outcomes were worse). Use as a stress case.
+                                    <a href="blog/sequence-of-returns-risk.html" class="text-emerald-600 hover:underline">Sequence risk</a></li>
                                 <li><strong>25th Percentile</strong> - Below-average sequence</li>
-                                <li><strong>Median (50th)</strong> - Typical / middle outcome (half of simulations did better, half worse)</li>
+                                <li><strong>Median (50th)</strong> - Typical middle outcome</li>
                                 <li><strong>75th Percentile</strong> - Above-average sequence</li>
                                 <li><strong>90th Percentile</strong> - Strong market sequence (only 10% of outcomes were better)</li>
                             </ul>
@@ -1527,11 +1558,29 @@
                 else tone = 'Your plan faces significant pressure in many market sequences.';
 
                 if (res.mode === 'montecarlo') {
-                    retSum.innerHTML = `<strong>${tone}</strong> It succeeds in <strong>${res.successRate}%</strong> of the 1,000 market scenarios tested. The typical (median) ending balance is about <strong>${formatFullCurrency(res.medianFinal)}</strong>. In tougher markets (10th percentile) it ends near <strong>${formatFullCurrency(res.p10Final)}</strong>; in stronger ones (90th percentile) near <strong>${formatFullCurrency(res.p90Final)}</strong>.`;
+                    retSum.innerHTML = `<strong>${tone}</strong> It succeeds in <strong>${res.successRate}%</strong> of the 1,000 market scenarios tested. The typical (median) ending balance is about <strong>${formatFullCurrency(res.medianFinal)}</strong>. In tougher markets (10th percentile) it ends near <strong>${formatFullCurrency(res.p10Final)}</strong>; in stronger ones (90th percentile) near <strong>${formatFullCurrency(res.p90Final)}</strong>. <a href="blog/interpreting-monte-carlo-success-rate.html" class="text-emerald-700 dark:text-emerald-400 hover:underline">Read what this rate means</a>.`;
                 } else {
-                    retSum.innerHTML = `<strong>Deterministic projection:</strong> With a fixed return each year, the plan ${rate >= 100 ? 'lasts the full retirement period' : 'runs out of money early'}. Ending balance: <strong>${formatFullCurrency(res.medianFinal)}</strong>.`;
+                    retSum.innerHTML = `<strong>Deterministic projection:</strong> With a fixed return each year, the plan ${rate >= 100 ? 'lasts the full retirement period' : 'runs out of money early'}. Ending balance: <strong>${formatFullCurrency(res.medianFinal)}</strong>. Switch to Monte Carlo to see sequence risk.`;
                 }
                 retSum.classList.remove('hidden');
+            }
+
+            const tryBox = document.getElementById('what-to-try');
+            if (tryBox) {
+                let tip = '';
+                if (res.mode === 'montecarlo') {
+                    if (rate < 80) {
+                        tip = '<strong>What to try next:</strong> Lower annual spending about 10%, delay retirement by a year, or raise contributions in the growth section - then run again. Change one lever at a time so you can see what helped. <a href="blog/sequence-risk-what-to-do.html" class="text-emerald-700 dark:text-emerald-400 hover:underline">Actions if markets fall early</a>';
+                    } else if (rate < 90) {
+                        tip = '<strong>What to try next:</strong> Check the 10th percentile. If it looks thin, test a modest spending cut or a lower mean return (stricter test). <a href="blog/flexible-spending-guardrails.html" class="text-emerald-700 dark:text-emerald-400 hover:underline">Guardrails after the 4% rule</a>';
+                    } else {
+                        tip = '<strong>What to try next:</strong> Stress the plan - raise spending 10% or lower expected return by 1 point and compare. A strong base case should still make sense under a slightly harder test.';
+                    }
+                } else {
+                    tip = '<strong>What to try next:</strong> Run Monte Carlo with the same spending and income. A smooth deterministic path can hide sequence-of-returns risk.';
+                }
+                tryBox.innerHTML = tip;
+                tryBox.classList.remove('hidden');
             }
             
             if (retirementChart) retirementChart.destroy();
