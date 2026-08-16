@@ -244,8 +244,22 @@
                     <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold leading-tight mb-4">
                         From pressure to peace.
                     </h2>
-                    <p class="text-emerald-50/95 text-base sm:text-lg leading-relaxed">
+                    <p class="text-emerald-50/95 text-base sm:text-lg leading-relaxed mb-6">
                         Free calculator, plain-language education, and optional coaching for people who want to learn the path - not hand it off.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <a href="#accumulation-section"
+                           class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-white text-emerald-800 font-semibold text-sm sm:text-base shadow-lg hover:bg-emerald-50 transition-colors">
+                            <i class="fa-solid fa-calculator"></i>
+                            Try the free calculator
+                        </a>
+                        <a href="blog.html"
+                           class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl border border-white/40 text-white font-semibold text-sm sm:text-base hover:bg-white/10 transition-colors">
+                            Browse Learning
+                        </a>
+                    </div>
+                    <p class="mt-4 text-xs sm:text-sm text-emerald-100/90">
+                        No signup. No data leaves your browser. Stress-test the plan in minutes.
                     </p>
                 </div>
                 <!-- Soft path-inspired decorative shapes -->
@@ -253,13 +267,24 @@
                 <div class="absolute right-16 bottom-0 w-48 h-48 bg-teal-400/10 rounded-full translate-y-1/4 pointer-events-none"></div>
                 <div class="absolute right-4 top-1/2 w-24 h-24 border border-white/10 rounded-full pointer-events-none hidden sm:block"></div>
             </div>
-            <p class="mt-3 text-center sm:text-left text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-                New here?
-                <a href="#about-this-tool"
-                   class="font-semibold text-slate-600 dark:text-slate-300 hover:text-emerald-700 dark:hover:text-emerald-400 underline underline-offset-2 transition-colors">
-                    About this tool
+            <!-- Start-here path (CRO structure) -->
+            <div class="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <a href="#accumulation-section" class="group rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 hover:border-emerald-400 dark:hover:border-emerald-600 transition-colors">
+                    <div class="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-1">Step 1</div>
+                    <div class="font-display font-semibold text-slate-900 dark:text-white group-hover:text-emerald-600">Project growth</div>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Starting balance, contributions, years to grow.</p>
                 </a>
-            </p>
+                <a href="#retirement-section" class="group rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 hover:border-emerald-400 dark:hover:border-emerald-600 transition-colors">
+                    <div class="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-1">Step 2</div>
+                    <div class="font-display font-semibold text-slate-900 dark:text-white group-hover:text-emerald-600">Stress-test retirement</div>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Spending, income, Monte Carlo success rate.</p>
+                </a>
+                <a href="#about-this-tool" class="group rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 hover:border-emerald-400 dark:hover:border-emerald-600 transition-colors">
+                    <div class="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-1">Step 3</div>
+                    <div class="font-display font-semibold text-slate-900 dark:text-white group-hover:text-emerald-600">Learn what the numbers mean</div>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Plain-language guides - or coaching if you want accountability.</p>
+                </a>
+            </div>
         </div>
 
         <!-- ========== ACCUMULATION SECTION ========== -->
@@ -777,6 +802,54 @@
                         <span class="mx-2 text-slate-300 dark:text-slate-600">·</span>
                         <a href="blog.html" class="text-emerald-700 dark:text-emerald-400 hover:underline font-medium">All Learning</a>
                     </p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Trust, proof, objections (CRO) -->
+        <section class="mb-10 sm:mb-14" id="why-trust">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                <div class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+                    <div class="text-emerald-600 mb-2"><i class="fa-solid fa-shield-halved text-xl"></i></div>
+                    <h3 class="font-display font-semibold text-slate-900 dark:text-white mb-1">Private by design</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-400">Numbers stay in your browser. No account required to run the calculator.</p>
+                </div>
+                <div class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+                    <div class="text-emerald-600 mb-2"><i class="fa-solid fa-book-open text-xl"></i></div>
+                    <h3 class="font-display font-semibold text-slate-900 dark:text-white mb-1">Education first</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-400">29 Learning articles explain success rates, sequence risk, spending rules, and more - free.</p>
+                </div>
+                <div class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+                    <div class="text-emerald-600 mb-2"><i class="fa-solid fa-chalkboard-user text-xl"></i></div>
+                    <h3 class="font-display font-semibold text-slate-900 dark:text-white mb-1">Teacher, not takeover</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-400">Optional coaching for accountable learners. Free tools stay free either way.</p>
+                </div>
+            </div>
+            <div class="rounded-2xl border border-emerald-200 dark:border-emerald-800 bg-emerald-50/70 dark:bg-emerald-900/20 p-5 sm:p-6">
+                <h3 class="font-display font-semibold text-slate-900 dark:text-white mb-2">A note from Jasper</h3>
+                <p class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed mb-3">
+                    I built this for people who want clarity without handing every decision to someone else. The calculator replaces vague worry with a testable plan. The articles teach the ideas behind the numbers.
+                    <a href="blog/my-money-story.html" class="text-emerald-700 dark:text-emerald-400 font-medium hover:underline">Read my money story</a>.
+                </p>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Educational tools only - not personalized financial advice.</p>
+            </div>
+            <div class="mt-8 max-w-3xl">
+                <h3 class="text-lg font-display font-semibold text-slate-900 dark:text-white mb-3">Common questions</h3>
+                <div class="space-y-3 text-sm text-slate-700 dark:text-slate-300">
+                    <div class="rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4">
+                        <p class="font-semibold text-slate-900 dark:text-white mb-1">Is this free?</p>
+                        <p>Yes. The calculator and Learning library are free. Coaching is optional and clearly priced.</p>
+                    </div>
+                    <div class="rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4">
+                        <p class="font-semibold text-slate-900 dark:text-white mb-1">Do you manage my money?</p>
+                        <p>No. This site teaches and stress-tests plans. You keep control of accounts and decisions.</p>
+                    </div>
+                    <div class="rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4">
+                        <p class="font-semibold text-slate-900 dark:text-white mb-1">What does a success rate mean?</p>
+                        <p>It is how often the plan lasted across simulated market paths - not a guarantee.
+                        <a href="blog/interpreting-monte-carlo-success-rate.html" class="text-emerald-600 hover:underline">Plain-language guide</a>.</p>
+                    </div>
                 </div>
             </div>
         </section>
