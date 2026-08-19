@@ -1622,10 +1622,12 @@
             document.getElementById('p10-final').textContent = formatCurrency(res.p10Final);
             document.getElementById('p90-final').textContent = formatCurrency(res.p90Final);
 
+            // Shared success rate for summary, tips, and chart path (must stay in function scope)
+            const rate = parseFloat(res.successRate);
+
             // Plain-English results storytelling
             const retSum = document.getElementById('retirement-summary');
             if (retSum) {
-                const rate = parseFloat(res.successRate);
                 let tone;
                 if (rate >= 90) tone = 'Your plan looks strong.';
                 else if (rate >= 75) tone = 'Your plan is reasonably solid.';
