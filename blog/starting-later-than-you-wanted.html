@@ -7,5 +7,211 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="What to do when you started saving later than you wanted: the remaining levers, a late-start calculator workflow, and why a hero return is not the plan.">
     <title>Starting Later Than You Wanted: The Levers That Still Work | The Path to Sound Retirement</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { display: ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif'], sans: ['Inter', 'system-ui', 'sans-serif'] } } } }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .font-display { font-family: 'Space Grotesk', 'Inter', sans-serif; }
+        .dark body { background-color: #0f172a; color: #e2e8f0; }
+        .dark .bg-white { background-color: #1e293b !important; }
+        .dark .text-slate-900 { color: #f1f5f9 !important; }
+        .dark .text-slate-700, .dark .text-slate-600 { color: #94a3b8 !important; }
+        .dark .border-slate-200 { border-color: #334155 !important; }
+    </style>
 </head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+    <header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3">
+            <div class="flex items-center justify-between">
+                <a href="../index.html" class="flex items-center gap-3">
+                    <img src="../ptsr.png" alt="The Path to Sound Retirement" class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl shadow-lg object-contain">
+                    <div>
+                        <h1 class="text-lg sm:text-2xl font-display font-semibold text-slate-900 dark:text-white leading-tight">The Path to Sound Retirement</h1>
+                        <p class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400">by Jasper Saunders</p>
+                    </div>
+                </a>
+                <nav class="hidden sm:flex items-center gap-6 text-sm font-medium">
+                    <a href="../index.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600">Calculator</a>
+                    <a href="../blog.html" class="text-emerald-600 font-semibold">Learning</a>
+                    <a href="../coaching.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600">Coaching</a>
+                    <a href="../about.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600">About</a>
+                    <a href="../contact.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600">Contact</a>
+                </nav>
+                <button id="darkModeToggle" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+                    <i class="fa-solid fa-moon dark:hidden"></i>
+                    <i class="fa-solid fa-sun hidden dark:inline"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-3xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
+        <article class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 p-6 sm:p-10 shadow-sm">
+            <div class="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-3">Getting Started</div>
+            <h1 class="text-3xl sm:text-4xl font-display font-bold text-slate-900 dark:text-white mb-4">Starting Later Than You Wanted: The Levers That Still Work</h1>
+            <p class="text-sm text-slate-500 mb-8">By Jasper Saunders • Educational content only</p>
+
+            <div class="prose prose-slate dark:prose-invert max-w-none space-y-5 text-slate-700 dark:text-slate-300 leading-relaxed">
+
+                <p>You did not start at 25 with a clean spreadsheet and a 40-year runway. Maybe it was debt, kids, a late career start, a divorce, a decade of hoping it would sort itself out, or a finance degree that did not produce the habit. You are here now. That is the only starting line that matters.</p>
+                <p>This site is built for people who feel behind, not only for people who did everything early. The Growth Projection and the retirement test still work when time is shorter. They just require more honesty, because a pretty return assumption will not buy back a decade.</p>
+                <p>Shame is not a lever. Clear arithmetic is.</p>
+
+                <hr class="border-slate-200 dark:border-slate-700 my-6">
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">What "later" does and does not mean</h2>
+                <p>Later means you have fewer years for contributions to compound before withdrawals begin. That is real. It is not a moral verdict, and it is not a closed door.</p>
+                <p>The same three drivers still set the size of the nest egg: what you contribute, how long you contribute, and the return you actually earn after costs and behavior. Time is the one you cannot rewind. Contribution, work horizon, and future spending are still yours.</p>
+                <p>What later does not mean:</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>That you must earn 12% to "catch up." That is a story, not a plan.</li>
+                    <li>That a zero or a small balance is a reason to skip the calculator. Enter the real number. A zero is a starting line.</li>
+                    <li>That you should compare your chart to someone who saved for 40 years and then treat the gap as proof you are doomed.</li>
+                    <li>That working longer, saving more, or spending less later are punishments. They are the remaining tools.</li>
+                </ul>
+                <p>The <a href="power-of-compound-interest.html" class="text-emerald-600 hover:underline">compound-interest article</a> on this site shows why early years are powerful. Read it for the math. This page is for what you do when those years are already behind you. It expands the short late-starter note in <a href="building-your-nest-egg.html" class="text-emerald-600 hover:underline">Building Your Nest Egg</a>.</p>
+
+                <hr class="border-slate-200 dark:border-slate-700 my-6">
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">Do not try to erase the gap with a hero return</h2>
+                <p>When the first growth chart looks short, the tempting move is to raise Expected Annual Return until the ending balance looks like the one you wish you had. That move hides the problem. It does not solve it.</p>
+                <p>Markets do not owe you a higher return because you started later. Fees, behavior, and a shorter runway all work against a rosy assumption. A moderate return, tested against a more conservative one, teaches more than a single heroic number.</p>
+                <p>If the chart is short, change a lever you control, then run it again. One change at a time.</p>
+
+                <hr class="border-slate-200 dark:border-slate-700 my-6">
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">The three levers that still work</h2>
+                <p><strong>1. Contribution you can sustain.</strong> This is usually the strongest remaining control. A higher monthly amount, automated, beats a dramatic number you abandon in a quarter. If the contribution you typed is not real after rent, food, debt minimums, and a basic emergency buffer, the ending balance is fiction. Fix the <a href="budgeting-for-retirement-readiness.html" class="text-emerald-600 hover:underline">budget</a> and the <a href="debt-payoff-for-retirement-savings.html" class="text-emerald-600 hover:underline">debt</a> so the contribution can exist. Then type that number.</p>
+                <p><strong>2. Time still ahead of you.</strong> <a href="years-to-grow-retirement-and-legacy.html" class="text-emerald-600 hover:underline">Years to Grow</a> is not only "how far behind I feel." It is how many years this money can still work. Delaying retirement by two or three years, if health and work allow, often moves the result more than a small bump in assumed return. So can a longer growth horizon if part of the capital is for later life or legacy, not only for the first day of retirement. Use the real calendar, not a date chosen to make the chart pretty.</p>
+                <p><strong>3. What the plan must pay later.</strong> Portfolio at Retirement is only half of the test. Annual spending, other income, and how long withdrawals must last decide whether that balance is enough. A late start with honest saving can still be a workable retirement if spending and other income are honest too. Social Security, a pension, or a planned bridge of part-time work reduce how much must come from sales. Pretend income does not.</p>
+                <p>A fourth cousin of these levers is cost: high-interest debt that competes with saving, and high fund fees that nibble every year. Those are not glamorous. They are often the fastest way to free contribution capacity.</p>
+
+                <hr class="border-slate-200 dark:border-slate-700 my-6">
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">Worked example (illustrative only, not advice)</h2>
+                <div class="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-xl p-5 my-8">
+                    <p class="text-sm font-medium text-emerald-800 dark:text-emerald-300 mb-3">
+                        Two households. Same moderate 7% growth assumption. Same $40,000 already invested. Neither is a forecast.
+                    </p>
+                    <p class="text-sm font-medium text-emerald-800 dark:text-emerald-300 mb-3">
+                        Household A: $500 a month for 12 years.
+                    </p>
+                    <p class="text-sm font-medium text-emerald-800 dark:text-emerald-300 mb-3">
+                        Household B: $900 a month for 15 years.
+                    </p>
+                    <p class="text-sm font-medium text-emerald-800 dark:text-emerald-300">
+                        B is not "winning at life." B changed two levers: contribution and years. The growth chart will show a larger ending balance. That is the lesson. Plug in your own balance, your own sustainable contribution, and your actual years. Then import the ending value into Test Your Retirement Plan and ask whether the spending you want survives Monte Carlo under assumptions you would defend out loud.
+                    </p>
+                </div>
+                <p>Try a third run: keep Household A's contribution, add three years. Then keep the years and raise the contribution. One change per run. Write down what moved. That comparison is more useful than a single "am I going to be okay?" number.</p>
+                <p>If the retirement test comes back near <a href="interpreting-monte-carlo-success-rate.html" class="text-emerald-600 hover:underline">70% success</a> with spending you consider fair, the plan is under pressure. That is information. The next move is not a higher mean return. It is a lower withdrawal need, more other income that is real, more years of contributions, or a higher contribution you can actually keep.</p>
+
+                <hr class="border-slate-200 dark:border-slate-700 my-6">
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">A calculator workflow for a late start</h2>
+                <p>Keep the <a href="how-to-use-the-calculator.html" class="text-emerald-600 hover:underline">how-to-use article</a> open if the buttons are new. This is the late-start version of the same workflow.</p>
+                <ol class="list-decimal pl-6 space-y-2">
+                    <li>Enter the invested balance you have today. Include 401(k), IRA, and taxable long-term accounts. Leave emergency cash out unless it is truly going to stay invested for years. If the invested total is zero, enter zero.</li>
+                    <li>Enter a monthly contribution you can defend for the next 12 months, not the one that only works on your best month.</li>
+                    <li>Set Years to Grow to the years until you honestly expect to need this money for living costs. Then run Growth Projection at a moderate return.</li>
+                    <li>Write down ending portfolio, total contributed, and total growth. Ask whether the contribution is still believable.</li>
+                    <li>Change one lever: plus $200 a month, or plus three years, or a more conservative return. Run again. Record the difference.</li>
+                    <li>Import the ending balance you believe into Test Your Retirement Plan. Set spending, Social Security, other income, and a planning tax estimate you would say out loud.</li>
+                    <li>Run Monte Carlo. Record success rate, median, and 10th percentile. If the success rate is weak, change spending, retirement age, or contribution in the growth section - not the return - and compare.</li>
+                </ol>
+                <p>Private by design: the numbers stay in your browser. You are not performing for a server. You are facing a picture you can improve.</p>
+
+                <hr class="border-slate-200 dark:border-slate-700 my-6">
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">What to fix before you chase a prettier chart</h2>
+                <p>If the contribution you need does not fit this month's life, the next page is not a hotter fund. It is budgeting and debt payoff so cash can actually move into the plan. Those articles exist for a reason. A late start with high-interest balances competing for every spare dollar is a contribution problem wearing a retirement costume.</p>
+                <p>If work and health make a slightly later retirement realistic, test it. Two extra years of contributions and two fewer years of withdrawals is a double effect. It is also a life decision, not a slider to max out in a panic.</p>
+                <p>If the retirement test only "works" when spending is a brochure version of your life, the success rate is flattering you. Put housing, food, health coverage, and the lifestyle you actually want in the spending box.</p>
+
+                <hr class="border-slate-200 dark:border-slate-700 my-6">
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">Common traps for late starters</h2>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Treating a late start as a reason to take more market risk than you can live with</li>
+                    <li>Pausing contributions after the first down year, which is when a shorter runway needs consistency most</li>
+                    <li>Counting on an inheritance or a lucky decade to skip the contribution</li>
+                    <li>Using take-home pay as "available to invest" with no emergency buffer, then raiding the portfolio for the first car repair</li>
+                    <li>Comparing your 50-year-old balance to a 65-year-old who saved for 30 years and calling the difference failure</li>
+                    <li>Changing five inputs at once so you never learn which lever mattered</li>
+                </ul>
+                <p>Each of these is a behavior problem. The calculator can show the cost. Only you close the gap between the chart and the calendar. See <a href="money-management-habits-protect-nest-egg.html" class="text-emerald-600 hover:underline">Money Management Habits That Protect Your Nest Egg</a>.</p>
+
+                <hr class="border-slate-200 dark:border-slate-700 my-6">
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">A 30-day pass without the drama</h2>
+                <p><strong>This week:</strong> write your current monthly long-term contribution (honest) and your actual years until you need the money. Run Growth Projection once.</p>
+                <p><strong>This month:</strong> pick one lever for 90 days. Automate a contribution increase you can sustain, or put a real date on a later retirement test, or cut one spending category that would lower the retirement withdrawal need. Schedule the next run on a calendar.</p>
+                <p>You do not owe anyone a dramatic catch-up story. You owe the plan a number you can repeat.</p>
+
+                <h2 class="text-2xl font-display font-semibold text-slate-900 dark:text-white mt-8">Closing</h2>
+                <p>Starting later than you wanted means the math is less forgiving. It does not mean the remaining years are worthless, and it does not mean a higher assumed return is the way home. Contribute what you can sustain. Give the money the years you still have. Test whether the spending you want can last. Change one lever at a time.</p>
+                <p>From pressure to peace, for a late start, is not pretending you began at 25. It is an honest picture and a next step you can keep.</p>
+                <p class="text-sm text-slate-500 italic">This article is for educational purposes only and is not personalized financial, tax, or legal advice. Projections depend on assumptions. Past performance does not guarantee future results. Always consult a qualified advisor for decisions about your personal situation.</p>
+
+            </div>
+
+            <div class="mt-10 pt-6 border-t border-slate-200 dark:border-slate-700">
+                <h3 class="text-lg font-display font-semibold text-slate-900 dark:text-white mb-3">Related Reading</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="how-to-use-the-calculator.html" class="text-emerald-600 hover:underline">How to Use The Path to Sound Retirement Calculator</a></li>
+                    <li><a href="building-your-nest-egg.html" class="text-emerald-600 hover:underline">Building Your Nest Egg: Growth Strategies</a></li>
+                    <li><a href="power-of-compound-interest.html" class="text-emerald-600 hover:underline">The Power of Compound Interest</a></li>
+                    <li><a href="budgeting-for-retirement-readiness.html" class="text-emerald-600 hover:underline">Budgeting for Retirement Readiness</a></li>
+                    <li><a href="debt-payoff-for-retirement-savings.html" class="text-emerald-600 hover:underline">Debt Payoff Strategies That Free Cash for Retirement Savings</a></li>
+                    <li><a href="years-to-grow-retirement-and-legacy.html" class="text-emerald-600 hover:underline">Years to Grow: Retirement Planning and Legacy Modeling</a></li>
+                    <li><a href="interpreting-monte-carlo-success-rate.html" class="text-emerald-600 hover:underline">How to Interpret Your Monte Carlo Success Rate</a></li>
+                    <li><a href="money-management-habits-protect-nest-egg.html" class="text-emerald-600 hover:underline">Money Management Habits That Protect Your Nest Egg</a></li>
+                </ul>
+            </div>
+
+            <p class="mt-6 text-sm text-slate-600 dark:text-slate-400">
+                Want personalized clarity and accountability? <a href="../coaching.html" class="text-emerald-600 hover:underline font-medium">Explore virtual coaching</a>.
+            </p>
+
+            <div class="mt-6 flex flex-wrap gap-4">
+                <a href="../blog.html" class="text-emerald-600 hover:underline font-medium">← Back to Learning</a>
+                <a href="../index.html" class="text-emerald-600 hover:underline font-medium">Try the Calculator →</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="text-center text-xs text-slate-400 dark:text-slate-500 py-8 border-t border-slate-200 dark:border-slate-700 mt-10">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-4 mb-4 text-sm">
+                <a href="../index.html" class="hover:text-emerald-600">Calculator</a>
+                <a href="../blog.html" class="hover:text-emerald-600">Learning</a>
+                <a href="../coaching.html" class="hover:text-emerald-600">Coaching</a>
+                <a href="../about.html" class="hover:text-emerald-600">About</a>
+                <a href="../privacy.html" class="hover:text-emerald-600">Privacy</a>
+                <a href="../terms.html" class="hover:text-emerald-600">Terms</a>
+                <a href="../contact.html" class="hover:text-emerald-600">Contact</a>
+            </div>
+            The Path to Sound Retirement by Jasper Saunders • For educational purposes only. Not financial advice.
+        </div>
+    </footer>
+
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const html = document.documentElement;
+        function getDarkModePref() {
+            try {
+                const saved = localStorage.getItem('darkMode');
+                if (saved !== null) return saved === 'true';
+                return window.matchMedia('(prefers-color-scheme: dark)').matches;
+            } catch (e) {
+                return window.matchMedia('(prefers-color-scheme: dark)').matches;
+            }
+        }
+        function setDarkModePref(isDark) {
+            try { localStorage.setItem('darkMode', isDark); } catch (e) {}
+            if (isDark) html.classList.add('dark');
+            else html.classList.remove('dark');
+        }
+        setDarkModePref(getDarkModePref());
+        darkModeToggle.addEventListener('click', () => {
+            setDarkModePref(!html.classList.contains('dark'));
+        });
+    </script>
+</body>
 </html>
