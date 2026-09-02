@@ -8,14 +8,8 @@
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://pathtosoundretirement.com/index.html</loc>
-        <lastmod>2026-08-04</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>1.0</priority>
-    </url>
-    <url>
         <loc>https://pathtosoundretirement.com/blog.html</loc>
-        <lastmod>2026-08-28</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -60,12 +54,6 @@
     <url>
         <loc>https://pathtosoundretirement.com/blog/how-to-use-the-calculator.html</loc>
         <lastmod>2026-08-04</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://pathtosoundretirement.com/blog/starting-later-than-you-wanted.html</loc>
-        <lastmod>2026-08-28</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -242,12 +230,6 @@
     <url>
         <loc>https://pathtosoundretirement.com/blog/sequence-risk-what-to-do.html</loc>
         <lastmod>2026-08-07</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://pathtosoundretirement.com/blog/cash-buffers-early-retirement.html</loc>
-        <lastmod>2026-08-25</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
