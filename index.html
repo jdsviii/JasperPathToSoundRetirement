@@ -4,7 +4,7 @@
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8131812429439090"
      crossorigin="anonymous"></script>
 <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="The Path to Sound Retirement by Jasper Saunders - Snapshot, forecast, and risk assessment for a secure retirement.">
     <meta name="theme-color" content="#166534">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -181,8 +181,8 @@
                 <div class="flex items-center gap-2 sm:gap-4">
                     <!-- Desktop Navigation -->
                     <nav class="hidden md:flex items-center gap-5 text-sm font-medium">
-                        <a href="/" class="text-emerald-600 font-semibold">Calculator</a>
-                        <a href="blog.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600 transition-colors">Learning</a>
+                        <a href="blog.html" class="text-emerald-600 font-semibold">Learning</a>
+                        <a href="#accumulation-section" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600 transition-colors">Calculator</a>
                         <a href="coaching.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600 transition-colors">Coaching</a>
                         <a href="about.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600 transition-colors">About</a>
                         <a href="contact.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600 transition-colors">Contact</a>
@@ -221,8 +221,8 @@
             <!-- Mobile Menu -->
             <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-700 mt-3 pt-3 pb-2">
                 <nav class="flex flex-col gap-1">
-                    <a href="/" class="px-4 py-3 rounded-xl text-emerald-600 font-semibold bg-emerald-50 dark:bg-emerald-900/30">Calculator</a>
-                    <a href="blog.html" class="px-4 py-3 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">Learning</a>
+                    <a href="blog.html" class="px-4 py-3 rounded-xl text-emerald-600 font-semibold bg-emerald-50 dark:bg-emerald-900/30">Learning</a>
+                    <a href="#accumulation-section" class="px-4 py-3 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">Calculator</a>
                     <a href="coaching.html" class="px-4 py-3 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">Coaching</a>
                     <a href="about.html" class="px-4 py-3 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">About</a>
                     <a href="contact.html" class="px-4 py-3 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">Contact</a>
@@ -235,59 +235,86 @@
 
     <main class="max-w-6xl mx-auto px-3 sm:px-6 py-5 sm:py-10">
         
-        <!-- Hero Section (High Priority #1) -->
-        <div class="mb-8 sm:mb-12">
-            <div class="bg-gradient-to-br from-emerald-700 via-emerald-800 to-teal-900 rounded-3xl p-6 sm:p-10 text-white relative overflow-hidden shadow-xl">
-                <div class="relative z-10 max-w-2xl">
-                    <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-white/15 rounded-full text-xs font-medium mb-4 backdrop-blur-sm">
-                        <span class="w-2 h-2 bg-emerald-300 rounded-full animate-pulse"></span>
-                        Free · Private · Runs in your browser
-                    </div>
-                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold leading-tight mb-4">
-                        From pressure to peace.
-                    </h2>
-                    <p class="text-emerald-50/95 text-base sm:text-lg leading-relaxed mb-6">
-                        Free calculator, plain-language education, and optional coaching for people who want to learn the path - not hand it off.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-3">
-                        <a href="#accumulation-section"
-                           class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-white text-emerald-800 font-semibold text-sm sm:text-base shadow-lg hover:bg-emerald-50 transition-colors">
-                            <i class="fa-solid fa-calculator"></i>
-                            Try the free calculator
-                        </a>
-                        <a href="blog.html"
-                           class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl border border-white/40 text-white font-semibold text-sm sm:text-base hover:bg-white/10 transition-colors">
-                            Browse Learning
-                        </a>
-                    </div>
-                    <p class="mt-4 text-xs sm:text-sm text-emerald-100/90">
-                        No signup. No data leaves your browser. Stress-test the plan in minutes.
-                    </p>
+        <!-- Content-first intro -->
+        <section class="mb-8 sm:mb-10" id="intro">
+            <p class="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-2">By Jasper Saunders · Educational only</p>
+            <h2 class="text-3xl sm:text-4xl font-display font-bold text-slate-900 dark:text-white leading-tight mb-4">
+                From pressure to peace.
+            </h2>
+            <div class="max-w-3xl space-y-3 text-slate-700 dark:text-slate-300 leading-relaxed">
+                <p>
+                    I built this site to teach the path, not to take it over. The Learning library is original writing on habits, late starts, sequence risk, and how to read a plan without treating a model as a promise.
+                </p>
+                <p>
+                    Education only - not personalized financial, tax, or legal advice. The optional calculator runs in your browser. No account. No upload of your balances.
+                </p>
+            </div>
+            <p class="mt-4 text-sm">
+                <a href="#accumulation-section" class="text-emerald-700 dark:text-emerald-400 font-medium hover:underline">Try the calculator</a>
+                <span class="text-slate-300 dark:text-slate-600 mx-1.5">·</span>
+                <a href="blog.html" class="text-emerald-700 dark:text-emerald-400 font-medium hover:underline">All Learning</a>
+                <span class="text-slate-300 dark:text-slate-600 mx-1.5">·</span>
+                <a href="about.html" class="text-emerald-700 dark:text-emerald-400 font-medium hover:underline">About Jasper</a>
+            </p>
+        </section>
+
+        <!-- Latest from Learning (content-first) -->
+        <section class="mb-10 sm:mb-12" id="latest-learning">
+            <div class="flex items-end justify-between gap-4 mb-5">
+                <div>
+                    <h3 class="text-2xl sm:text-3xl font-display font-semibold text-slate-900 dark:text-white">From Learning</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Original articles - read first, then test a number if you want</p>
                 </div>
-                <!-- Soft path-inspired decorative shapes -->
-                <div class="absolute right-0 top-0 w-72 h-72 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
-                <div class="absolute right-16 bottom-0 w-48 h-48 bg-teal-400/10 rounded-full translate-y-1/4 pointer-events-none"></div>
-                <div class="absolute right-4 top-1/2 w-24 h-24 border border-white/10 rounded-full pointer-events-none hidden sm:block"></div>
-            </div>
-            <!-- Start-here path (CRO structure) -->
-            <div class="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-3">
-                <a href="#accumulation-section" class="group rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 hover:border-emerald-400 dark:hover:border-emerald-600 transition-colors">
-                    <div class="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-1">Step 1</div>
-                    <div class="font-display font-semibold text-slate-900 dark:text-white group-hover:text-emerald-600">Project growth</div>
-                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Starting balance, contributions, years to grow.</p>
-                </a>
-                <a href="#retirement-section" class="group rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 hover:border-emerald-400 dark:hover:border-emerald-600 transition-colors">
-                    <div class="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-1">Step 2</div>
-                    <div class="font-display font-semibold text-slate-900 dark:text-white group-hover:text-emerald-600">Stress-test retirement</div>
-                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Spending, income, Monte Carlo success rate.</p>
-                </a>
-                <a href="#about-this-tool" class="group rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 hover:border-emerald-400 dark:hover:border-emerald-600 transition-colors">
-                    <div class="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-1">Step 3</div>
-                    <div class="font-display font-semibold text-slate-900 dark:text-white group-hover:text-emerald-600">Learn what the numbers mean</div>
-                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Plain-language guides - or coaching if you want accountability.</p>
+                <a href="blog.html" class="hidden sm:inline text-sm font-medium text-emerald-700 dark:text-emerald-400 hover:underline whitespace-nowrap">
+                    All articles →
                 </a>
             </div>
-        </div>
+            <div class="space-y-4">
+                <article class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6">
+                    <div class="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-2">Getting Started</div>
+                    <h4 class="text-lg sm:text-xl font-display font-semibold text-slate-900 dark:text-white mb-2">
+                        <a href="blog/my-money-story.html" class="hover:text-emerald-600">I Had a Finance Degree - and Still Couldn’t Get Out of My Own Way</a>
+                    </h4>
+                    <p class="text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed">
+                        I earned a bachelor’s degree in finance. I understood balance sheets, time value of money, and the basic theory of investing. On paper, I was equipped. In the early years of marriage, that paper knowledge did not stop the same conversation from happening again and again at the kitchen table.
+                    </p>
+                    <a href="blog/my-money-story.html" class="inline-block mt-3 text-sm font-medium text-emerald-700 dark:text-emerald-400 hover:underline">Read the article →</a>
+                </article>
+                <article class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6">
+                    <div class="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-2">Education</div>
+                    <h4 class="text-lg sm:text-xl font-display font-semibold text-slate-900 dark:text-white mb-2">
+                        <a href="blog/starting-later-than-you-wanted.html" class="hover:text-emerald-600">Starting Later Than You Wanted</a>
+                    </h4>
+                    <p class="text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed">
+                        You did not start at 25 with a clean spreadsheet and a 40-year runway. Maybe it was debt, kids, a late career start, a divorce, a decade of hoping it would sort itself out, or a finance degree that did not produce the habit. You are here now. That is the only starting line that matters.
+                    </p>
+                    <a href="blog/starting-later-than-you-wanted.html" class="inline-block mt-3 text-sm font-medium text-emerald-700 dark:text-emerald-400 hover:underline">Read the article →</a>
+                </article>
+                <article class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6">
+                    <div class="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-2">Core Concept</div>
+                    <h4 class="text-lg sm:text-xl font-display font-semibold text-slate-900 dark:text-white mb-2">
+                        <a href="blog/interpreting-monte-carlo-success-rate.html" class="hover:text-emerald-600">How to Interpret Your Monte Carlo Success Rate</a>
+                    </h4>
+                    <p class="text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed">
+                        When you run a Monte Carlo simulation on a retirement plan, one number often grabs all the attention: the success rate. You see 72%, or 88%, or 96%, and you immediately want a verdict - safe or not safe. That is understandable. It is also incomplete.
+                    </p>
+                    <a href="blog/interpreting-monte-carlo-success-rate.html" class="inline-block mt-3 text-sm font-medium text-emerald-700 dark:text-emerald-400 hover:underline">Read the article →</a>
+                </article>
+                <article class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6">
+                    <div class="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-2">Core Concept</div>
+                    <h4 class="text-lg sm:text-xl font-display font-semibold text-slate-900 dark:text-white mb-2">
+                        <a href="blog/cash-buffers-early-retirement.html" class="hover:text-emerald-600">Cash Buffers in Early Retirement</a>
+                    </h4>
+                    <p class="text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed">
+                        Paychecks have stopped. The market drops 20%. Groceries, insurance, and housing still need to be paid. If those dollars come from selling shares you just watched fall, that sale is how sequence risk becomes a permanently smaller portfolio. Later recoveries have less capital to work with.
+                    </p>
+                    <a href="blog/cash-buffers-early-retirement.html" class="inline-block mt-3 text-sm font-medium text-emerald-700 dark:text-emerald-400 hover:underline">Read the article →</a>
+                </article>
+            </div>
+            <div class="mt-5 text-center sm:hidden">
+                <a href="blog.html" class="text-sm font-medium text-emerald-700 dark:text-emerald-400 hover:underline">All articles →</a>
+            </div>
+        </section>
 
         <!-- Educational context (AdSense / clarity block above calculator) -->
         <section id="how-this-tool-works" class="mb-8 sm:mb-10 scroll-mt-20">
@@ -882,54 +909,6 @@
                         <a href="blog/interpreting-monte-carlo-success-rate.html" class="text-emerald-600 hover:underline">Plain-language guide</a>.</p>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Latest from Learning -->
-        <section class="mb-12 sm:mb-16" id="latest-learning">
-            <div class="flex items-end justify-between gap-4 mb-6">
-                <div>
-                    <h3 class="text-2xl sm:text-3xl font-display font-semibold text-slate-900 dark:text-white">Latest from Learning</h3>
-                    <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Short reads that explain the ideas behind the calculator</p>
-                </div>
-                <a href="blog.html" class="hidden sm:inline text-sm font-medium text-emerald-700 dark:text-emerald-400 hover:underline whitespace-nowrap">
-                    All articles →
-                </a>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-                <a href="blog/sequence-risk-what-to-do.html" class="group bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md hover:border-emerald-300 dark:hover:border-emerald-700 transition-all overflow-hidden flex flex-col">
-                    <div class="h-24 bg-gradient-to-br from-rose-700 to-amber-800 flex items-center justify-center">
-                        <i class="fa-solid fa-lifebuoy text-white text-3xl opacity-95"></i>
-                    </div>
-                    <div class="p-5 sm:p-6 flex-1">
-                        <div class="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-2">Core Concept</div>
-                        <h4 class="text-lg font-display font-semibold text-slate-900 dark:text-white group-hover:text-emerald-600 transition-colors mb-2">If Markets Fall Early in Retirement</h4>
-                        <p class="text-sm text-slate-600 dark:text-slate-400 line-clamp-3">Practical actions for a bad early sequence - spending cuts, cash buffers, guardrails, and what to avoid.</p>
-                    </div>
-                </a>
-                <a href="blog/interpreting-monte-carlo-success-rate.html" class="group bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md hover:border-emerald-300 dark:hover:border-emerald-700 transition-all overflow-hidden flex flex-col">
-                    <div class="h-24 bg-gradient-to-br from-teal-600 to-emerald-900 flex items-center justify-center">
-                        <i class="fa-solid fa-gauge-high text-white text-3xl opacity-95"></i>
-                    </div>
-                    <div class="p-5 sm:p-6 flex-1">
-                        <div class="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-2">Core Concept</div>
-                        <h4 class="text-lg font-display font-semibold text-slate-900 dark:text-white group-hover:text-emerald-600 transition-colors mb-2">How to Interpret Your Monte Carlo Success Rate</h4>
-                        <p class="text-sm text-slate-600 dark:text-slate-400 line-clamp-3">What 70% vs 85% vs 95% means in plain language - and what to change when the number is low.</p>
-                    </div>
-                </a>
-                <a href="blog/flexible-spending-guardrails.html" class="group bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md hover:border-emerald-300 dark:hover:border-emerald-700 transition-all overflow-hidden flex flex-col">
-                    <div class="h-24 bg-gradient-to-br from-amber-600 to-teal-800 flex items-center justify-center">
-                        <i class="fa-solid fa-sliders text-white text-3xl opacity-95"></i>
-                    </div>
-                    <div class="p-5 sm:p-6 flex-1">
-                        <div class="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-2">Core Concept</div>
-                        <h4 class="text-lg font-display font-semibold text-slate-900 dark:text-white group-hover:text-emerald-600 transition-colors mb-2">Flexible Spending and Guardrails</h4>
-                        <p class="text-sm text-slate-600 dark:text-slate-400 line-clamp-3">How to adjust withdrawals in good and bad markets without abandoning the plan.</p>
-                    </div>
-                </a>
-            </div>
-            <div class="mt-5 text-center sm:hidden">
-                <a href="blog.html" class="text-sm font-medium text-emerald-700 dark:text-emerald-400 hover:underline">All articles →</a>
             </div>
         </section>
 
