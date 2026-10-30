@@ -1,0 +1,220 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Path to Sound Retirement//2027 Path Calendar//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:PTSR 2027 Deadlines
+X-WR-CALDESC:Hard dates from the 2027 Path Calendar. Education\, not advice
+  - confirm dates with IRS.gov / Medicare.gov.
+BEGIN:VEVENT
+UID:ptsr-2027-q4-est-2026@pathtosoundretirement.com
+DTSTAMP:20261026T234000Z
+DTSTART;VALUE=DATE:20270115
+DTEND;VALUE=DATE:20270116
+SUMMARY:PTSR: Q4 estimated tax payment for 2026 due
+DESCRIPTION:Estimated tax payment for 2026 (only if you pay estimates). Edu
+ cation\, not advice - confirm dates with IRS.gov / Medicare.gov.
+URL:https://pathtosoundretirement.com/path-calendar-2027.html#january
+CATEGORIES:PTSR
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:PTSR: Q4 estimated tax payment for 2026 due - in 1 week
+TRIGGER:-P6DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:PTSR: Q4 estimated tax payment for 2026 due - tomorrow
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ptsr-2027-medicare-gen-enrollment-ends@pathtosoundretirement.com
+DTSTAMP:20261026T234000Z
+DTSTART;VALUE=DATE:20270331
+DTEND;VALUE=DATE:20270401
+SUMMARY:PTSR: Medicare General Enrollment ends
+DESCRIPTION:Last day of Medicare General Enrollment (Jan 1 - Mar 31). Educa
+ tion\, not advice - confirm dates with IRS.gov / Medicare.gov.
+URL:https://pathtosoundretirement.com/path-calendar-2027.html#march
+CATEGORIES:PTSR
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:PTSR: Medicare General Enrollment ends - in 1 week
+TRIGGER:-P6DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:PTSR: Medicare General Enrollment ends - tomorrow
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ptsr-2027-first-year-rmd@pathtosoundretirement.com
+DTSTAMP:20261026T234000Z
+DTSTART;VALUE=DATE:20270401
+DTEND;VALUE=DATE:20270402
+SUMMARY:PTSR: First-year RMD due (if you reached RMD age in 2026)
+DESCRIPTION:Required minimum distribution (RMD) due Apr 1 for those who rea
+ ched their RMD age in 2026. Confirm your own age and date. Education\, not
+  advice - confirm dates with IRS.gov / Medicare.gov.
+URL:https://pathtosoundretirement.com/path-calendar-2027.html#april
+CATEGORIES:PTSR
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:PTSR: First-year RMD due (if you reached RMD age in 2026) - in 
+ 1 week
+TRIGGER:-P6DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:PTSR: First-year RMD due (if you reached RMD age in 2026) - tom
+ orrow
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ptsr-2027-apr-15-deadlines@pathtosoundretirement.com
+DTSTAMP:20261026T234000Z
+DTSTART;VALUE=DATE:20270415
+DTEND;VALUE=DATE:20270416
+SUMMARY:PTSR: Apr 15 - filing deadline\, Q1 estimate\, 2026 IRA/HSA contrib
+ utions
+DESCRIPTION:Federal filing deadline (an extension does not extend payment)\
+ ; Q1 estimated tax payment for 2027 (if you pay estimates)\; last day for 
+ 2026 IRA and HSA contributions. Education\, not advice - confirm dates wit
+ h IRS.gov / Medicare.gov.
+URL:https://pathtosoundretirement.com/path-calendar-2027.html#april
+CATEGORIES:PTSR
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:PTSR: Apr 15 - filing deadline\, Q1 estimate\, 2026 IRA/HSA con
+ tributions - in 1 week
+TRIGGER:-P6DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:PTSR: Apr 15 - filing deadline\, Q1 estimate\, 2026 IRA/HSA con
+ tributions - tomorrow
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ptsr-2027-q2-est@pathtosoundretirement.com
+DTSTAMP:20261026T234000Z
+DTSTART;VALUE=DATE:20270615
+DTEND;VALUE=DATE:20270616
+SUMMARY:PTSR: Q2 estimated tax payment due
+DESCRIPTION:Second estimated tax payment (only if you pay estimates). Educa
+ tion\, not advice - confirm dates with IRS.gov / Medicare.gov.
+URL:https://pathtosoundretirement.com/path-calendar-2027.html#june
+CATEGORIES:PTSR
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:PTSR: Q2 estimated tax payment due - in 1 week
+TRIGGER:-P6DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:PTSR: Q2 estimated tax payment due - tomorrow
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ptsr-2027-q3-est@pathtosoundretirement.com
+DTSTAMP:20261026T234000Z
+DTSTART;VALUE=DATE:20270915
+DTEND;VALUE=DATE:20270916
+SUMMARY:PTSR: Q3 estimated tax payment due
+DESCRIPTION:Third estimated tax payment (only if you pay estimates). Educat
+ ion\, not advice - confirm dates with IRS.gov / Medicare.gov.
+URL:https://pathtosoundretirement.com/path-calendar-2027.html#september
+CATEGORIES:PTSR
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:PTSR: Q3 estimated tax payment due - in 1 week
+TRIGGER:-P6DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:PTSR: Q3 estimated tax payment due - tomorrow
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ptsr-2027-oct-15-deadlines@pathtosoundretirement.com
+DTSTAMP:20261026T234000Z
+DTSTART;VALUE=DATE:20271015
+DTEND;VALUE=DATE:20271016
+SUMMARY:PTSR: Oct 15 - extended filing deadline\; Medicare Open Enrollment 
+ opens
+DESCRIPTION:Extended filing deadline (if you filed for an extension). Medic
+ are Open Enrollment opens\; changes start Jan 1. Education\, not advice - 
+ confirm dates with IRS.gov / Medicare.gov.
+URL:https://pathtosoundretirement.com/path-calendar-2027.html#october
+CATEGORIES:PTSR
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:PTSR: Oct 15 - extended filing deadline\; Medicare Open Enrollm
+ ent opens - in 1 week
+TRIGGER:-P6DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:PTSR: Oct 15 - extended filing deadline\; Medicare Open Enrollm
+ ent opens - tomorrow
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ptsr-2027-medicare-open-enrollment-ends@pathtosoundretirement.com
+DTSTAMP:20261026T234000Z
+DTSTART;VALUE=DATE:20271207
+DTEND;VALUE=DATE:20271208
+SUMMARY:PTSR: Medicare Open Enrollment closes
+DESCRIPTION:Last day of Medicare Open Enrollment\; make your choice. Educat
+ ion\, not advice - confirm dates with IRS.gov / Medicare.gov.
+URL:https://pathtosoundretirement.com/path-calendar-2027.html#december
+CATEGORIES:PTSR
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:PTSR: Medicare Open Enrollment closes - in 1 week
+TRIGGER:-P6DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:PTSR: Medicare Open Enrollment closes - tomorrow
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ptsr-2027-year-end-rmd-qcd@pathtosoundretirement.com
+DTSTAMP:20261026T234000Z
+DTSTART;VALUE=DATE:20271231
+DTEND;VALUE=DATE:20280101
+SUMMARY:PTSR: RMD and QCD deadlines
+DESCRIPTION:Year-end deadline for RMDs (a first-year RMD may wait until nex
+ t spring) and for qualified charitable distributions (QCDs). Education\, n
+ ot advice - confirm dates with IRS.gov / Medicare.gov.
+URL:https://pathtosoundretirement.com/path-calendar-2027.html#december
+CATEGORIES:PTSR
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:PTSR: RMD and QCD deadlines - in 1 week
+TRIGGER:-P6DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:PTSR: RMD and QCD deadlines - tomorrow
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

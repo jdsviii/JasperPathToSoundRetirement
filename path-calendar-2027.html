@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The 2027 Path Calendar: twelve months, five calm retirement moves each, with the real 2027 deadlines marked. Free, printable, and educational only.">
+<title>2027 Path Calendar | The Path to Sound Retirement</title>
+<link rel="canonical" href="https://pathtosoundretirement.com/path-calendar-2027.html">
+<meta name="theme-color" content="#166534">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script>
+    tailwind.config = {
+        darkMode: 'class',
+        theme: { extend: {
+            fontFamily: { display: ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif'], sans: ['Inter', 'system-ui', 'sans-serif'] },
+            colors: { emerald: { 50: '#ecfdf5', 100: '#d1fae5', 200: '#a7f3d0', 300: '#6ee7b7', 400: '#34d399', 500: '#10b981', 600: '#059669', 700: '#047857', 800: '#065f46', 900: '#064e3b', 950: '#022c22' } }
+        } }
+    }
+</script>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+    body { font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+    .font-display { font-family: 'Space Grotesk', 'Inter', sans-serif; }
+    .dark body { background-color: #0f172a; color: #e2e8f0; }
+    .dark .bg-white { background-color: #1e293b !important; }
+    .dark .bg-slate-50 { background-color: #0f172a !important; }
+    .dark .text-slate-900 { color: #f1f5f9 !important; }
+    .dark .text-slate-700, .dark .text-slate-600, .dark .text-slate-500 { color: #94a3b8 !important; }
+    .dark .border-slate-200 { border-color: #334155 !important; }
+
+    /* ---------- The calendar sheet ---------- */
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+    .sheet { --ink:#0f172a; --muted:#475569; --rule:#cbd5e1; --accent:#047857; --accent-soft:#ecfdf5; --red:#dc2626;
+             background:#fff; color:var(--ink); border:1px solid #e2e8f0; border-radius:24px; box-shadow:0 1px 2px rgba(15,23,42,.06);
+             max-width:8.5in; margin:0 auto; padding:28px 28px 20px; }
+    .dark .sheet { --ink:#f1f5f9; --muted:#94a3b8; --rule:#334155; --accent:#34d399; --accent-soft:#064e3b; --red:#f87171;
+                   background:#1e293b; border-color:#334155; }
+    .s-top { display:flex; justify-content:space-between; align-items:flex-end; gap:16px; border-bottom:3px solid var(--accent); padding-bottom:10px; }
+    .s-eyebrow { font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin:0 0 4px; }
+    .s-title { font-family:'Space Grotesk','Inter',sans-serif; font-weight:700; font-size:46px; line-height:.95; letter-spacing:-.02em; margin:0; color:var(--ink); }
+    .s-sub { font-family:'Space Grotesk','Inter',sans-serif; font-weight:500; font-size:15px; color:var(--muted); margin:8px 0 0; }
+    .s-by { text-align:right; display:flex; align-items:center; gap:10px; flex-shrink:0; }
+    .s-by img { width:38px; height:38px; border-radius:10px; object-fit:contain; }
+    .s-by .n { font-family:'Space Grotesk','Inter',sans-serif; font-weight:600; font-size:13px; line-height:1.2; color:var(--ink); }
+    .s-by .u { font-size:11px; color:var(--accent); font-weight:600; }
+    .s-intro { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin:12px 0 4px; font-size:13px; color:var(--ink); line-height:1.45; }
+    .s-intro p { margin:0; max-width:5.2in; }
+    .legend { display:flex; align-items:center; gap:8px; font-size:11px; color:var(--muted); white-space:nowrap; padding-top:2px; }
+    .legend .bar { display:inline-block; width:22px; height:3px; background:var(--red); }
+    .grid-months { display:grid; grid-template-columns:1fr; gap:18px 26px; margin-top:12px; }
+    @media (min-width:520px) { .grid-months { grid-template-columns:repeat(2,1fr); } }
+    @media (min-width:760px) { .grid-months { grid-template-columns:repeat(3,1fr); } }
+    .month { border-top:3px solid var(--accent); padding-top:6px; break-inside:avoid; scroll-margin-top:96px; }
+    .month.hard { border-top-color:var(--red); }
+    .mhead { display:flex; justify-content:space-between; align-items:baseline; gap:6px; margin-bottom:6px; }
+    .mhead h3 { font-family:'Space Grotesk','Inter',sans-serif; font-weight:700; font-size:13px; letter-spacing:.1em; text-transform:uppercase; margin:0; color:var(--ink); display:flex; align-items:center; gap:6px; }
+    .mhead .dot { width:8px; height:8px; background:var(--red); border-radius:50%; display:inline-block; }
+    .theme { font-size:11px; font-style:italic; color:var(--accent); font-weight:600; }
+    .month ul { list-style:none; margin:0; padding:0; }
+    .month li { position:relative; padding-left:14px; margin:0 0 5px; font-size:12.5px; line-height:1.38; color:var(--ink); }
+    .month li::before { content:""; position:absolute; left:1px; top:.5em; width:5px; height:5px; background:var(--accent); }
+    .month.hard li::before { background:var(--red); }
+    .month li strong { font-weight:700; }
+    .month li a { color:inherit; text-decoration:underline; text-decoration-color:var(--accent); text-decoration-thickness:1.5px; text-underline-offset:2px; }
+    .month li a:hover { color:var(--accent); }
+    .s-foot { display:flex; justify-content:space-between; gap:20px; border-top:1px solid var(--rule); margin-top:12px; padding-top:8px; font-size:10.5px; line-height:1.4; color:var(--muted); }
+    .s-foot p { margin:0; }
+    .s-foot .r { text-align:right; max-width:3in; }
+
+    /* ---------- Print: one US Letter portrait page ---------- */
+    @page { size: letter portrait; margin: 0.35in; }
+    @media print {
+        html, body { background:#fff !important; color:#0f172a !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+        .no-print, header, footer.site-footer, .site-intro { display:none !important; }
+        main { max-width:none !important; margin:0 !important; padding:0 !important; }
+        .sheet, .dark .sheet { --ink:#0f172a; --muted:#475569; --rule:#cbd5e1; --accent:#047857; --accent-soft:#ecfdf5; --red:#dc2626;
+                 background:#fff !important; color:#0f172a !important; border:0; border-radius:0; box-shadow:none; max-width:none; width:100%; padding:0; }
+        .s-title { font-size:40px; }
+        .s-intro { font-size:10.5px; margin:8px 0 2px; }
+        .legend { font-size:9px; }
+        .grid-months { grid-template-columns:repeat(3,1fr); gap:13px 20px; margin-top:9px; }
+        .mhead h3 { font-size:11px; }
+        .theme { font-size:9.5px; }
+        .month { padding-top:5px; }
+        .month li { font-size:10px; line-height:1.33; margin-bottom:4.2px; padding-left:12px; }
+        .month li::before { top:.48em; width:4.5px; height:4.5px; }
+        .s-foot { font-size:8.6px; margin-top:9px; padding-top:6px; }
+        .s-by img { width:32px; height:32px; }
+        a { color:inherit !important; }
+    }
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+    <header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3">
+            <div class="flex items-center justify-between">
+                <a href="/" class="flex items-center gap-3">
+                    <img src="ptsr.png" alt="The Path to Sound Retirement" class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl shadow-lg object-contain">
+                    <div>
+                        <p class="text-lg sm:text-2xl font-display font-semibold text-slate-900 dark:text-white leading-tight">The Path to Sound Retirement</p>
+                        <p class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400">by Jasper Saunders</p>
+                    </div>
+                </a>
+                <div class="flex items-center gap-2">
+                    <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+                        <a href="/" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600">Calculator</a>
+                        <a href="blog.html" class="text-emerald-600 font-semibold">Learning</a>
+                        <a href="coaching.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600">Coaching</a>
+                        <a href="about.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600">About</a>
+                        <a href="contact.html" class="text-slate-600 dark:text-slate-300 hover:text-emerald-600">Contact</a>
+                    </nav>
+                    <a href="https://www.youtube.com/@PathtoSoundRetirement" target="_blank" rel="noopener" aria-label="The Path to Sound Retirement on YouTube (opens in a new tab)" title="YouTube" class="hidden sm:inline-flex items-center justify-center p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-emerald-600 transition-colors"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+                    <a href="https://www.instagram.com/pathtosoundretirement/reels/" target="_blank" rel="noopener" aria-label="The Path to Sound Retirement Reels on Instagram (opens in a new tab)" title="Instagram" class="hidden sm:inline-flex items-center justify-center p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-emerald-600 transition-colors"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></a>
+                    <button id="darkModeToggle" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300" title="Toggle Dark Mode" aria-label="Toggle dark mode">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:inline"></i>
+                    </button>
+                    <button id="mobileMenuBtn" class="md:hidden p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300" title="Menu" aria-label="Open menu">
+                        <i class="fa-solid fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-700 mt-3 pt-3 pb-2">
+                <nav class="flex flex-col gap-1">
+                    <a href="/" class="px-4 py-3 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Calculator</a>
+                    <a href="blog.html" class="px-4 py-3 rounded-xl text-emerald-600 font-semibold bg-emerald-50 dark:bg-emerald-900/30">Learning</a>
+                    <a href="coaching.html" class="px-4 py-3 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Coaching</a>
+                    <a href="about.html" class="px-4 py-3 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">About</a>
+                    <a href="contact.html" class="px-4 py-3 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Contact</a>
+                    <a href="privacy.html" class="px-4 py-3 rounded-xl text-slate-500 dark:text-slate-400 text-sm hover:bg-slate-100 dark:hover:bg-slate-800">Privacy</a>
+                    <a href="terms.html" class="px-4 py-3 rounded-xl text-slate-500 dark:text-slate-400 text-sm hover:bg-slate-100 dark:hover:bg-slate-800">Terms</a>
+                    <div class="sm:hidden flex items-center gap-2 px-4 pt-3">
+                        <a href="https://www.youtube.com/@PathtoSoundRetirement" target="_blank" rel="noopener" aria-label="The Path to Sound Retirement on YouTube (opens in a new tab)" title="YouTube" class="inline-flex items-center justify-center p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-emerald-600 transition-colors"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+                        <a href="https://www.instagram.com/pathtosoundretirement/reels/" target="_blank" rel="noopener" aria-label="The Path to Sound Retirement Reels on Instagram (opens in a new tab)" title="Instagram" class="inline-flex items-center justify-center p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-emerald-600 transition-colors"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+        <div class="site-intro max-w-[8.5in] mx-auto mb-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+            <div>
+                <p class="text-sm font-semibold text-emerald-600 uppercase tracking-wider mb-2">Free printable</p>
+                <p class="text-slate-600 dark:text-slate-300 max-w-xl">Keep it on the fridge, tuck it in a planner, or open it each month. It is free, like the calculators and Learning.</p>
+            </div>
+            <div class="no-print flex flex-wrap gap-3">
+                <button type="button" id="printBtn" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm transition-colors">
+                    <i class="fa-solid fa-print"></i> Print this page
+                </button>
+                <a href="2027-path-calendar.pdf" download class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl border border-emerald-600 text-emerald-700 dark:text-emerald-400 font-semibold text-sm hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-colors">
+                    <i class="fa-solid fa-file-pdf"></i> Download the PDF
+                </a>
+                <a href="path-calendar-2027-deadlines.ics" download class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl border border-emerald-600 text-emerald-700 dark:text-emerald-400 font-semibold text-sm hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-colors">
+                    <i class="fa-solid fa-bell"></i> Download reminders (.ics)
+                </a>
+            </div>
+        </div>
+
+        <article class="sheet" aria-labelledby="calTitle">
+            <div class="s-top">
+                <div>
+                    <p class="s-eyebrow">From pressure to peace</p>
+                    <h1 class="s-title" id="calTitle">2027 Path Calendar</h1>
+                    <p class="s-sub">Five calm moves a month, twelve months in a row</p>
+                </div>
+                <div class="s-by">
+                    <img src="ptsr.png" alt="">
+                    <div>
+                        <div class="n">Path to Sound Retirement</div>
+                        <div class="u">pathtosoundretirement.com</div>
+                    </div>
+                </div>
+            </div>
+            <div class="s-intro">
+                <p>Do each month's moves in the month they belong, and the year stops feeling like pressure. The free calculators and Learning stay free; use them to turn worry into a plan you can follow.</p>
+                <div class="legend"><span class="bar" aria-hidden="true"></span> months with hard deadlines</div>
+            </div>
+            <div class="grid-months">
+<section class="month hard" id="january">
+<div class="mhead"><h3><span class="dot" aria-hidden="true"></span>January <span class="sr-only">(has hard deadlines)</span></h3><span class="theme">Begin</span></div>
+<ul>
+<li>Q4 estimated tax payment for 2026: <strong>Jan&nbsp;15</strong> (if you pay estimates)</li>
+<li>Missed Medicare sign-up? General Enrollment opens <strong>Jan&nbsp;1</strong></li>
+<li><a href="blog/legacy-beneficiary-review-checklist.html">Review beneficiaries on every account and policy</a></li>
+<li>Write down what "enough" looks like for 2027</li>
+<li><a href="/">Run the free Retirement Calculator (Monte Carlo tests many market paths) with honest inputs</a></li>
+</ul>
+</section>
+<section class="month" id="february">
+<div class="mhead"><h3>February</h3><span class="theme">Gather</span></div>
+<ul>
+<li>Save year-end statements for every account in one folder</li>
+<li>Check each tax form that arrives against your own records</li>
+<li><a href="blog/interpreting-monte-carlo-success-rate.html">Read your success rate: how often the plan lasted in the test</a></li>
+<li>Emergency fund check: could it cover a surprise this month?</li>
+<li>List every subscription and recurring bill; cancel what no longer serves you</li>
+</ul>
+</section>
+<section class="month hard" id="march">
+<div class="mhead"><h3><span class="dot" aria-hidden="true"></span>March <span class="sr-only">(has hard deadlines)</span></h3><span class="theme">Prepare</span></div>
+<ul>
+<li>Medicare General Enrollment closes <strong>Mar&nbsp;31</strong></li>
+<li>Finish gathering tax paperwork well before <strong>Apr&nbsp;15</strong></li>
+<li>If eligible, decide on a 2026 IRA or HSA contribution (due <strong>Apr&nbsp;15</strong>)</li>
+<li><a href="blog/pre-medicare-health-coverage-checklist.html">Retiring before Medicare? Map your health coverage</a></li>
+<li><a href="blog/rmd-preparation-checklist.html">Confirm your RMD (required yearly withdrawal) starting age; it depends on your birth year (IRS.gov, your advisor)</a></li>
+</ul>
+</section>
+<section class="month hard" id="april">
+<div class="mhead"><h3><span class="dot" aria-hidden="true"></span>April <span class="sr-only">(has hard deadlines)</span></h3><span class="theme">File</span></div>
+<ul>
+<li>Reaching your RMD age in 2026? Your first required withdrawal is due <strong>Apr&nbsp;1</strong></li>
+<li>Federal filing deadline: <strong>Apr&nbsp;15</strong>; an extension does not extend payment</li>
+<li>Q1 estimated tax payment for 2027: <strong>Apr&nbsp;15</strong> (if you pay estimates)</li>
+<li>Last day for 2026 IRA and HSA contributions: <strong>Apr&nbsp;15</strong></li>
+<li>File, then save a copy of your return with your records</li>
+</ul>
+</section>
+<section class="month" id="may">
+<div class="mhead"><h3>May</h3><span class="theme">Verify</span></div>
+<ul>
+<li>Sign in to my Social Security and review each year of earnings</li>
+<li>Compare real spending with the spending you entered in the calculators</li>
+<li>Check your investment mix against your plan; rebalance only if it drifted</li>
+<li><a href="blog.html">Pick one Learning article on a worry and read it this month</a></li>
+<li><a href="blog/why-a-1-percent-fee-costs-more-than-1.html">Find the yearly fee on each fund you own</a></li>
+</ul>
+</section>
+<section class="month hard" id="june">
+<div class="mhead"><h3><span class="dot" aria-hidden="true"></span>June <span class="sr-only">(has hard deadlines)</span></h3><span class="theme">Midyear</span></div>
+<ul>
+<li>Q2 estimated tax payment: <strong>Jun&nbsp;15</strong> (if you pay estimates)</li>
+<li>Pressure-to-peace check-in: what feels heavy, and what is one step?</li>
+<li>Project this year's income and taxes while you can still adjust</li>
+<li>Update calculator inputs with your real balances</li>
+<li>Plan one real rest this summer; the plan exists to serve your life</li>
+</ul>
+</section>
+<section class="month" id="july">
+<div class="mhead"><h3>July</h3><span class="theme">Steady</span></div>
+<ul>
+<li>Change one lever at a time: spending, return, or timing</li>
+<li>Check your credit reports, free every week at AnnualCreditReport.com</li>
+<li>Walk someone you trust through your plan and invite questions</li>
+<li><a href="blog/sequence-risk-what-to-do.html">Run a hard case: weak markets early. Write what you would do</a></li>
+<li>Celebrate one thing your money did for you this year</li>
+</ul>
+</section>
+<section class="month" id="august">
+<div class="mhead"><h3>August</h3><span class="theme">Guard</span></div>
+<ul>
+<li><a href="blog/flexible-spending-guardrails.html">Set spending guardrails: preset rules for when to trim or raise spending</a></li>
+<li>Write your rules in plain words while markets are calm</li>
+<li><a href="blog/cash-buffers-early-retirement.html">Size your cash buffer: money set aside so a bad market never forces a sale</a></li>
+<li>Ask when employer open enrollment starts; many hold it in the fall</li>
+<li>Draft your open enrollment questions before the window opens</li>
+</ul>
+</section>
+<section class="month hard" id="september">
+<div class="mhead"><h3><span class="dot" aria-hidden="true"></span>September <span class="sr-only">(has hard deadlines)</span></h3><span class="theme">Align</span></div>
+<ul>
+<li>Q3 estimated tax payment: <strong>Sep&nbsp;15</strong> (if you pay estimates)</li>
+<li>Open enrollment at work: read the options early and note the deadline</li>
+<li>On Medicare? Review your current plan before Open Enrollment (<strong>Oct&nbsp;15</strong>)</li>
+<li><a href="blog/annual-retirement-plan-review-checklist.html">Book time for your annual retirement plan review</a></li>
+<li><a href="blog/social-security-claiming-decision-checklist.html">Deciding when to claim Social Security? Work through the checklist</a></li>
+</ul>
+</section>
+<section class="month hard" id="october">
+<div class="mhead"><h3><span class="dot" aria-hidden="true"></span>October <span class="sr-only">(has hard deadlines)</span></h3><span class="theme">Choose</span></div>
+<ul>
+<li>Medicare Open Enrollment opens <strong>Oct&nbsp;15</strong>; changes start Jan 1</li>
+<li>Extended filing deadline: <strong>Oct&nbsp;15</strong> (if you filed for an extension)</li>
+<li>Make your employer open enrollment choices, then confirm they went through</li>
+<li><a href="blog/rmd-preparation-checklist.html">Start your RMD plan: which accounts, how much, and when</a></li>
+<li>Rerun the calculator with fall balances and compare to January</li>
+</ul>
+</section>
+<section class="month" id="november">
+<div class="mhead"><h3>November</h3><span class="theme">Simplify</span></div>
+<ul>
+<li>Giving from an IRA? A QCD (qualified charitable distribution) pays the charity directly</li>
+<li>Ask each custodian how long year-end transfers take</li>
+<li>Confirm your RMD amount for each account</li>
+<li>Tell your family where your documents and logins live</li>
+<li><a href="blog/account-consolidation-decision-checklist.html">Close or merge one account you no longer need</a></li>
+</ul>
+</section>
+<section class="month hard" id="december">
+<div class="mhead"><h3><span class="dot" aria-hidden="true"></span>December <span class="sr-only">(has hard deadlines)</span></h3><span class="theme">Finish</span></div>
+<ul>
+<li>Medicare Open Enrollment closes <strong>Dec&nbsp;7</strong>; make your choice</li>
+<li>RMD deadline: <strong>Dec&nbsp;31</strong>; a first-year RMD may wait until next spring</li>
+<li>QCD must be completed by <strong>Dec&nbsp;31</strong></li>
+<li>Hold your annual retirement plan review and save the notes</li>
+<li>Close the year with one more pressure-to-peace check-in</li>
+</ul>
+</section>
+            </div>
+            <div class="s-foot">
+                <p>Education, not advice. Dates shift with weekends and holidays - confirm anything that affects your money with the IRS, SSA, Medicare, or a qualified professional.</p>
+                <p class="r">Optional coaching is there if you want to learn the path with someone. Never required.</p>
+            </div>
+        </article>
+
+        <div class="no-print max-w-[8.5in] mx-auto mt-6 text-sm text-slate-600 dark:text-slate-300 space-y-2">
+            <p><strong class="text-slate-900 dark:text-white">Dates checked: October 2026.</strong> Deadlines on the sheet come from IRS, Medicare, and Social Security pages as they read that month. Weekends and holidays can shift a date, and your situation decides which ones apply to you, so confirm before you act.</p>
+            <p>The reminders file (<a href="path-calendar-2027-deadlines.ics" download class="text-emerald-600 hover:underline font-medium">.ics</a>) lists only the hard dates, as all-day events with alerts one week and one day ahead. It works with Google Calendar, Apple Calendar, and Outlook. Want the story behind the sheet? Read <a href="blog/how-to-use-your-2027-path-calendar.html" class="text-emerald-600 hover:underline font-medium">How to Use Your 2027 Path Calendar</a>.</p>
+        </div>
+        <div class="no-print max-w-[8.5in] mx-auto mt-8 flex flex-wrap items-center gap-3">
+            <span class="text-sm font-medium text-slate-600 dark:text-slate-300">Watch and follow:</span>
+            <a href="https://www.youtube.com/@PathtoSoundRetirement" target="_blank" rel="noopener" aria-label="The Path to Sound Retirement on YouTube (opens in a new tab)" title="YouTube" class="inline-flex items-center justify-center p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-emerald-600 transition-colors"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+            <a href="https://www.instagram.com/pathtosoundretirement/reels/" target="_blank" rel="noopener" aria-label="The Path to Sound Retirement Reels on Instagram (opens in a new tab)" title="Instagram" class="inline-flex items-center justify-center p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-emerald-600 transition-colors"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></a>
+        </div>
+        <div class="no-print max-w-[8.5in] mx-auto mt-6 flex flex-wrap gap-4 text-sm">
+            <a href="blog.html" class="text-emerald-600 hover:underline font-medium">Back to Learning</a>
+            <a href="/" class="text-emerald-600 hover:underline font-medium">Try the free calculators</a>
+            <a href="coaching.html" class="text-emerald-600 hover:underline font-medium">Explore optional coaching</a>
+        </div>
+    </main>
+
+    <footer class="site-footer text-center text-xs text-slate-400 dark:text-slate-500 py-8 border-t border-slate-200 dark:border-slate-700 mt-10">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-4 mb-4 text-sm">
+                <a href="/" class="hover:text-emerald-600">Calculator</a>
+                <a href="blog.html" class="hover:text-emerald-600">Learning</a>
+                <a href="coaching.html" class="hover:text-emerald-600">Coaching</a>
+                <a href="about.html" class="hover:text-emerald-600">About</a>
+                <a href="privacy.html" class="hover:text-emerald-600">Privacy</a>
+                <a href="terms.html" class="hover:text-emerald-600">Terms</a>
+                <a href="contact.html" class="hover:text-emerald-600">Contact</a>
+            </div>
+            The Path to Sound Retirement by Jasper Saunders &bull; For educational purposes only. Not financial advice.
+        </div>
+    </footer>
+
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const html = document.documentElement;
+        function getDarkModePref() {
+            try {
+                const saved = localStorage.getItem('darkMode');
+                if (saved !== null) return saved === 'true';
+                return window.matchMedia('(prefers-color-scheme: dark)').matches;
+            } catch (e) {
+                return window.matchMedia('(prefers-color-scheme: dark)').matches;
+            }
+        }
+        function setDarkModePref(isDark) {
+            try { localStorage.setItem('darkMode', isDark); } catch (e) {}
+            if (isDark) html.classList.add('dark'); else html.classList.remove('dark');
+        }
+        setDarkModePref(getDarkModePref());
+        darkModeToggle.addEventListener('click', () => setDarkModePref(!html.classList.contains('dark')));
+
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                const icon = mobileMenuBtn.querySelector('i');
+                const open = !mobileMenu.classList.contains('hidden');
+                icon.classList.toggle('fa-xmark', open);
+                icon.classList.toggle('fa-bars', !open);
+            });
+        }
+        document.getElementById('printBtn').addEventListener('click', () => window.print());
+    </script>
+</body>
+</html>
